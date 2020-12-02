@@ -1,16 +1,13 @@
 ## Proyecto Integrador DH
 # **repOsto**
 
-1. Índice
+##Índice
 
         * Temática del sitio
         * Público objetivo
         * Referencias tomadas
-<br>
-
-2. Biografía de integrantes
-
-3. Extras
+        * Biografía de integrantes
+        * Extras
 ---
 ### Temática
 ---
