@@ -73,4 +73,4 @@ Apunta a cualquier tipo de público que necesite comprar o vender repuestos de a
 <br>
 
 ### Thomas Wiersch
-     * 
+     * fanatico del mas grande de la argentina, cuasi analista en sistemas pero pregunto todo mil veces en torno a lo sistemas, muy amigo de mis amigos
