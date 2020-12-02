@@ -1,7 +1,7 @@
 ## Proyecto Integrador DH
 # **repOsto**
 
-##Índice
+## Índice
 
         * Temática del sitio
         * Público objetivo
