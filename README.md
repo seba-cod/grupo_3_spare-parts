@@ -1,5 +1,5 @@
 ## Proyecto Integrador DH
-# **repOsto**
+# **Spare Parts**
 
 ## Índice
 
