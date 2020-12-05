@@ -34,27 +34,27 @@ Apunta a cualquier tipo de público que necesite comprar o vender repuestos de a
 
 <br>
 
-* <a href="https://poweronpoweroff.com/">[Power On Power Off]</a> 
+* <a href="https://poweronpoweroff.com/">[Power On Power Off]</a> 🤯 : estética
 
-* <a href="https://www.thesill.com/?ref=ecommdesign">[The sill]</a>
+* <a href="https://www.thesill.com/?ref=ecommdesign">[The sill]</a> colores y su integración : estética
 
-* <a href="https://www.mulberry.com/ar/ ">[Mulberry]</a>
+* <a href="https://www.mulberry.com/ar/ ">[Mulberry]</a> colores y su integración : estética
 
-* <a href="https://store.nytimes.com/ ">[NYTimes Store]</a>
+* <a href="https://store.nytimes.com/ ">[NYTimes Store]</a> fusión que existe en la navegación de categorias : funcionalidad
 
-* <a href="https://www.baronfig.com/ ">[BARONFIG]</a>
+* <a href="https://www.baronfig.com/ ">[BARONFIG]</a> colores y diseño : estética
 
-* <a href="https://www.owloptics.com/en/shop">[OWL Optics]</a>
+* <a href="https://www.owloptics.com/en/shop">[OWL Optics]</a> simplicidad : estética
 
-* <a href="https://www.armani.com/us/armanicom">[Armani]</a>
+* <a href="https://www.armani.com/us/armanicom">[Armani]</a>  colores y su integración : estética
 
-* <a href="https://shop.diesel.com/en/">[Diesel]</a>
+* <a href="https://shop.diesel.com/en/">[Diesel]</a> simplicidad : estética
 
-* <a href="https://www.walmart.com/">[Walmart]</a>
+* <a href="https://www.walmart.com/">[Walmart]</a> barra de navegación : funcionalidad , estética
 
-* <a href="https://es.aliexpress.com/">[AliExpress]</a>
+* <a href="https://es.aliexpress.com/">[AliExpress]</a> barra estática y su compresión : funcionalidad y eficiencia
 
-* <a href="https://shop.tesla.com/?tesref=true">[Tesla]</a>
+* <a href="https://shop.tesla.com/">[Tesla]</a> productos, servicios y su disposición : estética, mercado
 
 <br>
 <br>
