@@ -1,0 +1,22 @@
+{
+  "name": "grupo_3_spare-parts",
+  "version": "1.0.0",
+  "description": "* Temática del sitio\r         * Público objetivo\r         * Referencias tomadas\r         * Biografía de integrantes\r         * Extras\r ---\r ### Temática\r ---",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seba-cod/grupo_3_spare-parts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seba-cod/grupo_3_spare-parts/issues"
+  },
+  "homepage": "https://github.com/seba-cod/grupo_3_spare-parts#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
