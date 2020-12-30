@@ -5,22 +5,26 @@
 }
 header{
     background-color: darkcyan;
-}
+    color: black;
 
+}
+header div.logo
+header .form{
+    width: 50%;
+}
 div.top-header{
     display: flex;
-    flex-wrap: wrap;
-    padding: 5%;
+    justify-content:flex-start;
 }
 
-div .form{
+header .form{
     display: flex;
     align-items: center;
     padding: 2px;
     font-size: 11px;
 }
 
-nav .search-bar{
+nav .navigator{
     background-color: #FFF;
     outline: none;
     color: #666;
@@ -30,17 +34,46 @@ nav .search-bar{
 header .top-header .logo{
     padding: 10px;
 }
-header nav .links{
-    list-style: none;
-       
-}
-header nav .links a{
-    text-decoration: none;
-    color: #000; 
-    align-items: flex-start;
-}
-header nav.nav-bar{
-    font-size: 1rem;
+header nav{
+    font-size: 12px;
     margin-left: 20px;
+}
+header ul {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
     
+}
+header nav ul li {
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    float: left;
+    border-right: 1px solid #000;
+    
+}
+header nav ul li a{
+  display: block;
+  padding: 10px;
+  background-color: #dddddd;
+  color:#000;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+header .form input{
+    background-color: #FFF;
+    border: 1px solid #000;
+    outline: none;
+    color: #666;
+    padding: 2px;
+}
+header .form .submit{
+    background-color: #FFF;
+    border: 1px solid #000;
+    color: #666;
+    width: 12%;
 }
