@@ -1,60 +1,79 @@
 *{
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
+header{
+    background-color: darkcyan;
+    color: black;
 
-/* HEADER - NAV BAR */
-
-header {
-    font-family: 'Robot', sans-serif;
 }
-
-/* Flex y sus amigos */
-
-header .container {
+header div.logo
+header .form{
+    width: 50%;
+}
+div.top-header{
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    height: 2rem;
-    border: 2px green solid;
+    justify-content:flex-start;
 }
 
-
-header .search-bar {
+header .form{
     display: flex;
-    height: auto;
+    align-items: center;
+    padding: 2px;
+    font-size: 11px;
 }
 
-header div .nav-bar {
-    display: inline-block;
-    height: auto;
-    border: 2px red solid;
-    text-align: end;
-    line-height: 0;
+nav .navigator{
+    background-color: #FFF;
+    outline: none;
+    color: #666;
+    padding: 2px;
+    align-items: flex-end;
 }
-
-/* Estilos sobre lo escrito */
-
-
-.link-list {
-    list-style: none;
+header .top-header .logo{
+    padding: 10px;
+}
+header nav{
+    font-size: 12px;
+    margin-left: 20px;
+}
+header ul {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    
+}
+header nav ul li {
     text-decoration: none;
-    color: #555B6E;
-    font-size: 0.8rem;
-    padding: 0.5rem;
-    border: 2px blue solid;
-
+    color: #000;
+    display: inline-block;
+    float: left;
+    border-right: 1px solid #000;
+    
+}
+header nav ul li a{
+  display: block;
+  padding: 10px;
+  background-color: #dddddd;
+  color:#000;
+  text-align: center;
+  padding: 14px 16px;
 }
 
-.link-login {
-    /* este es un boton de ingreso importante, hay que '''decorarlo'''*/
+header .form input{
+    background-color: #FFF;
+    border: 1px solid #000;
+    outline: none;
+    color: #666;
+    padding: 2px;
 }
-
-
-
-/* BODY */
-
-body{
-    background-color: #FAF9F9;
+header .form .submit{
+    background-color: #FFF;
+    border: 1px solid #000;
+    color: #666;
+    width: 12%;
 }
