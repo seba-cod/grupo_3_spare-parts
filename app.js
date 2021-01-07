@@ -5,10 +5,6 @@ const app = express();
 //configuro el directorio de recursos estaticos
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname ,'views/index.html'));
-});
-
 app.listen(3000, () => { 
     console.log("=====================");
     console.log("=====================");
@@ -17,3 +13,17 @@ app.listen(3000, () => {
     console.log("=====================");
     }
 );
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname ,'./views/index.html'));
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname ,'./views/login.html'));
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname ,'./views/register.html'));
+});
+
+
