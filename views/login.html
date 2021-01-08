@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Log In</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/normalize.css">
 </head>
 <body>
     <header>
@@ -35,13 +37,13 @@
         <h2>Ingresá a tu cuenta Reposto</h2>
         <form action="" class="form" id="form">
           
-          <div id="div_nombre">
-            <label for="nombre" >Nombre</label>
+          <div id="div_nombre_user" class="div_nombre_user">
+            <label for="nombre_user" >Nombre de Usuario</label>
             <div class="container_input">
-              <input type="text" class="txt_input" name="nombre" id="nombre">
+              <input type="text" class="txt_input" name="nombre_user" id="nombre_user">
               <i class="icon_validation fas fa-times-circle"></i>
             </div>
-            <p class="txt_error">letras y espacio:3 a 40 caracteres</p>
+            <p class="txt_error">Puede contener letras, numeros, puntos, guiones y guion bajo.</p>
           </div>
     
         
@@ -51,7 +53,7 @@
               <input type="password" class="txt_input" name="password" id="password">
               <i class="icon_validation fas fa-times-circle"></i>
             </div>
-            <p class="txt_error">tiene que ser de 6 a 12 dígitos.</p>
+            <p class="txt_error">Tiene que ser de 6 a 12 dígitos.</p>
           </div>
     
           <div class="div_enviar">

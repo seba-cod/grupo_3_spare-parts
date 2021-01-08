@@ -78,7 +78,7 @@ header .form .submit{
     width: 12%;
 }
 
-/* CSS trash de Login y register */
+/* CSS basura de Login y register */
 
 * {
     box-sizing: border-box;
@@ -91,14 +91,7 @@ header .form .submit{
   .container h2{
     text-align: center;
   }
-  .super-conteiner {
-    border: 1px solid black;
-    padding: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    }
-  
+ 
   .form {
     background: white;
     border: 1px solid black;
@@ -120,8 +113,13 @@ header .form .submit{
     cursor: pointer;
   }
   
+  .div_radio_profile {
+    font-weight: 700;
+  }
+
   .container_input {
     position: relative;
+    width:100%;
   }
   
   .txt_input {
@@ -141,6 +139,7 @@ header .form .submit{
     box-shadow: 3px 0px 30px rgba(0,0,0, 0.4);
   }
   
+
   .txt_error {
     font-size: 12px;
     margin-bottom: 0;
@@ -164,7 +163,7 @@ header .form .submit{
     margin-right: 20px;
   }
   
-  .div_password,.div_password2,.div_correo,.div_enviar, .div_terminos {
+.div_password,.div_password2,.div_correo,.div_enviar, .div_terminos, .div_nombre_user, .div_radio_profile {
     grid-column: span 2;
     }
   
@@ -209,14 +208,15 @@ header .form .submit{
   }
   
   /* ----- -----  Mediaqueries ----- ----- */
+
   @media screen and (max-width: 800px) {
     .form {
       grid-template-columns: 1fr;
     }
   
-    .div_password,.div_password2,.div_correo,.div_enviar, .div_terminos {
-      grid-column: span 1;
-    }
+   .div_nombre, .div_apellido{
+      grid-column: span 2;
+      }
   }
   
 
