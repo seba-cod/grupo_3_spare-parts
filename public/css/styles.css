@@ -220,4 +220,108 @@ header .form .submit{
   }
   
 
+  /* Seba */
+  /* Detalle del producto */
+  body div.ubication-product-detail{
+    display:block;
+    font-size: 12px;
+    padding: 10px 20px;
+    border: dotted red 1px;
+  }
+  body div.car-image-banner img{
+    display: none;
+    margin: auto;
+    height: 400px;
+  }
+  body section div.main-product-detail{
+    border: dotted yellow 4px;
+    display: flex;
+    width: 95%;
+    margin: auto;
+    justify-content: space-between;
+  }
+  /* Manejo la primer sección del lado izquierdo, en cascada modifico sus elementos */
+  body section div.left-side-product-detail{
+    display:inline-block;
+    width: 75%;
+    border: 2px red solid;
+  }
+  /* Ubico y le doy tamaño a la imagen principal */
+  body section div.left-side-product-detail div.car-image{
+    margin: auto;
+    width: 100%;
+  }
+
+  /* Trabajo sobre el texto principal y logo  */
+  body section div.left-side-product-detail div.car-brand{
+    display: block;
+    margin: auto;
+    width: 100%;
+    font-size: 24px;
+    padding: 1rem 0rem;
+  }
+  p.car-brand{
+    display:inline-block;
+    vertical-align: center;
+  }
+  body section div.left-side-product-detail div.car-brand img{
+    width: 40px;
+  } /* Me falta ubicarla centrada respecto de su eje vertical*/
+
+  /* Trabajo sobre el articulo y la información del producto */
+
+  body section article{
+    display: block;
+    margin: auto;
+  }
+  body section article div p.product-name{
+    font-size: 24px;
+  }
+  body section article div.product {
+    display: flex;
+    width: 100%;
+
+  }
+  body section article div.product-img-slider{
+    display: flex;
+    width: 300px;
+    border: 2px red solid;
+    justify-content: space-around;
+  }
+  body section article div.product-img-slider img{
+    width: 40%;
+    height: auto;
+  }
+
+  body section article div.product-info{
+    width: 35%;
+  }
+  /* Manejo la sección del lado derecho */
+  body section div.right-side-product-detail{
+    display:inline-block;
+    width: 20%;
+    border: 2px green solid;
+  }
+    /* Manejo la sección del lado inferior */
   
+  body section.bottom{
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+  body section.bottom div.bottom-side-product-detail{
+    display: flex;
+    justify-content: space-between;
+  }
+  body section.bottom div.bottom-side-product-detail article{
+    display: block;
+    width: 25%;
+    padding: 5px 25px;
+    text-align: center;
+  }
+  body section.bottom div.bottom-side-product-detail article p{
+  font-size: 8px;
+  }
+  body section.bottom div article img{
+    width: 100%;
+  }
