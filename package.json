@@ -1,7 +1,7 @@
 {
   "name": "grupo_3_spare-parts",
   "version": "1.0.0",
-  "description": "* Temática del sitio\r         * Público objetivo\r         * Referencias tomadas\r         * Biografía de integrantes\r         * Extras\r ---\r ### Temática\r ---",
+  "description": "Venta de repuestos",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/seba-cod/grupo_3_spare-parts#readme",
   "dependencies": {
+    "ejs": "^3.1.5",
     "express": "^4.17.1"
   }
 }
