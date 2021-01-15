@@ -3,11 +3,70 @@
     padding: 0px;
     box-sizing: border-box;
 }
-header{
-    background-color: darkcyan;
-    color: black;
-
+body{
+  margin: ;
+  background: #222;
+  font-weight: 300;
 }
+header{
+    background-color: #55d6aa;
+    color: black;
+}
+header::after{
+  content: '';
+  display: table;
+  clear: both;
+}
+.logo{
+  float: left;
+  padding: 10px 0;
+}
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+nav{
+  float: right;
+}
+nav ul{
+margin: 0;
+padding: 0;
+list-style: none;
+}
+nav li{
+  display: inline-block;
+  margin-left: 70px;
+  margin-right: 25px;
+  padding-top: 23px;
+  position: relative;
+}
+
+nav ul li a{
+
+color: #444;
+text-decoration: none;
+text-transform: uppercase;
+font-size: 14px;
+}
+
+nav a::before{
+  content: "";
+  display: block;
+  height: 5px;
+  
+  background-color: #444;
+  position: absolute;
+  top:0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before{
+  width: 100%;
+}
+
+
 header div.logo
 header .form{
     width: 50%;
@@ -24,45 +83,11 @@ header .form{
     font-size: 11px;
 }
 
-nav .navigator{
-    background-color: #FFF;
-    outline: none;
-    color: #666;
-    padding: 2px;
-    align-items: flex-end;
-}
 header .top-header .logo{
     padding: 10px;
 }
-header nav{
-    font-size: 12px;
-    margin-left: 20px;
-}
-header ul {
-    display: inline;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    
-}
-header nav ul li {
-    text-decoration: none;
-    color: #000;
-    display: inline-block;
-    /*float: left;*/
-    border-right: 1px solid #000;
-    
-}
-header nav ul li a{
-  display: block;
-  padding: 10px;
-  background-color: #dddddd;
-  color:#000;
-  text-align: center;
-  padding: 14px 16px;
-}
+
+
 
 header .form input{
     background-color: #FFF;
