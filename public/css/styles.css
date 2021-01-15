@@ -1,327 +1,308 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
+*{ margin: 0px; padding: 0px; box-sizing: border-box; }
+
+/* Intentemos nombrar a cada uno de los objetos dentro de su lugar, su div o lo que sea que lo contiene y su clase, así no se mezclan los estilos, me di cuenta que empezamos a pisar algunas reglas si no, lo hice un poco con el header sin modificar lo que decía, me falta hacerlo con mi parte del detalle del producto, en estos días me pongo al tiro con eso */
+
+/* Falta trabajo sobre las cajas del header */
+
 header{
     background-color: darkcyan;
     color: black;
-
+    margin: auto;
 }
-header div.logo
-header .form{
-    width: 50%;
-}
-div.top-header{
+/* Junté los elementos por órden en el HTML*/
+header div.header-main{
     display: flex;
     justify-content:flex-start;
+    max-width: 1200px;
+    margin: auto;
 }
 
-header .form{
+header div.header-logo{  padding: 10px; }
+/* No entendí si esta era la barra de navegación, en el html no existia un form, se la apliqué al input pero no hace efecto, revisar */
+header div.header-search-bar form{
+    width: 50%;
     display: flex;
     align-items: center;
     padding: 2px;
     font-size: 11px;
 }
 
-nav .navigator{
+header div.header-nav-bar nav.navigator{
     background-color: #FFF;
     outline: none;
     color: #666;
     padding: 2px;
     align-items: flex-end;
-}
-header .top-header .logo{
-    padding: 10px;
-}
-header nav{
     font-size: 12px;
     margin-left: 20px;
 }
-header ul {
+
+header div.header-nav-bar ul{
     display: inline;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    
 }
-header nav ul li {
+header div.header-nav-bar nav.navigator ul li{
     text-decoration: none;
     color: #000;
     display: inline-block;
     /*float: left;*/
     border-right: 1px solid #000;
-    
 }
-header nav ul li a{
+
+header div.header-nav-bar nav.navigator ul li a{
   display: block;
   padding: 10px;
   background-color: #dddddd;
   color:#000;
   text-align: center;
   padding: 14px 16px;
+  text-decoration: none;
 }
-
-header .form input{
+header div.header-search-bar form input{
     background-color: #FFF;
     border: 1px solid #000;
     outline: none;
     color: #666;
     padding: 2px;
 }
-header .form .submit{
+header div.header-search-bar form button{
     background-color: #FFF;
     border: 1px solid #000;
     color: #666;
     width: 12%;
 }
+/* Dejo comentado para trabajar sobre el banner
+header div.header-banner{
+  margin: auto;
+} */
 
 /* CSS basura de Login y register */
+  
+body { font-family: 'Roboto', sans-serif; }
 
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
- 
-  .container h2{
-    text-align: center;
-  }
- 
-  .form {
-    background: white;
-    border: 1px solid black;
-    width: 100%;
-    max-width: 600px;
-    padding: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    border-radius: 10px;
-  }
-  
-  .form label {
-    display: block;
-    font-weight: 700;
-    padding: 5px 0;
+.container h2{ text-align: center; }
+
+.form {
+  background: white;
+  border: 1px solid black;
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.form label {
+  display: block;
+  font-weight: 700;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.div_radio_profile { font-weight: 700; }
+
+.container_input {
+  position: relative;
+  width:100%;
+}
+
+.txt_input {
+  width: 100%;
+  background: #fff;
+  border: 2px solid black;
+  border-radius: 3px;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 40px 0 10px;
+  transition: .3s ease all;
+}
+
+.txt_input:hover {
+  border: 2px solid #000;
+  outline: none;
+  box-shadow: 3px 0px 30px rgba(0,0,0, 0.4);
+}
+
+.txt_error {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+
+.txt_error-activo { display: block; }
+
+.icon_validation {
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+  z-index: 100;
+  font-size: 16px;
+  opacity: 0;
+}
+
+.formulario__checkbox { margin-right: 20px; }
+
+.div_password,.div_password2,.div_correo,.div_enviar, .div_terminos, .div_nombre_user, .div_radio_profile { grid-column: span 2; }
+
+.div_enviar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn_enviar {
+  background: black;
+    border: 0;
+    padding: 1em 2em;
+    border-radius: 4px;
+    color: #e4e4e4;
+    text-transform: uppercase;
+    font-size: 14px;
+  font-weight: bold;
+}
+
+.btn_enviar:hover,.btn_enviar:focus {
     cursor: pointer;
-  }
-  
-  .div_radio_profile {
-    font-weight: 700;
-  }
+    background: #3952a3;
+    color: #ffffff;
+    outline: 0;
+    transition: background-color 500ms ease-out;
+}
 
-  .container_input {
-    position: relative;
-    width:100%;
-  }
-  
-  .txt_input {
-    width: 100%;
-    background: #fff;
-    border: 2px solid black;
-    border-radius: 3px;
-    height: 35px;
-    line-height: 35px;
-    padding: 0 40px 0 10px;
-    transition: .3s ease all;
-  }
-  
-  .txt_input:hover {
-    border: 2px solid #000;
-    outline: none;
-    box-shadow: 3px 0px 30px rgba(0,0,0, 0.4);
-  }
-  
+/* ----- -----  Estilos para Validacion ----- ----- */
+.validacion_correcto .icon_validation {
+  color: #1ed12d;
+  opacity: 1;
+}
 
-  .txt_error {
-    font-size: 12px;
-    margin-bottom: 0;
-    display: none;
-  }
-  
-  .txt_error-activo {
-    display: block;
-  }
-  
-  .icon_validation {
-    position: absolute;
-    right: 10px;
-    bottom: 15px;
-    z-index: 100;
-    font-size: 16px;
-    opacity: 0;
-  }
-  
-  .formulario__checkbox {
-    margin-right: 20px;
-  }
-  
-.div_password,.div_password2,.div_correo,.div_enviar, .div_terminos, .div_nombre_user, .div_radio_profile {
-    grid-column: span 2;
-    }
-  
-  .div_enviar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .btn_enviar {
-    background: black;
-      border: 0;
-      padding: 1em 2em;
-      border-radius: 4px;
-      color: #e4e4e4;
-      text-transform: uppercase;
-      font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .btn_enviar:hover,.btn_enviar:focus {
-      cursor: pointer;
-      background: #3952a3;
-      color: #ffffff;
-      outline: 0;
-      transition: background-color 500ms ease-out;
-  }
-  
-  /* ----- -----  Estilos para Validacion ----- ----- */
-  .validacion_correcto .icon_validation {
-    color: #1ed12d;
-    opacity: 1;
-  }
-  
-  .validacion_incorrecto .icon_validation {
-    color: #bb2929;
-    opacity: 1;
-  }
-  
-  .validacion_incorrecto .txt_input {
-    border: 2px solid #bb2929;
-  }
-  
-  /* ----- -----  Mediaqueries ----- ----- */
+.validacion_incorrecto .icon_validation {
+  color: #bb2929;
+  opacity: 1;
+}
 
-  @media screen and (max-width: 800px) {
-    .form {
-      grid-template-columns: 1fr;
-    }
-  
-   .div_nombre, .div_apellido{
-      grid-column: span 2;
-      }
-  }
-  
+.validacion_incorrecto .txt_input { border: 2px solid #bb2929; }
 
-  /* Seba */
-  /* Detalle del producto */
-  body div.ubication-product-detail{
-    display:block;
-    font-size: 12px;
-    padding: 10px 20px;
-    border: dotted red 1px;
-  }
-  body div.car-image-banner img{
-    display: none;
-    margin: auto;
-    height: 400px;
-  }
-  body section div.main-product-detail{
-    border: dotted yellow 4px;
-    display: flex;
-    width: 95%;
-    margin: auto;
-    justify-content: space-between;
-  }
-  /* Manejo la primer sección del lado izquierdo, en cascada modifico sus elementos */
-  body section div.left-side-product-detail{
-    display:inline-block;
-    width: 75%;
-    border: 2px red solid;
-  }
-  /* Ubico y le doy tamaño a la imagen principal */
-  body section div.left-side-product-detail div.car-image{
-    margin: auto;
-    width: 100%;
-  }
+/* ----- -----  Mediaqueries ----- ----- */
+@media screen and (max-width: 800px) {
+  .form { grid-template-columns: 1fr; }
+  .div_nombre, .div_apellido{ grid-column: span 2; }
+}
 
-  /* Trabajo sobre el texto principal y logo  */
-  body section div.left-side-product-detail div.car-brand{
-    display: block;
-    margin: auto;
-    width: 100%;
-    font-size: 24px;
-    padding: 1rem 0rem;
-  }
-  p.car-brand{
-    display:inline-block;
-    vertical-align: center;
-  }
-  body section div.left-side-product-detail div.car-brand img{
-    width: 40px;
-  } /* Me falta ubicarla centrada respecto de su eje vertical*/
 
-  /* Trabajo sobre el articulo y la información del producto */
+/* Seba */
+/* Detalle del producto */
+body div.ubication-product-detail{
+  display:block;
+  font-size: 12px;
+  padding: 10px 20px;
+  border: dotted red 1px;
+}
+body div.car-image-banner img{
+  display: none;
+  margin: auto;
+  height: 400px;
+}
+body section div.main-product-detail{
+  border: dotted yellow 4px;
+  display: flex;
+  width: 95%;
+  margin: auto;
+  justify-content: space-between;
+}
+/* Manejo la primer sección del lado izquierdo, en cascada modifico sus elementos */
+body section div.left-side-product-detail{
+  display:inline-block;
+  width: 75%;
+  border: 2px red solid;
+}
+/* Ubico y le doy tamaño a la imagen principal */
+body section div.left-side-product-detail div.car-image{
+  margin: auto;
+  width: 100%;
+}
 
-  body section article{
-    display: block;
-    margin: auto;
-  }
-  body section article div p.product-name{
-    font-size: 24px;
-  }
-  body section article div.product {
-    display: flex;
-    width: 100%;
+/* Trabajo sobre el texto principal y logo  */
+body section div.left-side-product-detail div.car-brand{
+  display: block;
+  margin: auto;
+  width: 100%;
+  font-size: 24px;
+  padding: 1rem 0rem;
+}
+p.car-brand{
+  display:inline-block;
+  vertical-align: center;
+}
+body section div.left-side-product-detail div.car-brand img{
+  width: 40px;
+} /* Me falta ubicarla centrada respecto de su eje vertical*/
 
-  }
-  body section article div.product-img-slider{
-    display: flex;
-    width: 300px;
-    border: 2px red solid;
-    justify-content: space-around;
-  }
-  body section article div.product-img-slider img{
-    width: 40%;
-    height: auto;
-  }
+/* Trabajo sobre el articulo y la información del producto */
+/* Perdon por este código basura, el fin de me pongo a agregarle los divs a donde corresponden */
+body section article{
+  display: block;
+  margin: auto;
+}
+body section article div p.product-name{
+  font-size: 24px;
+}
+body section article div.product {
+  display: flex;
+  width: 100%;
 
-  body section article div.product-info{
-    width: 35%;
-  }
-  /* Manejo la sección del lado derecho */
-  body section div.right-side-product-detail{
-    display:inline-block;
-    width: 20%;
-    border: 2px green solid;
-  }
-    /* Manejo la sección del lado inferior */
-  
-  body section.bottom{
-    width: 80%;
-    display: block;
-    margin: auto;
-  }
-  body section.bottom div.bottom-side-product-detail{
-    display: flex;
-    justify-content: space-between;
-  }
-  body section.bottom div.bottom-side-product-detail article{
-    display: block;
-    width: 25%;
-    padding: 5px 25px;
-    text-align: center;
-  }
-  body section.bottom div.bottom-side-product-detail article p{
-  font-size: 8px;
-  }
-  body section.bottom div article img{
-    width: 100%;
-  }
+}
+body section article div.product-img-slider{
+  display: flex;
+  width: 300px;
+  border: 2px red solid;
+  justify-content: space-around;
+}
+body section article div.product-img-slider img{
+  width: 40%;
+  height: auto;
+}
+
+body section article div.product-info{
+  width: 35%;
+}
+/* Manejo la sección del lado derecho */
+body section div.right-side-product-detail{
+  display:inline-block;
+  width: 20%;
+  border: 2px green solid;
+}
+  /* Manejo la sección del lado inferior */
+body section.bottom{
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+body section.bottom div.bottom-side-product-detail{
+  display: flex;
+  justify-content: space-between;
+}
+body section.bottom div.bottom-side-product-detail article{
+  display: block;
+  width: 25%;
+  padding: 5px 25px;
+  text-align: center;
+}
+body section.bottom div.bottom-side-product-detail article p{
+font-size: 8px;
+}
+body section.bottom div article img{
+  width: 100%;
+}
+/* Hasta acá escribo las líneas del detalle del producto */
+
+/* Carrito de compras */
+
+/* Hasta acá escribo las líneas del carrito de compras */

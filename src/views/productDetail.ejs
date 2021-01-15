@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/normalize.css">
-    <script
-      src="https://kit.fontawesome.com/baf5edd593.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Spare Parts - repuestos en línea</title>
-</head>
+    <%- include('./partials/head') %>
 <body>
+    <%- include('./partials/header') %>
+
     <!-- Esta es la caja donde se va a mostrar la página en la que se está situado; Categoría => Marca => Producto ; permitirá la navegación hacia atrás en el listado -->
     <div class="ubication-product-detail box-in-site">
         Repuestos > Motor > Bujias (listado) 
@@ -88,9 +80,9 @@
                 </div>
             </div>
         </div>
+    </section>
 
             <!-- Aquí irá un slider con artículos relacionados -->
-        </section>
             
         <section class="bottom">
             <div class="bottom-side-product-detail">
@@ -109,8 +101,7 @@
             </div>
         </section>
 
-
-
+        <%- include('./partials/footer') %>
 
 </body>
 </html>
