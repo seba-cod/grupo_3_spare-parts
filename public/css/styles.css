@@ -1,26 +1,12 @@
-<<<<<<< HEAD
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-body{
-  margin: ;
-  background: #222;
-  font-weight: 300;
-}
-=======
 *{ margin: 0px; padding: 0px; box-sizing: border-box; }
 
 /* Intentemos nombrar a cada uno de los objetos dentro de su lugar, su div o lo que sea que lo contiene y su clase, así no se mezclan los estilos, me di cuenta que empezamos a pisar algunas reglas si no, lo hice un poco con el header sin modificar lo que decía, me falta hacerlo con mi parte del detalle del producto, en estos días me pongo al tiro con eso */
 
 /* Falta trabajo sobre las cajas del header */
 
->>>>>>> de2dc3dd7c1bdc7d93ab0ada8dfb38a42955e173
 header{
     background-color: #55d6aa;
     color: black;
-<<<<<<< HEAD
 }
 header::after{
   content: '';
@@ -80,9 +66,7 @@ nav a:hover::before{
 header div.logo
 header .form{
     width: 50%;
-=======
     margin: auto;
->>>>>>> de2dc3dd7c1bdc7d93ab0ada8dfb38a42955e173
 }
 /* Junté los elementos por órden en el HTML*/
 header div.header-main{
@@ -102,7 +86,6 @@ header div.header-search-bar form{
     font-size: 11px;
 }
 
-<<<<<<< HEAD
 header .top-header .logo{
     padding: 10px;
 }
@@ -110,7 +93,6 @@ header .top-header .logo{
 
 
 header .form input{
-=======
 header div.header-nav-bar nav.navigator{
     background-color: #FFF;
     outline: none;
@@ -147,7 +129,6 @@ header div.header-nav-bar nav.navigator ul li a{
   text-decoration: none;
 }
 header div.header-search-bar form input{
->>>>>>> de2dc3dd7c1bdc7d93ab0ada8dfb38a42955e173
     background-color: #FFF;
     border: 1px solid #000;
     outline: none;
