@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+    <%- include('./partials/header') %>
+    <main class="cart">
+        <div class="main-on-buy"> 
+
+            <div class="products-to-buy">
+                <div>
+                    <div class="product-img-small">
+                        <img src="" alt="foto del producto en chico">
+                    </div>
+                    <p class="product-name-on-buy">Kit Bujias NGK Audi 1.8T</p> 
+                    <div class="vendor-data">
+                        <p><span class="seller"> Jorge Perez </span><span class="seller-score">Puntuacion: X pts</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shipment">
+                <form action="#">
+                    <label for="shipment"> Selecciona el método de envío
+                    <select name="shipment" id="shipment">
+                        <option value="correo-arg">Correo Argentino</option>
+                        <option value="oca">OCA</option>
+                        <option value="moto">Moto en el día</option>
+                    </select>
+                    </label>
+                </form>
+            </div>
+
+            <div class="payment">
+                <form action="">
+                    <label for="payment">
+                        <select name="payment" id="payment">
+                            <option value="cc">Tarjeta de credito</option>
+                            <option value="mp">Mercado Pago</option>
+                            <option value="paypal">Pay Pal</option>   
+                        </select>
+                    </label>
+                </form>
+            </div>
+
+            <div class="confirm-purchase">
+                <div class="cost">
+                    <p>$123123</p>
+                    <p>En 12 de $1231</p>
+                    <p>Con envío en barco a la quiaca</p>
+                </div>
+                <div class="buy">
+                    <label for="buy">Comprar
+                    <input type="button" value="buy">
+                    </label>
+                </div>
+            </div>
+                
+        </div> <!-- Cierra sector compra principal -->
+
+        <div class="support">
+            <a href="#">Soporte</a>
+        </div>
+    </main>
+        <%- include('./partials/footer') %>
+
+</body>
+</html>

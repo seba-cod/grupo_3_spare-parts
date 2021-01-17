@@ -141,7 +141,7 @@ header .top-header .logo{
 
 
 
-header .form input{
+/* header .form input{}
 header div.header-nav-bar nav.navigator{
     background-color: #FFF;
     outline: none;
@@ -150,8 +150,8 @@ header div.header-nav-bar nav.navigator{
     align-items: flex-end;
     font-size: 12px;
     margin-left: 20px;
-}
-
+} */
+/* 
 header div.header-nav-bar ul{
     display: inline;
     list-style-type: none;
@@ -164,10 +164,8 @@ header div.header-nav-bar nav.navigator ul li{
     text-decoration: none;
     color: #000;
     display: inline-block;
-    /*float: left;*/
-    border-right: 1px solid #000;
-}
-
+    float: left;*/
+/* 
 header div.header-nav-bar nav.navigator ul li a{
   display: block;
   padding: 10px;
@@ -189,7 +187,7 @@ header div.header-search-bar form button{
     border: 1px solid #000;
     color: #666;
     width: 12%;
-}
+} */
 /* Dejo comentado para trabajar sobre el banner
 header div.header-banner{
   margin: auto;
@@ -362,31 +360,30 @@ body section div.left-side-product-detail div.car-brand img{
 } /* Me falta ubicarla centrada respecto de su eje vertical*/
 
 /* Trabajo sobre el articulo y la información del producto */
-/* Perdon por este código basura, el fin de me pongo a agregarle los divs a donde corresponden */
-body section article{
+body section article.product-info{
   display: block;
   margin: auto;
 }
-body section article div p.product-name{
+body section article.product-info div p.product-name{
   font-size: 24px;
 }
-body section article div.product {
+body section article.product-info div.product {
   display: flex;
   width: 100%;
 
 }
-body section article div.product-img-slider{
+body section article.product-info div.product-img-slider{
   display: flex;
   width: 300px;
   border: 2px red solid;
   justify-content: space-around;
 }
-body section article div.product-img-slider img{
+body section article.product-info div.product-img-slider img{
   width: 40%;
   height: auto;
 }
 
-body section article div.product-info{
+body section article.product-info div.product-info{
   width: 35%;
 }
 /* Manejo la sección del lado derecho */
@@ -420,5 +417,76 @@ body section.bottom div article img{
 /* Hasta acá escribo las líneas del detalle del producto */
 
 /* Carrito de compras */
+body div.main-on-buy{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px 0px;
+  width: 500px;
+}
+
+body div.products-to-buy{
+  display: inline-block;
+  width: 90%;
+  border: solid 2px red;
+}
+body div.products-to-buy div{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Me falta definir que es lo que pasa con el interior de esta caja, Se utilizaría un renglón para una foto en pequeño del producto, el nombre del producto al lado, y abajo en letra más chica el nombre del vendedor y su puntaje */
+
+body div.shipment{
+  display: block;
+  width: 90%;
+  padding: 20px 0px;
+}
+/* Acá debo definir el formulario del envio y del pago */
+body div.shipment form{
+
+}
+/* Acá debo definir como se disponen los datos dentro del formulario de envio y de pago */
+body div.shipment form label{
+
+}
+
+/* Acá tengo que escribir como se ve el texto de las opciones  */
+body div.shipment form label option{
+
+}
+
+body div.payment{
+  display: block;
+  width: 90%;
+  padding: 20px 0px;
+}
+
+body div.confirm-purchase{
+  display: block;
+  width: 90%;
+  padding: 20px 0px;
+}
+/* Aca tengo que escribir como se muestran los datos de costo, el precio en tamaño X, el precio en cuotas y lo del envío en tamaño 80% de X */
+body div.confirm-purchase div.cost{
+
+}
+
+/* Acá tengo que escribir como se ubica el botón de compra y su leyenda */
+body div.confirm-purchase div.buy{
+
+}
+/* Estilo sobre el boton de compra */
+body div.confirm-purchase div.buy input {
+
+}
+/* Estilo sobre la caja donde esta el boton de soporte */
+body div.support{
+
+}
+body div.support a{
+  text-decoration: none;
+  font-size: 12px;
+}
 
 /* Hasta acá escribo las líneas del carrito de compras */
