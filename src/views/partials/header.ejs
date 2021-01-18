@@ -1,31 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./head') %>
+  <body>
+    
+  
 <header>
 <!-- Caja principal contiene logo + search bar +  nav bar-->
 <div class="header-main">
 
   <!-- Caja secundaria contiene logo -->
   <div class="header-logo">
-    <a href="/"> <img src="/images/logo-lorem.png" width='200px'alt="" /> </a>
+    <a href=""> <img src="/images/logo-v-0.1.jpg" width='200px'alt="" /> </a>
   </div>
 
-  <!-- Caja secundaria contiene search bar 
+  <!-- Caja secundaria contiene search bar -->
   <div class="header-search-bar">
-    <form action="">
+    <form action="" method="GET">
       <input type="text"> <button class="header-search-button"> </button>
     </form>
-  </div>-->
+  </div>
   <!-- Caja secundaria contiene nav bar -->
   <div class="header-nav-bar">
-    <nav class="navigator">
+    <nav class="top-nav-bar">
+      <ul>
+        <li><a href="">Inicia sesión</a></li>
+        <li><a href="">Registrate</a></li>
+      </ul>
+    </nav>
+    
+    <nav class="bottom-nav-bar">
         <ul>
-          <li><a href="http://localhost:3000">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="">Productos</a></li>
           <li><a href="">About</a></li>
-          <li><a href="http://localhost:3000/login">Iniciar sesion</a></li>
           <li><a href="">Vender</a></li>
         </ul>
     </nav>
   </div>
 </div>
-<!-- Caja de tercer nivel contiene banner -->
 
   </header>
+</body>
+</html>
