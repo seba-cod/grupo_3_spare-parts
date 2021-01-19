@@ -1,44 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-  <%- include('./head') %>
-  <body>
-    
-  
+ 
 <header>
-<!-- Caja principal contiene logo + search bar +  nav bar-->
-<div class="header-main">
+    <div class="container">
 
-  <!-- Caja secundaria contiene logo -->
-  <div class="header-logo">
-    <a href=""> <img src="/images/logo-v-0.1.jpg" width='200px'alt="" /> </a>
-  </div>
+      <div class="header-top">
+        <nav class="header-top-nav-bar">
+          <a href="">Inicia sesión</a>
+          <a href="">Registrate</a>
+        </nav>
+      </div>
 
-  <!-- Caja secundaria contiene search bar -->
-  <div class="header-search-bar">
-    <form action="" method="GET">
-      <input type="text"> <button class="header-search-button"> </button>
-    </form>
-  </div>
-  <!-- Caja secundaria contiene nav bar -->
-  <div class="header-nav-bar">
-    <nav class="top-nav-bar">
-      <ul>
-        <li><a href="">Inicia sesión</a></li>
-        <li><a href="">Registrate</a></li>
-      </ul>
-    </nav>
-    
-    <nav class="bottom-nav-bar">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="">Productos</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Vender</a></li>
-        </ul>
-    </nav>
-  </div>
-</div>
+      <div class="header-bottom">
 
-  </header>
-</body>
-</html>
+        <div class="header-logo">
+          <a href=""> <img src="/images/logo-v-0.1.jpg" alt="" /> </a>
+        </div>
+        
+        <div class="header-search-bar">
+          <form action="" method="GET">
+            <input type="text" class="search-input"> <button class="fa fa-search search-button"> </button>
+          </form>
+        </div>
+        
+        
+        <nav class="header-bottom-nav-bar">
+          <a href="/">Home</a>
+          <a href="">Productos</a>
+          <a href="">About</a>
+          <a href="">Vender</a>
+        </nav>
+      </div>
+    </div>
+</header>

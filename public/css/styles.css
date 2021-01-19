@@ -1,76 +1,72 @@
-*{ margin: 0px; padding: 0px; box-sizing: border-box; }
+*{ box-sizing: border-box; }
 
 /* Intentemos nombrar a cada uno de los objetos dentro de su lugar, su div o lo que sea que lo contiene y su clase, así no se mezclan los estilos, me di cuenta que empezamos a pisar algunas reglas si no, lo hice un poco con el header sin modificar lo que decía, me falta hacerlo con mi parte del detalle del producto, en estos días me pongo al tiro con eso */
+/* Clases genéricas */
 
+/* Paleta de colores https://coolors.co/cb997e-ddbea9-ffe8d6-b7b7a4-a5a58d-6b705c */
+
+.container{ max-width: 1200px; margin: 0 auto; }
 /* Falta trabajo sobre las cajas del header */
+body{
+  background-color: #000;
+  color: #666;
+  font-family: 'Roboto', sans-serif; 
+}
 
 /*Header*/
 header{
     background-color: #55d6aa;
     color: black;
 }
-
-header::after{
-  content: '';
-  display: table;
-  clear: both;
+header .header-top{
+  display: flex;
+  justify-content: flex-end;
 }
-.logo{
-  float: left;
-  
-}
-div .header-main div .header-logo{
-  width: 100px;
-  float: left;
-}
-.container{
-  width: 100%;
-  margin: 0 auto;
-}
-nav{
-  float: right;
-}
-nav ul{
-margin: 0;
-padding: 0;
-list-style: none;
-}
-nav li{
-  display: inline-block;
-  margin-left: 70px;
-  margin-right: 25px;
-  padding-top: 23px;
-  position: relative;
+header .header-bottom{
+  display: flex;
+  justify-content: space-between;
 }
 
-nav ul li a{
-
-color: #444;
-text-decoration: none;
-text-transform: uppercase;
-font-size: 14px;
+header .header-logo{
+  width: 15%;
 }
-
-nav a::before{
-  content: "";
-  display: block;
-  height: 5px;
-  
-  background-color: #444;
-  position: absolute;
-  top:0;
-  width: 0%;
-
-  transition: all ease-in-out 250ms;
-}
-
-nav a:hover::before{
+header .header-logo img{
   width: 100%;
 }
-body{
-  background-color: #000;
-  color: #666;
+header .header-search-bar{
+  display: flex;
+  align-items: center;
+  width: 45%;
 }
+header .header-search-bar form{
+  flex-grow: 1;
+}
+header .header-search-bar .search-button{
+  padding: 8px;
+  border-radius: 0px 6px 6px 0px;
+  border: 0;
+  background-color: rgb(108, 16, 16);
+  color: rgb(34, 220, 130);
+  font-weight: 300;
+}
+header .header-search-bar .search-input{ 
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px 0px 0px 6px;
+  border: 0;
+}
+
+
+header .header-bottom-nav-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 25%;
+}
+
+/* HASTA ACÁ VA EL header  */
+
+/* Tomi */
 
 main .row {
   display: flex;
@@ -141,62 +137,10 @@ header .top-header .logo{
 
 
 
-/* header .form input{}
-header div.header-nav-bar nav.navigator{
-    background-color: #FFF;
-    outline: none;
-    color: #666;
-    padding: 2px;
-    align-items: flex-end;
-    font-size: 12px;
-    margin-left: 20px;
-} */
-/* 
-header div.header-nav-bar ul{
-    display: inline;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-header div.header-nav-bar nav.navigator ul li{
-    text-decoration: none;
-    color: #000;
-    display: inline-block;
-    float: left;*/
-/* 
-header div.header-nav-bar nav.navigator ul li a{
-  display: block;
-  padding: 10px;
-  background-color: #dddddd;
-  color:#000;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-header div.header-search-bar form input{
-    background-color: #FFF;
-    border: 1px solid #000;
-    outline: none;
-    color: #666;
-    padding: 2px;
-}
-header div.header-search-bar form button{
-    background-color: #FFF;
-    border: 1px solid #000;
-    color: #666;
-    width: 12%;
-} */
-/* Dejo comentado para trabajar sobre el banner
-header div.header-banner{
-  margin: auto;
-} */
 
 /* CSS basura de Login y register */
   
-body { font-family: 'Roboto', sans-serif; 
-}
+
 
 .container h2{ text-align: center; }
 

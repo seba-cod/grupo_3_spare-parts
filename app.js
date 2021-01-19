@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 // Configuro el directorio de recursos estaticos
-app.use(express.static(path.resolve('./public')));
+app.use(express.static('public'));
 
 // Configuro EJS
 app.set('view engine', 'ejs');
