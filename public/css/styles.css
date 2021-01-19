@@ -65,7 +65,12 @@ header .header-search-bar{
   align-items: center;
   width: 75%;
 }
-header .header-search-bar form{
+header div.header-search-bar form{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  font-size: 11px;
   flex-grow: 1;
 }
 header .header-search-bar .search-button{
@@ -87,15 +92,13 @@ input:focus, button:focus{
   outline: none; 
   background-color: none;
 }
-header a{
-  text-shadow: 0 0 2px;
-}
+header a{ text-shadow: 0 0 2px; }
 header .header-bottom-nav-bar{ display: none; }
 header .header-bottom-nav-bar a { 
   font-size: 16px;
   color: white;
 }
-
+/* media queries solo del header*/
 @media (min-width: 768px) {
 
   header .header-top{
@@ -115,7 +118,6 @@ header .header-bottom-nav-bar a {
     padding-top: 25px;
   }
   .header-top-nav-bar span { display: none; }
-  /* header .header-logo img { display: block; } */
   header .header-logo i { 
     font-size: 35px;
     padding: 0 0 0 40px; 
@@ -184,47 +186,7 @@ main .col-2 h1{
   margin-bottom: 30px;
 }
 
-
-
-
-
-
-
-
-header div.logo
-header .form{
-    width: 50%;
-    margin: auto;
-}
-/* Junté los elementos por órden en el HTML*/
-header div.header-main{
-    display: flex;
-    justify-content:flex-start;
-    max-width: 1200px;
-    margin: auto;
-}
-
-header div.header-logo{  padding: 10px; }
-/* No entendí si esta era la barra de navegación, en el html no existia un form, se la apliqué al input pero no hace efecto, revisar */
-header div.header-search-bar form{
-    width: 50%;
-    display: flex;
-    align-items: center;
-    padding: 2px;
-    font-size: 11px;
-}
-
-header .top-header .logo{
-    padding: 10px;
-}
-
-
-
-
 /* CSS basura de Login y register */
-  
-
-
 .container h2{ text-align: center; }
 
 .form {
