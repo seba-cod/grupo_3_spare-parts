@@ -18,7 +18,8 @@
   "homepage": "https://github.com/seba-cod/grupo_3_spare-parts#readme",
   "dependencies": {
     "ejs": "^3.1.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "method-override": "^3.0.0"
   },
   "devDependencies": {}
 }

@@ -12,9 +12,13 @@ body{
 
 /*Header*/
 header{
-  background: rgb(34,38,60);
-  background: radial-gradient(circle, rgba(34,38,60,1) 0%, rgba(79,63,66,1) 100%);
+  background: rgb(183,183,164);
+background: linear-gradient(90deg, rgba(183,183,164,1) 7%, rgba(25,19,6,0.6558998599439776) 18%, rgba(163,129,72,0.7035189075630253) 39%, rgba(25,19,6,0.6362920168067228) 52%, rgba(183,183,164,1) 64%, rgba(53,41,19,0.8323704481792717) 81%, rgba(183,183,164,1) 88%);
+/* 
+background: rgb(34,38,60);
+  background: radial-gradient(circle, rgba(34,38,60,1) 0%, rgba(79,63,66,1) 100%); */
     color: black;
+    border-bottom: 1px solid black;
 }
 header .header-top{
   display: flex;
@@ -43,6 +47,7 @@ header .header-top a, .header-top span{
 header .header-bottom{
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 10px;
 }
 header .header-logo{
   width: 10%;
@@ -134,6 +139,7 @@ header .header-bottom-nav-bar a {
   }
   header .header-bottom{
     justify-content: space-between;
+    padding-bottom: 20px;
   }
 }
 
@@ -157,34 +163,58 @@ main .row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-main .col-2 {
-  flex-basis: 50%;
-  min-width: 300px;
+main .hero {
 }
-main .col-2-img{
-    max-width: 100%;
-    padding: 50px 0;
+main .main-banner {
+  position: relative;
+}
+main .text-in-banner {
+  position: relative;
+  margin-left: 25%;
+}
+main .main-banner h2{
+  position: absolute;
+  color: black;
+}
+main .main-banner img{
+  width: 100%;
+  box-shadow: 0 6px 6px;
+}
+main .text-banner p {
+  max-width: 1900px;
+  text-align: right;
+  color: black;
+  margin-top: 0px;
+
 }
 
-main .col-2 h1{
-  font-size: 50px;
-  line-height: 60px;
-  margin: 25px 0px;
-}
 
-.feature{
-  margin: 70px 0;
-}
-.feature h1{
+.container h1{
   text-align: center;
+  font-size: 20px;
 }
 .col-3{
   flex-basis: 30%;
-  min-width: 250px;
+  margin: 30px auto;
+}
+.col-3 img{
+  box-shadow: 0 0 5px;
+  max-width: 320px;
+  max-height: 232px;}
+.col-5{
+  flex-basis: 18.333%;
   margin-bottom: 30px;
 }
+.col-5 p {
+  text-align: center;
+}
+.col-5 img{
+  box-shadow: 0 0 5px;
+  max-width: 200px;
+}
+
 
 /* CSS basura de Login y register */
 .container h2{ text-align: center; }
