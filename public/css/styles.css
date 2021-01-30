@@ -336,7 +336,6 @@ body div.ubication-product-detail{
   display:block;
   font-size: 12px;
   padding: 10px 20px;
-  border: dotted red 1px;
 }
 body div.car-image-banner img{
   display: none;
@@ -344,72 +343,124 @@ body div.car-image-banner img{
   height: 400px;
 }
 body section div.main-product-detail{
-  border: dotted yellow 4px;
   display: flex;
+  flex-wrap: wrap;
   width: 95%;
   margin: auto;
-  justify-content: space-between;
+  justify-content: center;
+  background-color: white;
+  border-radius: 4px;
+  padding-bottom: 25px;
+  border: #333333 1px solid;
+  box-shadow: 0 0 4px;
 }
 /* Manejo la primer sección del lado izquierdo, en cascada modifico sus elementos */
 body section div.left-side-product-detail{
-  display:inline-block;
-  width: 75%;
-  border: 2px red solid;
+  display:block;
+  width: 100%;
 }
 /* Ubico y le doy tamaño a la imagen principal */
 body section div.left-side-product-detail div.car-image{
-  margin: auto;
-  width: 100%;
+    width: 100%;
 }
 
 /* Trabajo sobre el texto principal y logo  */
 body section div.left-side-product-detail div.car-brand{
   display: block;
+  width: 35%;
   margin: auto;
-  width: 100%;
-  font-size: 24px;
-  padding: 1rem 0rem;
 }
 p.car-brand{
   display:inline-block;
-  vertical-align: center;
 }
 body section div.left-side-product-detail div.car-brand img{
-  width: 40px;
-} /* Me falta ubicarla centrada respecto de su eje vertical*/
+  width: 100%;
+}
 
 /* Trabajo sobre el articulo y la información del producto */
-body section article.product-info{
-  display: block;
-  margin: auto;
+body section article div.product-info{
+  padding: 15px 0 10px 0;
 }
 body section article.product-info div p.product-name{
   font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }
 body section article.product-info div.product {
-  display: flex;
   width: 100%;
 
 }
 body section article.product-info div.product-img-slider{
   display: flex;
-  width: 300px;
-  border: 2px red solid;
-  justify-content: space-around;
+  width: 70%;
+  margin: auto;
 }
 body section article.product-info div.product-img-slider img{
-  width: 40%;
-  height: auto;
+  width: 100%;
 }
 
 body section article.product-info div.product-info{
-  width: 35%;
+  width: 100%;
+  margin-left: 5%;
 }
+
+body section article.product-info form{
+  width: 100%;
+  margin-left: 5%;
+}
+
+body section article.product-info button{
+ background-color: #fff;
+ border: none;
+}
+body section article.product-info button select{
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+
 /* Manejo la sección del lado derecho */
 body section div.right-side-product-detail{
-  display:inline-block;
-  width: 20%;
-  border: 2px green solid;
+  width: 100%;
+}
+body section div.right-side-product-detail div.costs{
+  width: 100%;
+  margin-left: 5%;
+}
+body section div.right-side-product-detail div.costs p{
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  margin-left: 20px;
+}
+
+body section div.right-side-product-detail div.costs span.on-12-cuotes{
+  font-size: 12px;
+  width: 75%;
+  color: rgba(22, 218, 22, 0.753);
+}
+body section div.right-side-product-detail p.bold{
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+body section div.right-side-product-detail button{
+  display: block;
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+}
+button.buy-button{
+  background-color: rgba(192, 240, 61, 0.972);
+  text-shadow: 0 0 1px;
+  border-radius: 5px;
+}
+button.add-to-cart-button{
+  background-color: rgba(106, 176, 233, 0.445);
+  border-radius: 5px;
+}
+button.contact-seller{
+  background-color: rgba(216, 212, 212, 0.424);
+  border-radius: 5px;
 }
   /* Manejo la sección del lado inferior */
 body section.bottom{

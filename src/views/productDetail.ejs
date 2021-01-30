@@ -11,7 +11,7 @@
     <div class="car-image-banner">
         <img src="./images/productDetail/car-photo.jpg" alt="Imagen del auto">
     </div>
-    <section>
+    <section class="container">
         <!-- Esta será la caja madre de todo el producto, el objeto de mayor importancia del main -->
         <div class="main-product-detail"> 
 
@@ -20,7 +20,6 @@
                 <!-- Desde acá para abajo divs se disponen en columnas -->
 
                 <div class="car-brand">
-                    <p class="car-brand">AUDI A4</p> <!-- Este nombre se debe de obtener de los datos cargados por el usuario, de la marca correspondiente al auto  -->
                     <img src="./images/productDetail/audi-logo.png" alt="car-brand-logo">
                 </div>
 
@@ -30,7 +29,6 @@
                         <div class="product">
                             <div class="product-img-slider">   <!-- bloque que ocupa el 60% de su width-->
                                 <img src="./images/productDetail/product-image-1.JPG" alt="">
-                                <img src="./images/productDetail/product-image-2.JPG" alt="">
                             </div>
                             <div class="product-info">
                                 <p>Marca: NGK</p>
@@ -42,18 +40,15 @@
                             
                             <!-- Selección de cantidades -->
                             <form action="" class="quantity">
+                                <span>Cantidad:</span>
                                 <button type="button" class="quantity-selector">
-                                    <span>Cantidad:</span>
-                                    <span>
-                                        <select name="quantity" id="quantity">
-                                            <option value="1" selected>1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="1">5</option>
-                                        </select>
-                                    </span>
-                                    <span>(# en Stock)</span>
+                                    <select name="quantity" id="quantity">
+                                        <option value="1" selected>1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                        <option value="1">4</option>
+                                        <option value="1">5</option>
+                                    </select>
                                 </button>
                             </form>
                     </div>
@@ -66,16 +61,15 @@
             <div class="right-side-product-detail">
                 <div class="buy-options">
                     <div class="costs">
-                        <p class="product-value">$12.534</p>
-                        <p class="product-value-on-12">$1044,50 en 12 cuotas sin interés</p>
+                        <p class="product-value">$12.534 <span class="on-12-cuotes">($1044,50 en 12 cuotas sin interés)</span></p>
                     </div>
-                    <p>Stock disponible</p>
-                    <button type="submit" class="buy-button">Comprar ahora</button>
+                    <p class="bold">Stock disponible</p>
+                    <button type="submit" class="buy-button">Comprar $</button>
                     <button type="submit" class="add-to-cart-button">Agregar al carrito</button>
                 </div>
 
                 <div class="contact">
-                    <p>¿Tenés dudas sobre el producto?</p>
+                    <p class="bold">¿Tenés dudas sobre el producto?</p>
                     <button type="submit" class="contact-seller">Contactate con el vendedor</button>
                 </div>
             </div>
