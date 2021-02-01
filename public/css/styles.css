@@ -479,3 +479,41 @@ body div.support a{
 }
 
 /* Hasta acá escribo las líneas del carrito de compras */
+
+/*CSS PRODUCTO SECTION*/
+.product-filter {
+  display: flex;
+}
+.product-filter h1 {
+  flex-grow: 1;
+}
+.sort {
+  display: flex;
+}
+.collection-sort {
+  display: flex;
+  flex-direction: column;
+}
+
+.products {
+  display: flex;
+  align-self: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex: 1;
+}
+.product-card {
+  padding: 2%;
+  display: flex;
+  flex: 30%;
+}
+.product-image img {
+  max-width: 100%;
+}
+.product-info {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.product-filter h1{
+  text-align: center;
+}

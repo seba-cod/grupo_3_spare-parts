@@ -1,6 +1,6 @@
 module.exports = {
     detail: (req, res) => {
-        res.render('productdetail');
+        res.render('product');
     },
     checkout: (req, res) => {
         res.render('cart');
