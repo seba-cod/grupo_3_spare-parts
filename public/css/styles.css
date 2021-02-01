@@ -12,9 +12,13 @@ body{
 
 /*Header*/
 header{
-  background: rgb(34,38,60);
-  background: radial-gradient(circle, rgba(34,38,60,1) 0%, rgba(79,63,66,1) 100%);
+  background: rgb(183,183,164);
+background: linear-gradient(90deg, rgba(183,183,164,1) 7%, rgba(25,19,6,0.6558998599439776) 18%, rgba(163,129,72,0.7035189075630253) 39%, rgba(25,19,6,0.6362920168067228) 52%, rgba(183,183,164,1) 64%, rgba(53,41,19,0.8323704481792717) 81%, rgba(183,183,164,1) 88%);
+/* 
+background: rgb(34,38,60);
+  background: radial-gradient(circle, rgba(34,38,60,1) 0%, rgba(79,63,66,1) 100%); */
     color: black;
+    border-bottom: 1px solid black;
 }
 header .header-top{
   display: flex;
@@ -43,6 +47,7 @@ header .header-top a, .header-top span{
 header .header-bottom{
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 10px;
 }
 header .header-logo{
   width: 10%;
@@ -134,6 +139,7 @@ header .header-bottom-nav-bar a {
   }
   header .header-bottom{
     justify-content: space-between;
+    padding-bottom: 20px;
   }
 }
 
@@ -157,34 +163,58 @@ main .row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-main .col-2 {
-  flex-basis: 50%;
-  min-width: 300px;
+main .hero {
 }
-main .col-2-img{
-    max-width: 100%;
-    padding: 50px 0;
+main .main-banner {
+  position: relative;
+}
+main .text-in-banner {
+  position: relative;
+  margin-left: 25%;
+}
+main .main-banner h2{
+  position: absolute;
+  color: black;
+}
+main .main-banner img{
+  width: 100%;
+  box-shadow: 0 6px 6px;
+}
+main .text-banner p {
+  max-width: 1900px;
+  text-align: right;
+  color: black;
+  margin-top: 0px;
+
 }
 
-main .col-2 h1{
-  font-size: 50px;
-  line-height: 60px;
-  margin: 25px 0px;
-}
 
-.feature{
-  margin: 70px 0;
-}
-.feature h1{
+.container h1{
   text-align: center;
+  font-size: 20px;
 }
 .col-3{
   flex-basis: 30%;
-  min-width: 250px;
+  margin: 30px auto;
+}
+.col-3 img{
+  box-shadow: 0 0 5px;
+  max-width: 320px;
+  max-height: 232px;}
+.col-5{
+  flex-basis: 18.333%;
   margin-bottom: 30px;
 }
+.col-5 p {
+  text-align: center;
+}
+.col-5 img{
+  box-shadow: 0 0 5px;
+  max-width: 200px;
+}
+
 
 /* CSS basura de Login y register */
 .container h2{ text-align: center; }
@@ -306,7 +336,6 @@ body div.ubication-product-detail{
   display:block;
   font-size: 12px;
   padding: 10px 20px;
-  border: dotted red 1px;
 }
 body div.car-image-banner img{
   display: none;
@@ -314,72 +343,124 @@ body div.car-image-banner img{
   height: 400px;
 }
 body section div.main-product-detail{
-  border: dotted yellow 4px;
   display: flex;
+  flex-wrap: wrap;
   width: 95%;
   margin: auto;
-  justify-content: space-between;
+  justify-content: center;
+  background-color: white;
+  border-radius: 4px;
+  padding-bottom: 25px;
+  border: #333333 1px solid;
+  box-shadow: 0 0 4px;
 }
 /* Manejo la primer sección del lado izquierdo, en cascada modifico sus elementos */
 body section div.left-side-product-detail{
-  display:inline-block;
-  width: 75%;
-  border: 2px red solid;
+  display:block;
+  width: 100%;
 }
 /* Ubico y le doy tamaño a la imagen principal */
 body section div.left-side-product-detail div.car-image{
-  margin: auto;
-  width: 100%;
+    width: 100%;
 }
 
 /* Trabajo sobre el texto principal y logo  */
 body section div.left-side-product-detail div.car-brand{
   display: block;
+  width: 35%;
   margin: auto;
-  width: 100%;
-  font-size: 24px;
-  padding: 1rem 0rem;
 }
 p.car-brand{
   display:inline-block;
-  vertical-align: center;
 }
 body section div.left-side-product-detail div.car-brand img{
-  width: 40px;
-} /* Me falta ubicarla centrada respecto de su eje vertical*/
+  width: 100%;
+}
 
 /* Trabajo sobre el articulo y la información del producto */
-body section article.product-info{
-  display: block;
-  margin: auto;
+body section article div.product-info{
+  padding: 15px 0 10px 0;
 }
 body section article.product-info div p.product-name{
   font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }
 body section article.product-info div.product {
-  display: flex;
   width: 100%;
 
 }
 body section article.product-info div.product-img-slider{
   display: flex;
-  width: 300px;
-  border: 2px red solid;
-  justify-content: space-around;
+  width: 70%;
+  margin: auto;
 }
 body section article.product-info div.product-img-slider img{
-  width: 40%;
-  height: auto;
+  width: 100%;
 }
 
 body section article.product-info div.product-info{
-  width: 35%;
+  width: 100%;
+  margin-left: 5%;
 }
+
+body section article.product-info form{
+  width: 100%;
+  margin-left: 5%;
+}
+
+body section article.product-info button{
+ background-color: #fff;
+ border: none;
+}
+body section article.product-info button select{
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+
 /* Manejo la sección del lado derecho */
 body section div.right-side-product-detail{
-  display:inline-block;
-  width: 20%;
-  border: 2px green solid;
+  width: 100%;
+}
+body section div.right-side-product-detail div.costs{
+  width: 100%;
+  margin-left: 5%;
+}
+body section div.right-side-product-detail div.costs p{
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  margin-left: 20px;
+}
+
+body section div.right-side-product-detail div.costs span.on-12-cuotes{
+  font-size: 12px;
+  width: 75%;
+  color: rgba(22, 218, 22, 0.753);
+}
+body section div.right-side-product-detail p.bold{
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+body section div.right-side-product-detail button{
+  display: block;
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+}
+button.buy-button{
+  background-color: rgba(192, 240, 61, 0.972);
+  text-shadow: 0 0 1px;
+  border-radius: 5px;
+}
+button.add-to-cart-button{
+  background-color: rgba(106, 176, 233, 0.445);
+  border-radius: 5px;
+}
+button.contact-seller{
+  background-color: rgba(216, 212, 212, 0.424);
+  border-radius: 5px;
 }
   /* Manejo la sección del lado inferior */
 body section.bottom{

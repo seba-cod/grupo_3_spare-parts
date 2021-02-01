@@ -2,6 +2,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
 
 // Configuro el directorio de recursos estaticos
 app.use(express.static('public'));
@@ -9,6 +10,10 @@ app.use(express.static('public'));
 // Configuro EJS
 app.set('view engine', 'ejs');
 app.set('views','./src/views');
+
+// Formularios
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 
 // // Requiero las rutas al router
 const main = require('./src/router/mainRouter');
