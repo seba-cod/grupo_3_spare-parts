@@ -108,6 +108,17 @@ header .header-bottom-nav-bar a {
   font-size: 16px;
   color: white;
 }
+
+.header-bottom-nav-bar a:hover {
+  transform: scale(1.005);
+  color: #7E0606;
+}
+
+.header-top-nav-bar a:hover {
+  transform: scale(1.005);
+  color: #7E0606;
+}
+
 /* media queries solo del header*/
 @media (min-width: 768px) {
 
@@ -221,7 +232,7 @@ footer {
 
 /* Un poquito de hover para el footer */
 
-.col-2 a:hover {
+.col-2 a span:hover {
   cursor: pointer;
   transform: scale(1.005);
   color: #7E0606;
@@ -403,9 +414,9 @@ padding: 0 0 40px 0;
 
 .txt_input {
   width: 100%;
-  background: #fff;
-  border: 2px solid black;
-  border-radius: 3px;
+  background: transparent;
+  border: 0.5px solid black;
+  border-radius: 3%;
   height: 35px;
   line-height: 35px;
   padding: 0 40px 0 10px;
@@ -413,10 +424,10 @@ padding: 0 0 40px 0;
 }
 
 .txt_input:hover {
-  border: 2px solid #000;
-  outline: none;
-  box-shadow: 3px 0px 30px rgba(0,0,0, 0.4);
-}
+  box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+  cursor: text;
+  
+ }
 
 .txt_error {
   font-size: 12px;
@@ -446,20 +457,20 @@ padding: 0 0 40px 0;
 }
 
 .btn_enviar {
-  background: black;
-    border: 0;
+    
+    background: rgb(111, 163, 202);
+    border: 1px solid black;
     padding: 1em 2em;
-    border-radius: 4px;
-    color: #e4e4e4;
-    text-transform: uppercase;
-    font-size: 14px;
-  font-weight: bold;
+    border-radius: 5px;
+    color: black ;
+    font-size: 4 px;
+    
 }
 
 .btn_enviar:hover,.btn_enviar:focus {
     cursor: pointer;
-    background: #3952a3;
-    color: #ffffff;
+    background: rgb(1, 57, 100);
+    color: rgb(231, 235, 238);
     outline: 0;
     transition: background-color 500ms ease-out;
 }
