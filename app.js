@@ -27,10 +27,8 @@ app.use('/', product);
 
 // Levanto Servidor
 app.listen(3000, () => { 
-    console.log("=====================");
-    console.log("=====================");
-    console.log("http://localhost:3000");
-    console.log("=====================");
-    console.log("=====================");
+
+console.log("Reposto Online 🛠️  🚘 🔥 en http://localhost:3000");
+
     }
 );

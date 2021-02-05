@@ -475,6 +475,11 @@ padding: 0 0 40px 0;
     transition: background-color 500ms ease-out;
 }
 
+.text-danger {
+  color: #bb2929;
+  font-weight: 700;
+}
+
 /* ----- -----  Estilos para Validacion ----- ----- */
 .validacion_correcto .icon_validation {
   color: #1ed12d;
