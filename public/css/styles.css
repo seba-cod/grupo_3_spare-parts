@@ -188,7 +188,7 @@ footer {
 .footer .col-20 a i{ 
   font-size: 50px; 
   padding: 5% 15px; 
-  decoration: none; 
+  text-decoration: none; 
   color: rgb(52, 107, 170);
   text-shadow: 0 0 20px;
 }
@@ -218,6 +218,23 @@ footer {
 .fake p{
   padding-right: 40px;
 }
+
+/* Un poquito de hover para el footer */
+
+.col-2 a:hover {
+  cursor: pointer;
+  transform: scale(1.005);
+  color: #7E0606;
+  
+}
+
+.col-20 i:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  box-shadow: 0px 0px 2px 1px #e3e3e4;
+  border-radius: 75%;
+}
+
 
 /* Tomi */
 
@@ -353,7 +370,7 @@ padding: 0 0 40px 0;
   margin: 0;
   background-color: white;
 }
-/* CSS basura de Login y register */
+/* CSS  de Login y register */
 .container h2{ text-align: center; }
 
 .form {
@@ -649,19 +666,19 @@ body div.shipment{
   width: 90%;
   padding: 20px 0px;
 }
-/* Acá debo definir el formulario del envio y del pago */
+/* Acá debo definir el formulario del envio y del pago 
 body div.shipment form{
 
-}
-/* Acá debo definir como se disponen los datos dentro del formulario de envio y de pago */
+}*/
+/* Acá debo definir como se disponen los datos dentro del formulario de envio y de pago 
 body div.shipment form label{
 
-}
+}*/
 
-/* Acá tengo que escribir como se ve el texto de las opciones  */
+/* Acá tengo que escribir como se ve el texto de las opciones  
 body div.shipment form label option{
 
-}
+}*/
 
 body div.payment{
   display: block;
@@ -674,23 +691,23 @@ body div.confirm-purchase{
   width: 90%;
   padding: 20px 0px;
 }
-/* Aca tengo que escribir como se muestran los datos de costo, el precio en tamaño X, el precio en cuotas y lo del envío en tamaño 80% de X */
+/* Aca tengo que escribir como se muestran los datos de costo, el precio en tamaño X, el precio en cuotas y lo del envío en tamaño 80% de X 
 body div.confirm-purchase div.cost{
 
-}
+}*/
 
-/* Acá tengo que escribir como se ubica el botón de compra y su leyenda */
+/* Acá tengo que escribir como se ubica el botón de compra y su leyenda 
 body div.confirm-purchase div.buy{
 
-}
-/* Estilo sobre el boton de compra */
+}*/
+/* Estilo sobre el boton de compra 
 body div.confirm-purchase div.buy input {
 
-}
-/* Estilo sobre la caja donde esta el boton de soporte */
+}*/
+/* Estilo sobre la caja donde esta el boton de soporte 
 body div.support{
 
-}
+}*/
 body div.support a{
   text-decoration: none;
   font-size: 12px;
