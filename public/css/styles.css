@@ -262,7 +262,7 @@ main .text-banner p {
   margin-block-end: 0;
 }
 .container h1{
-padding: 20px 0 40px 0;
+padding: 0 0 40px 0;
 }
 .offer{
   animation-name: expand;
@@ -294,13 +294,14 @@ padding: 20px 0 40px 0;
   display: block;
   border-radius: 16px !important;
   overflow: hidden;
-  box-shadow: rgb(0 0 0 / 15%) 0 2px 8px;
+  box-shadow: rgb(0 0 0 / 15%) 0 2px 4px;
   text-decoration: none;
   margin-bottom: 30px;
   transition: all 0.2s;
 }
 .col-5 a:hover, .col-3 a:hover{
   transform: scale(1.1);
+  box-shadow: rgb(0 0 0 / 15%) 0 2px 20px;
 }
 .col-5 a .image, .col-3 a .image {
   position: relative;
