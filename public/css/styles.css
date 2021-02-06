@@ -310,10 +310,6 @@ padding: 0 0 40px 0;
 .col-3{
   flex-basis: 30%;
 }
-/* .col-3 img{
-  box-shadow: 0 0 5px;
-  max-width: 320px;
-  max-height: 232px;} */
 .col-5{
   flex-basis: 18.333%;
 }
@@ -767,4 +763,64 @@ body div.support a{
 }
 .product-filter h1{
   text-align: center;
+}
+
+/* publicar producto */
+.container-form{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  max-width: 800px;
+  justify-content: center;
+  padding: 0 0 35px 0;
+}
+form div.col-1 label{
+  display: block;
+  width: 100%;
+  margin: 20px 0 3px 0;
+}
+
+.container-form form.publish {
+  width: 95%;
+}
+
+.container-form .row{
+  display: flex;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 15%) 0 2px 8px;
+  border-radius: 8px;
+  width: 100%;
+  justify-content: center;
+  padding: 15px 0 25px 0;
+}
+.container .row .col-1{
+width: 100%;
+}
+.container-form .row h5{
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  margin-block-start: 45px;
+  margin-block-end: 0px;
+}
+.container-form form.publish label, .container-form form.publish input, .container-form form.publish textarea, .container-form form.publish select {  padding: 10px 0 ; width: 100%;}
+
+.container-form form.publish label {
+  font-weight: bold;
+  margin-left: 0px;
+}
+
+.container-form input[type="submit"] {
+  margin-top: 15px;
+  background-color: lightblue;
+  border: none;
+  box-shadow: 0 0 2px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.container-form input[type="file"]{
+  width: 100%;
+  margin-left: 25px;
 }
