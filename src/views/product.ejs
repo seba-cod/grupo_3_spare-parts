@@ -1,109 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head') %>
-<body>
+  <%- include('./partials/head') %>
+  <body>
     <%- include('./partials/header') %>
-    
+
     <!-- Seccion productos-->
     <main>
-      <nav class="product-filter">
-
-        <h1>Repuestos</h1>
-      
+      <div class="container">
         <div class="sort">
-      
           <div class="collection-sort">
             <label>Filtrar por:</label>
             <select>
               <option value="/">Todos los Repuestos</option>
             </select>
           </div>
-      
+
           <div class="collection-sort">
             <label>Ordenar por:</label>
             <select>
               <option value="/">Categoria</option>
             </select>
           </div>
+        </div>
       
-        </div>
-      </nav>
 
-      <section class="products">
-
-        <div class="product-card">
-          <div class="product-image">
-            <img src="images/repuestos2.jpg">
-          </div>
-          <div class="product-info">
-            <h5>Rueda + llanta </h5>
-            <h6>100.000</h6>
-            <p><button>Add to Cart</button></p>
-          </div>
+      <div class="row">
+        <div class="col-4">
+          <a href="#">
+            <div class="image">
+              <img src="images/repuestos2.jpg" alt="" />
+            </div>
+            <div class="text-img">
+              <h4>Motor</h4>
+              <p>$100.000</p>
+            </div>
+            <div class="text-button">
+              <button>Agregar Al Carrito</button>
+            </div>
+          </a>
         </div>
-        
-         <div class="product-card">
-          <div class="product-image">
-            <img src="images/repuestos2.jpg">
-          </div>
-          <div class="product-info">
-            <h5>Rueda + llanta </h5>
-            <h6>100.000</h6>
-            <p><button>Add to Cart</button></p>
-          </div>
+        <div class="col-4">
+          <a href="#">
+            <div class="image">
+              <img src="images/repuestos2.jpg" alt="" />
+            </div>
+            <div class="text-img">
+              <h4>Motor</h4>
+              <p>$100.000</p>
+            </div>
+            <div class="text-button">
+              <button>Agregar Al Carrito</button>
+            </div>
+          </a>
         </div>
-
-        <div class="product-card">
-          <div class="product-image">
-            <img src="images/repuestos2.jpg">
-          </div>
-          <div class="product-info">
-            <h5>Rueda + llanta </h5>
-            <h6>100.000</h6>
-            <p><button>Add to Cart</button></p>
-          </div>
+        <div class="col-4">
+          <a href="#">
+            <div class="image">
+              <img src="images/repuestos2.jpg" alt="" />
+            </div>
+            <div class="text-img">
+              <h4>Motor</h4>
+              <p>$100.000</p>
+            </div>
+            <div class="text-button">
+              <button>Agregar Al Carrito</button>
+            </div>
+          </a>
         </div>
-
-        <div class="product-card">
-          <div class="product-image">
-            <img src="images/repuestos2.jpg">
-          </div>
-          <div class="product-info">
-            <h5>Rueda + llanta </h5>
-            <h6>100.000</h6>
-            <p><button>Add to Cart</button></p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image">
-            <img src="images/repuestos2.jpg">
-          </div>
-          <div class="product-info">
-            <h5>Rueda + llanta </h5>
-            <h6>100.000</h6>
-            <p><button>Add to Cart</button></p>
-
-          </div>
-        </div>
-        
-        <div class="product-card">
-          <div class="product-image">
-            <img src="images/repuestos2.jpg">
-          </div>
-          <div class="product-info">
-            <h5>Rueda + llanta </h5>
-            <h6>100.000</h6>
-            <p><button>Add to Cart</button></p>
-          </div>
+        <div class="col-4">
+          <a href="#">
+            <div class="image">
+              <img src="images/repuestos2.jpg" alt="" />
+            </div>
+            <div class="text-img">
+              <h4>Motor</h4>
+              <p>$100.000</p>
+            </div>
+            <div class="text-button">
+              <button>Agregar Al Carrito</button>
+            </div>
+          </a>
         </div>
         <!-- AGREGAR MAS productos(quizas nos ensenian a captarlos por base de datos y hacer la repeticion del html integrada a la base.)  -->
-      
-      </section>
-    </main>
+      </div>
+    </div>
     
+    </main>
 
-     <%- include('./partials/footer') %>
-
-</body>
+    <%- include('./partials/footer') %>
+  </body>
 </html>
