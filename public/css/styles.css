@@ -764,7 +764,15 @@ body div.support a{
 .product-filter h1{
   text-align: center;
 }
-
+.product-card .product-image img{
+  display: block;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: rgb(0 0 0 / 15%) 0 2px 4px;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: all 0.2s;
+}
 /* publicar producto */
 .container-form{
   display: flex;
