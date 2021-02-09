@@ -46,7 +46,7 @@ module.exports = {
             newProduct.carYear = req.body.carYear
         };
         products.create(newProduct);
-        res.send(newProduct);
-        
+        let allProducts = products.all();
+        res.render('product', { allProducts });
     }
 }

@@ -26,18 +26,24 @@
 
 
           <div class="row">
-            <% allProducts.forEach(product => { %>
+            <% allProducts.forEach(product=> { %>
               <div class="col-4">
                 <a href="#">
                   <div class="image">
                     <img src="images/repuestos2.jpg" alt="" />
                   </div>
-                  <div class="text-img">
-                    <h4> <%= product.name %></h4>
-                    <p><%= product.price %></p>
-                  </div>
-                  <div class="text-button">
-                    <button>Agregar Al Carrito</button>
+                  <div class="main-txt-product">
+
+                    <div class="text-img">
+                      <h4>
+                        <%= product.name %>
+                      </h4> <!-- tienen que ser máximo 25 letras-->
+                      <p>$<%= product.price %>
+                      </p>
+                    </div>
+                    <div class="text-button">
+                      <button>Agregar <i class="fas fa-cart-plus"></i></button>
+                    </div>
                   </div>
                 </a>
               </div>

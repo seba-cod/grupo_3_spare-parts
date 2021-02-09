@@ -342,7 +342,7 @@ padding: 0 0 40px 0;
   padding: 0 20px;
   width: 100%;
 }
-.col-5 a .text-img h4, .col-3 a .text-img h4, .comment h4{
+.col-5 a .text-img h4, .col-3 a .text-img h4, .comment h4, .col-4 a .text-img h4{
   width: 100%;
   font-size: 18px;
   font-weight: bold;
@@ -352,7 +352,7 @@ padding: 0 0 40px 0;
   margin-block-end: 0;
   color: #666 ;
 }
-.col-5 a .text-img p, .col-3 a .text-img p, .comment p{
+.col-5 a .text-img p, .col-3 a .text-img p, .comment p, .col-4 a .text-img p{
   width: 100%;
   font-size: 14px;
   text-align: left;
@@ -381,18 +381,27 @@ padding: 0 0 40px 0;
   background-color: white;
 }
 
-.col-4 .text-button {
-  width: 100%;
-  background-color: #e3e3e4;
-}
+
+.col-4 a .text-img h4{ font-size: 14px; }
 
 .col-4  .text-button button{
-  background-color: none;
   border: none;
   width: 100%;
-  padding: 5px 0px;
+  padding: 10px 0px;
   font-weight: 600;
+  background-image: linear-gradient(to right, #394dc0 0%, #2badab  51%, #2d3d95  100%);
+  transition: .5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
 }
+.col-4  .text-button button:hover{
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+
 /* CSS  de Login y register */
 .container h2{ text-align: center; }
 
