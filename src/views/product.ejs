@@ -1,92 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head') %>
+<%- include('./partials/head') %>
+
   <body>
     <%- include('./partials/header') %>
 
-    <!-- Seccion productos-->
-    <main>
-      <div class="container">
-        <div class="sort">
-          <div class="collection-sort">
-            <label>Filtrar por:</label>
-            <select>
-              <option value="/">Todos los Repuestos</option>
-            </select>
+      <!-- Seccion productos-->
+      <main>
+        <div class="container">
+          <div class="sort">
+            <div class="collection-sort">
+              <label>Filtrar por:</label>
+              <select>
+                <option value="/">Todos los Repuestos</option>
+              </select>
+            </div>
+
+            <div class="collection-sort">
+              <label>Ordenar por:</label>
+              <select>
+                <option value="/">Categoria</option>
+              </select>
+            </div>
           </div>
 
-          <div class="collection-sort">
-            <label>Ordenar por:</label>
-            <select>
-              <option value="/">Categoria</option>
-            </select>
+
+          <div class="row">
+            <% allProducts.forEach(product => { %>
+              <div class="col-4">
+                <a href="#">
+                  <div class="image">
+                    <img src="images/repuestos2.jpg" alt="" />
+                  </div>
+                  <div class="text-img">
+                    <h4> <%= product.name %></h4>
+                    <p><%= product.price %></p>
+                  </div>
+                  <div class="text-button">
+                    <button>Agregar Al Carrito</button>
+                  </div>
+                </a>
+              </div>
+              <% } ) %>
+
           </div>
         </div>
-      
 
-      <div class="row">
-        <div class="col-4">
-          <a href="#">
-            <div class="image">
-              <img src="images/repuestos2.jpg" alt="" />
-            </div>
-            <div class="text-img">
-              <h4>Motor</h4>
-              <p>$100.000</p>
-            </div>
-            <div class="text-button">
-              <button>Agregar Al Carrito</button>
-            </div>
-          </a>
-        </div>
-        <div class="col-4">
-          <a href="#">
-            <div class="image">
-              <img src="images/repuestos2.jpg" alt="" />
-            </div>
-            <div class="text-img">
-              <h4>Motor</h4>
-              <p>$100.000</p>
-            </div>
-            <div class="text-button">
-              <button>Agregar Al Carrito</button>
-            </div>
-          </a>
-        </div>
-        <div class="col-4">
-          <a href="#">
-            <div class="image">
-              <img src="images/repuestos2.jpg" alt="" />
-            </div>
-            <div class="text-img">
-              <h4>Motor</h4>
-              <p>$100.000</p>
-            </div>
-            <div class="text-button">
-              <button>Agregar Al Carrito</button>
-            </div>
-          </a>
-        </div>
-        <div class="col-4">
-          <a href="#">
-            <div class="image">
-              <img src="images/repuestos2.jpg" alt="" />
-            </div>
-            <div class="text-img">
-              <h4>Motor</h4>
-              <p>$100.000</p>
-            </div>
-            <div class="text-button">
-              <button>Agregar Al Carrito</button>
-            </div>
-          </a>
-        </div>
-        <!-- AGREGAR MAS productos(quizas nos ensenian a captarlos por base de datos y hacer la repeticion del html integrada a la base.)  -->
-      </div>
-    </div>
-    
-    </main>
+      </main>
 
-    <%- include('./partials/footer') %>
+      <%- include('./partials/footer') %>
   </body>
+
 </html>

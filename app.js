@@ -4,6 +4,13 @@ const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
 
+// Administración completa de productos con:
+// ○ Listado
+// ○ Detalle
+// ○ Creación
+// ○ Edición
+// ○ Eliminación
+
 // Configuro el directorio de recursos estaticos
 app.use(express.static('public'));
 

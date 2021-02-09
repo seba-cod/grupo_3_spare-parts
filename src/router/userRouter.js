@@ -25,6 +25,7 @@ const validationsRegister = require('../validations/validations')
 const userController = require('../controllers/userController');
 
 router.get(['/login', '/ingreso'], userController.login);
+router.post(['/login', '/ingreso'], userController.auth);
 router.get(['/register', '/registro'], userController.register);
 router.post(['/register', '/registro'], uploadFile.single('user_avatar'), validationsRegister.register, userController.create);
 

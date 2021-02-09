@@ -1,11 +1,21 @@
 const jsonTable = require('../database/jsonTable');
 const userTable = jsonTable('users');
+const bcrypt = require('bcryptjs');
 
 const { validationResult } = require('express-validator')
 
 module.exports = {
     login: (req, res) => {
         res.render('login');
+    },
+    auth: (req, res) => {
+        let user;
+        user = userTable.forEach(userNow = userNow.user_name == req.body.user_name)
+        
+        if (user !=undefined) {
+            user.password == req.body.password 
+        }
+        
     },
     register: (req, res) => {
         res.render('register');
