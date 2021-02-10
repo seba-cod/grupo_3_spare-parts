@@ -72,7 +72,7 @@
                     <div class="right-side-product-detail">
                         <div class="buy-options">
                             <div class="costs">
-                                <p class="product-value">$ <%= product.price %><span class="on-12-cuotes">($en 12 cuotas sin interés)</span></p>
+                                <p class="product-value">$ <%= product.price %><span class="on-12-cuotes">($ <%= product.price/12 %> en 12 cuotas sin interés)</span></p>
                             </div>
                             <% if ( product.quantity>0 ) { %>
                                 <p class="bold">Stock disponible</p>

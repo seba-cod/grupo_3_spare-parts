@@ -19,7 +19,7 @@ const uploadFile = multer ({ storage });
 const productController = require('../controllers/productController');
 
 router.get(['/products', '/productos'], productController.products);
-router.get(['/detalle/:id', '/producto/:id'], productController.productdetail);
+router.get(['/detalle/:id', '/producto/:id'], productController.productdetail); // ver que pasa con los links del header por esta sentencia
 router.get(['/cart', '/checkout', '/carrito'], productController.checkout);
 router.get('/publicar', productController.publish);
 router.post('/publicar', /*upload.any() ,*/ productController.createproduct);
