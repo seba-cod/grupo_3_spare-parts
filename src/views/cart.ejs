@@ -1,67 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head') %>
-<body>
-    <%- include('./partials/header') %>
-    <main class="cart">
-        <div class="main-on-buy"> 
+<%- include('./partials/head') %>
 
-            <div class="products-to-buy">
-                <div>
-                    <div class="product-img-small">
-                        <img src="" alt="foto del producto en chico">
+    <body>
+        <%- include('./partials/header') %>
+            <main>
+                <div class="container-detail mt5">
+
+                    <div class="row-product mb5">
+                        <div class="col-1">
+                            <div class="product-img-small">
+                                <img src="" alt="foto del producto en chico">
+                            </div>
+                            <div class="product">
+                                <h5 class="product-name">
+                                    Nombre del producto
+                                    <!--acá va : product.name con tags de EJS, no los puse para poder maquetearlo-->
+                                </h5>
+                                <div class="vendor-data">
+                                    <p><span class="seller">Vendedor: Jorge Perez </span><span class="seller-score">Puntuacion: X
+                                            pts</span></p>
+                                </div>
+                                <form action="" class="quantity">
+                                    <span>Cantidad:</span>
+                                     <!-- if ( product.quantity> 1 ) { -->
+                                        <button type="button" class="quantity-selector">
+                                            <select class="select-input" name="quantity" id="quantity">
+                                                <% for (let i=0 ; i< 15 ; i++) { %>
+                                                    <option value="<%=i%>">
+                                                        <%=i%>
+                                                    </option>
+                                                    <% } %>
+                                            </select>
+                                        </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <p class="product-name-on-buy">Kit Bujias NGK Audi 1.8T</p> 
-                    <div class="vendor-data">
-                        <p><span class="seller"> Jorge Perez </span><span class="seller-score">Puntuacion: X pts</span></p>
+
+                    <div class="row-product mb5 pay-opt">
+                        <div class="col-20 shipment">
+                        <form action="#">
+                            <h6>Selecciona el método de envío</h6>
+                            <label for="shipment"> 
+                                <select class="select-input" name="shipment" id="shipment">
+                                    <option value="correo-arg">Correo Argentino</option>
+                                    <option value="oca">OCA</option>
+                                    <option value="moto">Moto en el día</option>
+                                </select>
+                            </label>
+                        </form>
+                        </div>
+                        <div class="col-20 payment">
+
+                            <form action="#">
+                                <h6> Selecciona la forma de pago</h6>
+                                <label for="payment">
+                                    <select class="select-input" name="payment" id="payment">
+                                        <option value="cc">Tarjeta de credito</option>
+                                        <option value="cc">Efete</option>
+                                        <option value="mp">Mercado Pago</option>
+                                        <option value="paypal">Pay Pal</option>
+                                    </select>
+                                </label>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row-sell">
+                        <div class="col-1">
+                            <p> Total: $123123<!-- (no se quiere alinea vert) --> </p>
+                        </div>
+                        <div class="col-1">
+                            <input type="submit" value="Comprar">
+                        </div>
                     </div>
                 </div>
-            </div>
+            </main>
+            <%- include('./partials/footer') %>
 
-            <div class="shipment">
-                <form action="#">
-                    <label for="shipment"> Selecciona el método de envío
-                    <select name="shipment" id="shipment">
-                        <option value="correo-arg">Correo Argentino</option>
-                        <option value="oca">OCA</option>
-                        <option value="moto">Moto en el día</option>
-                    </select>
-                    </label>
-                </form>
-            </div>
+    </body>
 
-            <div class="payment">
-                <form action="">
-                    <label for="payment">
-                        <select name="payment" id="payment">
-                            <option value="cc">Tarjeta de credito</option>
-                            <option value="mp">Mercado Pago</option>
-                            <option value="paypal">Pay Pal</option>   
-                        </select>
-                    </label>
-                </form>
-            </div>
-
-            <div class="confirm-purchase">
-                <div class="cost">
-                    <p>$123123</p>
-                    <p>En 12 de $1231</p>
-                    <p>Con envío en barco a la quiaca</p>
-                </div>
-                <div class="buy">
-                    <label for="buy">Comprar
-                    <input type="button" value="buy">
-                    </label>
-                </div>
-            </div>
-                
-        </div> <!-- Cierra sector compra principal -->
-
-        <div class="support">
-            <a href="#">Soporte</a>
-        </div>
-    </main>
-        <%- include('./partials/footer') %>
-
-</body>
 </html>
