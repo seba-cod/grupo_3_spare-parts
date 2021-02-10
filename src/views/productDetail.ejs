@@ -36,13 +36,13 @@
                                             <p>Modelo: <%= product.piecenumber %> </p>
                                             <p>Original: <%= product.original %> </p>
                                             <p>Descripción: <%= product.description %> </p>
-                                            <% if (product.carBrand !=null) { %>
-                                                <p>Para vehículos marca: <%= product.carBrand%> </p>
+                                            <% if (product.carBrand != null ) { %>
+                                                <p>Para vehículos marca: <%= product.carBrand %> </p>
                                                 <% } %>
-                                            <% if (product.carModel !=null) { %>
+                                            <% if (product.carModel != null) { %>
                                                 <p>Modelos: <%= product.carModel %> 
-                                                    <% } if (product.Year !=null) { %>
-                                                        <%= product.carYear } } %>  </p>
+                                                    <%} if (product.carYear !== null) { %>
+                                                        <%= product.carYear %>   </p> <% } %>
                                                 
                                         </div> 
                                     </div>
@@ -52,8 +52,8 @@
                                         <% if ( product.quantity > 1 ) { %>
                                             <button type="button" class="quantity-selector">
                                                 <select name="quantity" id="quantity">
-                                                    <% for (let i=0 ; product.quantity< length ; i++) %>
-                                                        <option value="<%=i %>"> <%=i%> </option>
+                                                    <% for (let i=0 ; i< product.quantity ; i++) { %>
+                                                        <option value="<%=i%>"> <%=i%> </option>
                                                         <% } %>
                                                 </select>
                                             </button>
@@ -74,7 +74,7 @@
                             <div class="costs">
                                 <p class="product-value">$ <%= product.price %><span class="on-12-cuotes">($en 12 cuotas sin interés)</span></p>
                             </div>
-                            <% if ( product.quantity>1 ) { %>
+                            <% if ( product.quantity>0 ) { %>
                                 <p class="bold">Stock disponible</p>
                                 <% } %>
                                     <button type="submit" class="buy-button">Comprar $</button>

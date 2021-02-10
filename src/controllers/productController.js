@@ -10,8 +10,8 @@ module.exports = {
         res.render('products', { allProducts });
     },
     productdetail: (req, res) => {
-        let product = products.find(req.params.id)
-        res.render('productDetail', {product: product})
+        let product = products.find(req.params.id);
+        res.render('productDetail', {product}); 
 
     },
     checkout: (req, res) => {
