@@ -382,6 +382,14 @@ padding: 0 0 40px 0;
   background-color: white;
 }
 
+.row-all{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 0;
+  width: 100%;
+}
 
 .col-4 a .text-img h4{ font-size: 14px; }
 
@@ -773,7 +781,7 @@ body div.support a{
   flex-grow: 1;
 }
 .sort {
-  display: block;
+  display: none; /* lo oculte por las palabras de pao sobre esperar q tengamos las herramientas para hacerla funcionar*/
   width:33%;
   padding: 10px 0px;
 }
