@@ -4,16 +4,21 @@ const jsonTable = require('../database/jsonTable');
 const products = jsonTable('spareparts');
 
 module.exports = {
-    detail: (req, res) => {
+    products: (req, res) => {
         // Solicito todos los productos utilizando el método all() dentro del objeto products, que trae la función de trabajos s/json.
         let allProducts = products.all();
-        res.render('product', { allProducts });
+        res.render('products', { allProducts });
+    },
+    productdetail: (req, res) => {
+        let product = products.find(req.params.id)
+        res.render('productDetail', {product: product})
+
     },
     checkout: (req, res) => {
         res.render('cart');
     },
     publish: (req, res) => {
-        res.render('sell');
+        res.render('publish');
     },
     createproduct: (req, res) => {
         let newProduct = {
@@ -47,6 +52,6 @@ module.exports = {
         };
         products.create(newProduct);
         let allProducts = products.all();
-        res.render('product', { allProducts });
+        res.render('products', { allProducts });
     }
 }
