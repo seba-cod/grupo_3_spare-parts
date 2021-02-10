@@ -13,25 +13,25 @@
             <h5>¡Crea tu publicación!</h5>
             <div class="col-1">
               <label for="name">Nombre del producto</label>
-              <input type="text" class="txt_input" name="name" id="name" placeholder="Kit Cree Led S6 Plus / S20" required>
+              <input type="text" class="txt_input" name="name" id="name" placeholder="Kit Cree Led S6 Plus / S20" value="<%= product.name %>" required>
             </div>
             <div class="col-1">
               <label for="description">Descripción</label>
-              <textarea type="text-area" class="text-area-input" name="description" id="description" placeholder="Ingresa una descripción atractiva para tus clientes"required></textarea>
+              <textarea type="text-area" class="text-area-input" name="description" id="description" placeholder="Ingresa una descripción atractiva para tus clientes" value="<%= product.description %>" required></textarea>
             </div>
             <div class="col-1">
               <label for="price">Precio AR$</label>
-              <input type="number" class="txt_input" name="price" id="price" required>
+              <input type="number" class="txt_input" name="price" id="price" value="<%= product.price %>" required>
             </div>
 
             <div class="col-1">
               <label for="categorie">Categoria</label>
               <select class="select-input" name="categorie" id="categorie" placeholder="Selecciona una categoría de producto" required>
-                <option >Seleccionar</option>
-                <option value="motor">Motor</option>
-                <option value="interior">Interior</option>
-                <option value="exterior">Exterior</option>
-                <option value="accesories">Accesorios</option>
+                <option>Seleccionar</option>
+                <option value="motor"<% if ( product.categorie == "motor" ) { %> selected <% } %> >Motor</option>
+                <option value="interior"<% if ( product.categorie == "interior" ) { %> selected <% } %> >Interior</option>
+                <option value="exterior"<% if ( product.categorie == "exterior" ) { %> selected <% } %> >Exterior</option>
+                <option value="accesories"<% if ( product.categorie == "accesories" ) { %> selected <% } %> >Accesorios</option>
               </select>
             </div>
             <div class="col-1">
@@ -45,7 +45,7 @@
               </select>
             </div>
             <div class="col-1">
-              <label for="original">Subí tus imágenes</label>
+              <label for="image">Subí tus imágenes</label>
               <input type="file" name="image" id="image" multiple>
             </div>
             <div class="col-1">
@@ -53,7 +53,7 @@
             </div>
             <div class="col-1">
               <label for="brand">Marca del producto</label>
-              <input type="text" class="txt_input" name="brand" placeholder="SKF, Akrapovich">
+              <input type="text" class="txt_input" name="brand" <% if (product.carBrand != "") { %> value="<%= product.carBrand %>" <% } %> >
             </div>
             <div class="col-1">
               <label for="original">¿Es original?</label>
@@ -65,19 +65,19 @@
 
             <div class="col-1">
               <label for="">Número de pieza</label>
-              <input type="text" class="txt_input" name="piecenumber" placeholder="### ####### ####">
+              <input type="text" class="txt_input" name="piecenumber" <% if (product.piecenumber != "") { %> value="<%= product.piecenumber %>" <% } %> >
             </div>
             <div class="col-1">
               <label for="carBrand">Marca del auto</label>
-              <input type="text" class="txt_input" name="carBrand" placeholder="Volskwagen">
+              <input type="text" class="txt_input" name="carBrand" <% if (product.carBrand != "") { %> value="<%= product.carBrand %>" <% } %> >
             </div>
             <div class="col-1">
               <label for="carModel">Modelo del auto</label>
-              <input type="text" class="txt_input" name="carModel" placeholder="Scirocco">
+              <input type="text" class="txt_input" name="carModel" <% if (product.carModel != "") { %> value="<%= product.carModel %>" <% } %> >
             </div>
             <div class="col-1">
               <label for="carYear">Año</label>
-              <input type="text" class="txt_input" name="carYear" placeholder="2013-2015">
+              <input type="text" class="txt_input" name="carYear" <% if (product.carYear != "") { %> value="<%= product.carYear %>" <% } %> >
             </div>
 
               <input type="submit" value="Publicar">

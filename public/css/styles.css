@@ -4,6 +4,7 @@
 /* Clases genéricas */
 .container{ max-width: 1200px; margin: 0 auto; }
 a { text-decoration: none; }
+
 body{
   background-color: #e3e3e4;
   color: #666;
@@ -419,36 +420,48 @@ padding: 0 0 40px 0;
   border-radius: 10px;
 }
 
+
+
 .form label {
   display: block;
   font-weight: 700;
   padding: 5px 0;
-  cursor: pointer;
-}
-
-.div_radio_profile { font-weight: 700; }
-
-.container_input {
-  position: relative;
-  width:100%;
 }
 
 .txt_input {
   width: 100%;
   background: transparent;
-  border: 0.5px solid black;
-  border-radius: 3%;
+  border: 0.5px solid #e3e3e3;
+  border-radius: 2px;
   height: 35px;
   line-height: 35px;
   padding: 0 40px 0 10px;
   transition: .3s ease all;
+  cursor: pointer;
 }
 
-.txt_input:hover {
-  box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+.select-input{
+  width: 100%;
+  background: transparent;
+  border: 0.5px solid #e3e3e3;
+  border-radius: 2px;
+  padding: 0 40px 0 10px;
+  transition: .3s ease all;
+  cursor:auto;
+}
+.text-area-input{
+  background: transparent;
+  border: 0.5px solid #e3e3e3;
+  border-radius: 2px;
+  transition: .05s all;
+}
+
+.text-area-input:hover{box-shadow: 0px 0px 1px 1px rgb(40, 113, 230);}
+
+.txt_input:hover, .select-input:hover {
+  box-shadow: 0px 0px 1px 1px rgb(40, 113, 230);
   cursor: text;
-  
- }
+}
 
 .txt_error {
   font-size: 12px;
@@ -465,16 +478,6 @@ padding: 0 0 40px 0;
   z-index: 100;
   font-size: 16px;
   opacity: 0;
-}
-
-.formulario__checkbox { margin-right: 20px; }
-
-.div_password,.div_password2,.div_correo,.div_enviar, .div_terminos, .div_nombre_user, .div_radio_profile { grid-column: span 2; }
-
-.div_enviar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .btn_enviar {
@@ -811,11 +814,15 @@ body div.support a{
   justify-content: center;
   padding: 0 0 35px 0;
 }
+.log-reg{
+  padding-top: 30px;
+}
 form div.col-1 label{
   display: block;
   width: 100%;
   margin: 20px 0 3px 0;
 }
+
 
 .container-form form.publish {
   width: 95%;
@@ -828,7 +835,7 @@ form div.col-1 label{
   border-radius: 8px;
   width: 100%;
   justify-content: center;
-  padding: 15px 0 25px 0;
+  padding: 0px 0 25px 0;
 }
 .container .row .col-1{
 width: 100%;
@@ -837,7 +844,6 @@ width: 100%;
   text-align: center;
   font-size: 18px;
   color: #888;
-  margin-block-start: 45px;
   margin-block-end: 0px;
 }
 .container-form form.publish label, .container-form form.publish input, .container-form form.publish textarea, .container-form form.publish select {  padding: 10px 0 ; width: 100%;}
@@ -846,7 +852,19 @@ width: 100%;
   font-weight: bold;
   margin-left: 0px;
 }
+.terms{
+  
+}
 
+.container-form form.publish .terms label{
+  font-size: 14px;
+  text-align: center;
+  padding: 0;
+}
+
+input#terms.check-form{
+  margin-top: 8px;
+}
 .container-form input[type="submit"] {
   margin-top: 15px;
   background-color: lightblue;
@@ -854,6 +872,7 @@ width: 100%;
   box-shadow: 0 0 2px;
   font-weight: bold;
   font-size: 14px;
+  margin-top: 30px;
 }
 
 .container-form input[type="file"]{

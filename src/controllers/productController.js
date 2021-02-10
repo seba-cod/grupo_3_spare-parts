@@ -5,21 +5,25 @@ const products = jsonTable('spareparts');
 
 module.exports = {
     products: (req, res) => {
+        //Renderiza el detalle de todos los productos por get
         // Solicito todos los productos utilizando el método all() dentro del objeto products, que trae la función de trabajos s/json.
         let allProducts = products.all();
         res.render('products', { allProducts });
     },
+    //Renderiza el detalle de un producto por get
     productdetail: (req, res) => {
         let product = products.find(req.params.id);
         res.render('productDetail', {product}); 
-
     },
+    //Renderiza el carrito de compras
     checkout: (req, res) => {
         res.render('cart');
     },
+    //Renderiza la web de creación de producto por get
     publish: (req, res) => {
         res.render('publish');
     },
+    //Crea producto por post
     createproduct: (req, res) => {
         let newProduct = {
             //vendor: req.session.user.id, // linkeo al vendedor
@@ -53,5 +57,9 @@ module.exports = {
         products.create(newProduct);
         let allProducts = products.all();
         res.render('products', { allProducts });
+    },
+    edit: (req, res) => {
+        let product = products.find(req.params.id);
+        res.render('productEdit', {product}); 
     }
 }
