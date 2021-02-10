@@ -536,126 +536,152 @@ body div.car-image-banner img{
   margin: auto;
   height: 400px;
 }
-body section div.main-product-detail{
+.container-detail{
   display: flex;
   flex-wrap: wrap;
   width: 95%;
+  background-color:transparent;
   margin: auto;
+  max-width: 1200px;
   justify-content: center;
-  background-color: white;
+  padding: 5px;
   border-radius: 4px;
-  padding-bottom: 25px;
   border: #333333 1px solid;
   box-shadow: 0 0 4px;
+  justify-content: space-between;;
 }
-/* Manejo la primer sección del lado izquierdo, en cascada modifico sus elementos */
-body section div.left-side-product-detail{
-  display:block;
-  width: 100%;
-}
-/* Ubico y le doy tamaño a la imagen principal */
-body section div.left-side-product-detail div.car-image{
-    width: 100%;
-}
-
-/* Trabajo sobre el texto principal y logo  */
-body section div.left-side-product-detail div.car-brand{
-  display: block;
-  width: 35%;
-  margin: auto;
-}
-p.car-brand{
-  display:inline-block;
-}
-body section div.left-side-product-detail div.car-brand img{
-  width: 100%;
-}
-
-/* Trabajo sobre el articulo y la información del producto */
-body section article div.product-info{
-  padding: 15px 0 10px 0;
-}
-body section article.product-info div p.product-name{
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-body section article.product-info div.product {
-  width: 100%;
-
-}
-body section article.product-info div.product-img-slider{
+.row-product{
   display: flex;
-  width: 70%;
+  flex-wrap: nowrap;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 15%) 0 2px 8px;
+  border-radius: 8px;
+  width: 100%;
+  justify-content: center;
+  padding: 25px 5px;
+}
+.mb5 { margin-bottom: 5px; } /* son las 4.50am, pinto así para separar las cajas */
+/* Manejo la primer sección del lado izquierdo, en cascada modifico sus elementos */
+.row-product .col-1 {
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+}
+.row-product .col-1 .product {
+  flex-basis: 65%;
+  padding-left: 60px;
+}
+.car-brand{
+  flex-basis: 35%;
   margin: auto;
 }
-body section article.product-info div.product-img-slider img{
+.car-brand img{
   width: 100%;
 }
+.row-product .col-1 .product h5{
+  font-size: 24px;
+  margin-block-start: 15px;
+  margin-block-end: 0;
+}
+.row-product .col-1 .product p{
+  margin-block-start: 5px;
+  margin-block-end: 10px;
+  font-style: italic;
+}
+form .quantity{
+  border: 0.5px solid #e3e3e3
+}
+.quantity-selector{
+  width: 300px;
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  padding: 0 40px 0 10px;
+  transition: .3s ease all;
+  cursor:auto;
+}
+button[type="button"] .quantity-selector {
+  border: none;
+}
 
-body section article.product-info div.product-info{
+/* detalle producto: opciones de compra y contacto */
+
+.buy-options{
+  flex-basis: 70%;
+  justify-items: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+.buy-options .costs{
   width: 100%;
-  margin-left: 5%;
-}
 
-body section article.product-info form{
-  width: 100%;
-  margin-left: 5%;
 }
-
-body section article.product-info button{
- background-color: #fff;
- border: none;
-}
-body section article.product-info button select{
-  padding: 2px 6px;
-  border-radius: 6px;
-}
-
-
-/* Manejo la sección del lado derecho */
-body section div.right-side-product-detail{
+.buy-options .costs p{
+  display:block;
+  text-align: center;
   width: 100%;
 }
-body section div.right-side-product-detail div.costs{
-  width: 100%;
-  margin-left: 5%;
-}
-body section div.right-side-product-detail div.costs p{
+p .product-value #text{
   font-size: 20px;
   font-weight: bold;
-  width: 100%;
-  margin-left: 20px;
 }
 
-body section div.right-side-product-detail div.costs span.on-12-cuotes{
-  font-size: 12px;
-  width: 75%;
-  color: rgba(22, 218, 22, 0.753);
+.contact{
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 25%;
+  justify-content: center;
+  padding-right: 15px;
 }
-body section div.right-side-product-detail p.bold{
+.contact p{
+  display:block;
   text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-}
-body section div.right-side-product-detail button{
-  display: block;
+  margin-top: 60px;
   width: 100%;
-  padding: 10px 0px 10px 0px;
 }
-button.buy-button{
-  background-color: rgba(192, 240, 61, 0.972);
-  text-shadow: 0 0 1px;
-  border-radius: 5px;
-}
-button.add-to-cart-button{
-  background-color: rgba(106, 176, 233, 0.445);
-  border-radius: 5px;
-}
-button.contact-seller{
+.contact button {
+  border: none;
+  width: 100%;
+  padding: 10px 0;
   background-color: rgba(216, 212, 212, 0.424);
   border-radius: 5px;
 }
+.buttons-buy{
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+button.buy-button{
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px 0px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  background-image: linear-gradient(to right, #394dc0 0%, #2badab  51%, #2d3d95  100%);
+  transition: .5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+}
+button.buy-button:hover{
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+button.add-to-cart-button{
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px 0px;
+  vertical-align: bottom;
+  font-weight: 600;
+  background-color: #e3e3e3;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+}
+
   /* Manejo la sección del lado inferior */
 body section.bottom{
   width: 80%;
@@ -731,23 +757,7 @@ body div.confirm-purchase{
   width: 90%;
   padding: 20px 0px;
 }
-/* Aca tengo que escribir como se muestran los datos de costo, el precio en tamaño X, el precio en cuotas y lo del envío en tamaño 80% de X 
-body div.confirm-purchase div.cost{
 
-}*/
-
-/* Acá tengo que escribir como se ubica el botón de compra y su leyenda 
-body div.confirm-purchase div.buy{
-
-}*/
-/* Estilo sobre el boton de compra 
-body div.confirm-purchase div.buy input {
-
-}*/
-/* Estilo sobre la caja donde esta el boton de soporte 
-body div.support{
-
-}*/
 body div.support a{
   text-decoration: none;
   font-size: 12px;

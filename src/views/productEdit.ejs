@@ -9,7 +9,7 @@
         <!-- <h2>Creación de producto</h2> -->
         <div class="row">
 
-           <form action="/publicar" METHOD="POST" class="publish" id="form" >
+           <form action="/detalle/<%= product.id %>?_method=PUT" METHOD="POST" class="publish" id="form" >
             <h5>¡Crea tu publicación!</h5>
             <div class="col-1">
               <label for="name">Nombre del producto</label>

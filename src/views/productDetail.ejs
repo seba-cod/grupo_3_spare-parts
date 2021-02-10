@@ -1,59 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head') %>
-
     <body>
         <%- include('./partials/header') %>
-
             <div class="ubication-product-detail box-in-site">
                 Repuestos > Motor > Bujias (listado)
             </div>
             <div class="car-image-banner">
                 <img src="./images/productDetail/car-photo.jpg" alt="Imagen del auto">
             </div>
-            <section class="container">
-            <div class="main-product-detail">
-
-                    <div class="left-side-product-detail">
-                      
-
-                        <div class="car-brand">
-                            <img src="./images/productDetail/audi-logo.png" alt="car-brand-logo">
-                        </div>
-
-                        <article class="product-info">
-                            <div>
-                                    <p class="product-name">
-                                        <%= product.name %>
-                                    </p> 
-                                    <div class="product">
-                                        <div class="product-img-slider">
-                                          
+            <div class="container-detail">
+                <div class="row-product mb5">
+                        <div class="col-1">
+                            <div class="car-brand">
+                                <img src="./images/productDetail/audi-logo.png" alt="car-brand-logo">
+                            </div>
+                                <div class="product">
+                                    <h5 class="product-name"><%= product.name %> </h5>
+                                    <div>
                                             <img src="./images/productDetail/product-image-1.JPG" alt="">
-                                        </div>
                                         <div class="product-info">
                                             <p>Marca: <%= product.brand %> </p>
                                             <p>Modelo: <%= product.piecenumber %> </p>
                                             <p>Original: <%= product.original %> </p>
                                             <p>Descripción: <%= product.description %> </p>
-                                            <% if (product.carBrand != null ) { %>
-                                                <p>Para vehículos marca: <%= product.carBrand %> </p>
-                                                <% } %>
-                                            <% if (product.carModel != null) { %>
-                                                <p>Modelos: <%= product.carModel %> 
-                                                    <%} if (product.carYear !== null) { %>
-                                                        <%= product.carYear %>   </p> <% } %>
-                                                
-                                        </div> 
+                                            <% if (product.carBrand !=null ) { %> 
+                                            <p>Para vehículos marca: <%= product.carBrand %> </p>
+                                                <% } %> <% if (product.carModel !=null) { %> 
+                                            <p>Modelos: <%= product.carModel %>
+                                                <%} if (product.carYear !==null) { %>
+                                                        <%= product.carYear %> </p> <% } %>
+                                        </div>
                                     </div>
 
                                     <form action="" class="quantity">
                                         <span>Cantidad:</span>
-                                        <% if ( product.quantity > 1 ) { %>
+                                        <% if ( product.quantity> 1 ) { %>
+
                                             <button type="button" class="quantity-selector">
-                                                <select name="quantity" id="quantity">
+                                                <select class="select-input" name="quantity" id="quantity">
                                                     <% for (let i=0 ; i< product.quantity ; i++) { %>
-                                                        <option value="<%=i%>"> <%=i%> </option>
+                                                        <option value="<%=i%>">
+                                                            <%=i%>
+                                                        </option>
                                                         <% } %>
                                                 </select>
                                             </button>
@@ -61,35 +50,30 @@
                                                 <span>No hay Stock disponible</span>
                                                 <% } %>
                                     </form>
+                                </div>
                             </div>
-                            <div class="product-review">
-                             
-                            </div>
-                        </article>
-
-                    </div> 
-
-                    <div class="right-side-product-detail">
-                        <div class="buy-options">
-                            <div class="costs">
-                                <p class="product-value">$ <%= product.price %><span class="on-12-cuotes">($ <%= product.price/12 %> en 12 cuotas sin interés)</span></p>
-                            </div>
-                            <% if ( product.quantity>0 ) { %>
-                                <p class="bold">Stock disponible</p>
-                                <% } %>
+                        </div>
+                <div class="row-product">
+                        <div class="col-1">
+                            <div class="buy-options">
+                                <div class="costs">
+                                    <p class="product-value">$ <%= product.price %><span class="on-12-cuotes">($ <%= product.price/12 %> en 12 cuotas sin interés)</span></p>
+                                    <% if ( product.quantity>0 ) { %>
+                                        <p class="bold">Stock disponible</p>
+                                    <% } %>
+                                </div>
+                                <div class="buttons-buy">
                                     <button type="submit" class="buy-button">Comprar $</button>
                                     <button type="submit" class="add-to-cart-button">Agregar al carrito</button>
-                        </div>
-
-                        <div class="contact">
-                            <p class="bold">¿Tenés dudas sobre el producto?</p>
-                            <button type="submit" class="contact-seller">Contactate con el vendedor</button>
+                                </div>
+                            </div>
+                            <div class="contact">
+                                <p class="bold">¿Tenés dudas sobre el producto?</p>
+                                <button type="submit">Contactate con el vendedor</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-
             <section class="bottom">
                 <div class="bottom-side-product-detail">
                     <article>
@@ -106,9 +90,6 @@
                     </article>
                 </div>
             </section>
-
             <%- include('./partials/footer') %>
-
     </body>
-
 </html>
