@@ -786,12 +786,8 @@ body div.confirm-purchase{
 /* Hasta acá escribo las líneas del carrito de compras */
 
 /*CSS PRODUCTO SECTION*/
-.product-filter {
-  display: flex;
-}
-.product-filter h1 {
-  flex-grow: 1;
-}
+.product-filter { display: flex; }
+.product-filter h1 { flex-grow: 1; }
 .sort {
   display: none; /* lo oculte por las palabras de pao sobre esperar q tengamos las herramientas para hacerla funcionar*/
   width:33%;

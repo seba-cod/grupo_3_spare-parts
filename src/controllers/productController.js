@@ -66,17 +66,17 @@ module.exports = {
         let product = req.body;
         product.id = Number(req.params.id);
 
-        // Si viene una imagen nueva la guardo
-        if (req.file) {
-            user.image = req.file.filename;
-        // Si no viene una imagen nueva, busco en base la que ya había
-        } else {
-            oldUser = usersTable.find(user.id);
-            user.image = oldUser.image;
-        }
+        // // Si viene una imagen nueva la guardo
+        // if (req.file) {
+        //     user.image = req.file.filename;
+        // // Si no viene una imagen nueva, busco en base la que ya había
+        // } else {
+        //     oldUser = products.find(user.id);
+        //     user.image = oldUser.image;
+        // }
 
         let productId = products.update(product);
 
-        res.redirect('/editar' + productId);
+        res.redirect(productId + '/editar');
     },
 }

@@ -23,7 +23,7 @@ router.get(['/:id/detalle', '/:id/producto'], productController.productdetail); 
 router.get('/publicar', productController.publish);
 router.post('/publicar', /*upload.any() ,*/ productController.createproduct);
 router.get('/:id/editar', productController.edit);
-router.put('/:id/detalle', /*upload.any() ,*/ productController.update);
+router.put('/:id', /*upload.any() ,*/ productController.update);
 
 //Rutas user logueado
 router.get(['/cart', '/checkout', '/carrito'], productController.checkout);
