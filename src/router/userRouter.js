@@ -24,6 +24,7 @@ const validationsRegister = require('../validations/validations')
 // Rutas
 const userController = require('../controllers/userController');
 
+
 router.get(['/login', '/ingreso'], userController.login);
 router.post(['/login', '/ingreso'], userController.auth);
 router.get(['/register', '/registro'], userController.register);

@@ -3,12 +3,29 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
+const session = require ('express-session');
+const auth = require ('./src/middleware/auth')
+
+
+
+
+
 
 // Configuro el directorio de recursos estaticos
 app.use(express.static('public'));
 // Configuro EJS
 app.set('view engine', 'ejs');
 app.set('views','./src/views');
+
+//Seciones y cookies
+app.use(session({
+    secret: 'Spare Parts',
+    resave: false, // no vuelve a guardar si no hay cambios
+    saveUninitialized: true, // guarda sessiones aunque todavía no haya datos
+}));
+//requiero middelware
+app.use(auth);
+
 
 // Formularios
 app.use(express.urlencoded({ extended: false }));
@@ -23,6 +40,8 @@ const product = require('./src/router/productRouter');
 app.use('/', main);
 app.use('/', user);
 app.use('/', product);
+
+
 
 // Levanto Servidor
 app.listen(3000, () => { 
