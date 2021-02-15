@@ -3,6 +3,10 @@ const path = require ('path');
 const jsonTable = require('../database/jsonTable');
 const products = jsonTable('spareparts');
 
+//Validaciones
+const bcrypt = require('bcryptjs');
+const { validationResult } = require('express-validator')
+
 module.exports = {
     products: (req, res) => {
         //Renderiza el detalle de todos los productos por get
@@ -25,6 +29,9 @@ module.exports = {
     },
     //Crea producto por post
     createproduct: (req, res) => {
+        let errors = validationResult(req);
+        // Me fijo si no hay errores
+        if (errors.isEmpty()) {
         let newProduct = {
             //vendor: req.session.user.id, // linkeo al vendedor
             name: req.body.name,
@@ -57,6 +64,11 @@ module.exports = {
         products.create(newProduct);
         let allProducts = products.all();
         res.render('products', { allProducts });
+    }  
+    else {
+        return res.render('publish', { errors: errors.mapped(), old: req.body }); 
+        // ACÁ HAY ALGO QUE NO ME ESTÁ FUNCIONANDO
+    }
     },
     edit: (req, res) => {
         let product = products.find(req.params.id);

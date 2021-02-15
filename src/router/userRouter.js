@@ -18,7 +18,7 @@ const uploadFile = multer ({ storage });
 
 // Express Validator
 
-const { body } = require('express-validator')
+const { check } = require('express-validator')
 
 const validationsRegister = require('../validations/validations')
 // Rutas
