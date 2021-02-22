@@ -7,11 +7,14 @@ const session = require ('express-session');
 const auth = require ('./src/middleware/auth')
 const cookieParser = require('cookie-parser')
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> b2320c674f8114ffa11af1d69192afa38abd328f
 // Configuro el directorio de recursos estaticos
 app.use(express.static('public'));
 // Configuro EJS
@@ -30,7 +33,10 @@ app.use(auth);
 //Cookie parser
 app.use(cookieParser());
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b2320c674f8114ffa11af1d69192afa38abd328f
 // Formularios
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
