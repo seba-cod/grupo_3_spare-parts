@@ -14,14 +14,38 @@
             <div class="col-1">
               <label for="name">Nombre del producto</label>
               <input type="text" class="txt_input" name="name" id="name" placeholder="Kit Cree Led S6 Plus / S20" required>
+
+              <!-- ejs validaciones-->
+              <% if (locals.errors && errors.name) { %>
+                <div class="text-danger">
+                  <%= errors.name.msg %>
+                </div>
+              <% } %>
+              <!-- ejs validaciones-->
             </div>
+
             <div class="col-1">
               <label for="description">Descripción</label>
               <textarea type="text-area" class="text-area-input" name="description" id="description" placeholder="Ingresa una descripción atractiva para tus clientes"required></textarea>
+              <!-- ejs validaciones-->
+              <% if (locals.errors && errors.description) { %>
+                <div class="text-danger">
+                  <%= errors.description.msg %>
+                </div>
+              <% } %>
+              <!-- ejs validaciones-->
             </div>
+
             <div class="col-1">
               <label for="price">Precio AR$</label>
               <input type="number" class="txt_input" name="price" id="price" required>
+              <!-- ejs validaciones-->
+              <% if (locals.errors && errors.price) { %>
+                <div class="text-danger">
+                  <%= errors.price.msg %>
+                </div>
+              <% } %>
+              <!-- ejs validaciones-->
             </div>
 
             <div class="col-1">
@@ -33,7 +57,15 @@
                 <option value="exterior">Exterior</option>
                 <option value="accesories">Accesorios</option>
               </select>
+              <!-- ejs validaciones-->
+              <% if (locals.errors && errors.categorie) { %>
+                <div class="text-danger">
+                  <%= errors.categorie.msg %>
+                </div>
+              <% } %>
+              <!-- ejs validaciones-->
             </div>
+
             <div class="col-1">
               <label for="quantity">Cantidad</label>
               <select class="select-input" name="quantity" id="quantity" placeholder="Disponibles" required>
@@ -43,6 +75,13 @@
                   </option>
                   <% } %>
               </select>
+              <!-- ejs validaciones-->
+              <% if (locals.errors && errors.quantity) { %>
+                <div class="text-danger">
+                  <%= errors.quantity.msg %>
+                </div>
+              <% } %>
+              <!-- ejs validaciones-->
             </div>
             <div class="col-1">
               <label for="original">Subí tus imágenes</label>

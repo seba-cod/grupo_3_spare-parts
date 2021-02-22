@@ -12,6 +12,13 @@ const storage = multer.diskStorage ({
         cb(null, fileName)
     } });
 const upload = multer ({ storage });
+
+// Express Validator
+
+const { check } = require('express-validator')
+
+const validationsRegister = require('../validations/validations')
+
 //Requerimos el controlador
 const productController = require('../controllers/productController');
 
@@ -21,7 +28,7 @@ router.get(['/:id/detalle', '/:id/producto'], productController.productdetail); 
 
 //Rutas vendedor
 router.get('/publicar', productController.publish);
-router.post('/publicar', /*upload.any() ,*/ productController.createproduct);
+router.post('/publicar',/*uploadFile.any('image') ,*/ validationsRegister.createProduct, productController.createproduct);
 router.get('/:id/editar', productController.edit);
 router.put('/:id', /*upload.any() ,*/ productController.update);
 
