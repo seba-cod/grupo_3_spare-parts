@@ -1,4 +1,4 @@
-const jsonTable = require('../database/jsonTable');
+ const jsonTable = require('../database/jsonTable');
 const userTable = jsonTable('users');
 const bcrypt = require('bcryptjs');
 
@@ -9,12 +9,16 @@ module.exports = {
         res.render('login');
     },
     auth: (req, res) => {
+        //verificar los datos del usuario
         let user;
         user = userTable.forEach(userNow = userNow.user_name == req.body.user_name)
         
         if (user !=undefined) {
             user.password == req.body.password 
         }
+        req.session.user = user;
+        //redireccionar
+        res.redirect('/')
         
     },
     register: (req, res) => {
