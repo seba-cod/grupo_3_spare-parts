@@ -5,6 +5,7 @@ const app = express();
 const methodOverride = require('method-override');
 const session = require ('express-session');
 const auth = require ('./src/middleware/auth')
+const cookieParser = require('cookie-parser')
 
 
 
@@ -25,6 +26,9 @@ app.use(session({
 }));
 //requiero middelware
 app.use(auth);
+
+//Cookie parser
+app.use(cookieParser());
 
 
 // Formularios

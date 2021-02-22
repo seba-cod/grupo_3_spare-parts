@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 //Para manejo de archivos traemos multer
 const multer = require('multer')
+
 const storage = multer.diskStorage ({
     destination: (req,file, cb) => {
         cb(null, path.join(__dirname, '../../public/images/products'))

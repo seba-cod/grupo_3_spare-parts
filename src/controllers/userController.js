@@ -17,8 +17,11 @@ module.exports = {
             user.password == req.body.password 
         }
         req.session.user = user;
+        
+        res.cookie('rememberToken', token, { maxAge: 1000 * 60  * 60 *  24 * 90 });
         //redireccionar
         res.redirect('/')
+
         
     },
     register: (req, res) => {
