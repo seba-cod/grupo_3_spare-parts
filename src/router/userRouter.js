@@ -32,8 +32,7 @@ router.post(['/login', '/ingreso'], userController.auth);
 
 //muestra form de register
 router.get(['/register', '/registro'], userController.register);
-
-//proceso form de login
+//proceso form de register
 router.post(['/register', '/registro'], uploadFile.single('user_avatar'), validationsRegister.register, userController.create);
 
 
