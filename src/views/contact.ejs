@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+  <body>
+    <%- include('./partials/header') %>
+      <div class="container-form log-reg">
+        <div class="row">
+          <form action="/contact" class="publish" id="contactForm" method="POST">
+            <div id="anon-name" class="col-1">
+              <label for="anon-name">Nombre completo</label>
+              <div>
+                <input type="text" class="txt_input" name="anon-name" id="anon-name">
+              </div>
+              <div id="anon-email" class="col-1">
+                <label for="anon-email">Dejanos tu correo para contactarnos</label>
+                <div>
+                  <input type="text" class="txt_input" name="anon-email" id="anon-email">
+                </div>
+              </div>
+              <div id="msg" class="col-1">
+                <label for="msg">Ingresá tu consulta, a la brevedad nos pondremos en contacto</label>
+                <div>
+                  <textarea form='contactForm' class="txt_input" name="msg" id="msg"></textarea>
+                </div>
+              </div>
+              <input type="submit" value="Enviar" class="ok-input">
+          </form>
+        </div>
+      </div>
+      </div>
+      <%- include('./partials/footer') %>
+  </body>
+
+</html>

@@ -989,3 +989,6 @@ input[type="submit"].admin{
 .about .col-1{
   border-top: rgb(0 0 0 / 15%) dotted 0.1rem;
 }
+form div textarea {
+  min-height: 120px;
+}
