@@ -960,3 +960,32 @@ input[type="submit"].admin{
 .danger{
   background-color: rgb(226, 88, 88);
 }
+
+.about{
+  background-color: rgba(255, 255, 255, 0.575);
+  box-shadow: rgb(0 0 0 / 15%) 0 2px 8px;
+  border-radius: 8px;
+  width: 100%;
+  padding: 0px 0 25px 25px;
+  margin-top: 25px;
+}
+.about h4{
+  text-align: left;
+  font-size: 20px;
+  color: #888;
+  margin-block-end: 10px;
+}
+.about ul li {
+  list-style-type: square;
+}
+.about p{
+  text-align: left;
+  font-size: 18px;
+  color: #777;
+  margin-block-end: 10px;
+  margin-block-start: 0px;
+  padding: 5px 0 0 10px;
+}
+.about .col-1{
+  border-top: rgb(0 0 0 / 15%) dotted 0.1rem;
+}
