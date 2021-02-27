@@ -7,7 +7,8 @@
   "email": "rpridham0@prlog.org",
   "address": "7036 Hazelcrest Hill",
   "tel": "(159) 3359244",
-  "password": "111"
+  "password": "111",
+  "avatar": "default.png" 
  },
  {
   "id": 2,
@@ -17,17 +18,8 @@
   "email": "bdionisi1@blinklist.com",
   "address": "7425 Lindbergh Drive",
   "tel": "(906) 1542433",
-  "password": "n9rQVmMC"
- },
- {
-  "id": 3,
-  "user_name": "lvaan2",
-  "first_name": "Leena",
-  "last_name": "Vaan",
-  "email": "lvaan2@google.nl",
-  "address": "8257 Declaration Trail",
-  "tel": "(896) 3555529",
-  "password": "k9qmUJ"
+  "password": "n9rQVmMC",
+  "avatar": "default.png"
  },
  {
   "id": 4,
@@ -37,7 +29,8 @@
   "email": "aalessandrini3@facebook.com",
   "address": "69 Evergreen Alley",
   "tel": "(553) 3136252",
-  "password": "UbcPgaL"
+  "password": "UbcPgaL",
+  "avatar": "default.png"
  },
  {
   "id": 5,
@@ -47,7 +40,8 @@
   "email": "mpregel4@sourceforge.net",
   "address": "740 Packers Trail",
   "tel": "(709) 9036633",
-  "password": "lepnPryvdFG"
+  "password": "lepnPryvdFG",
+  "avatar": "default.png"
  },
  {
   "id": 6,
@@ -57,7 +51,8 @@
   "email": "sswigger5@angelfire.com",
   "address": "53 Graedel Avenue",
   "tel": "(328) 9128415",
-  "password": "p6KXxA"
+  "password": "p6KXxA",
+  "avatar": "default.png"
  },
  {
   "id": 7,
@@ -67,7 +62,8 @@
   "email": "jthomel6@is.gd",
   "address": "24 Orin Hill",
   "tel": "(778) 3165678",
-  "password": "BItBKZPoL"
+  "password": "BItBKZPoL",
+  "avatar": "default.png"
  },
  {
   "id": 8,
@@ -77,7 +73,8 @@
   "email": "mproswell7@w3.org",
   "address": "3694 Caliangt Point",
   "tel": "(317) 6543910",
-  "password": "Gl8VxCX"
+  "password": "Gl8VxCX",
+  "avatar": "default.png"
  },
  {
   "id": 9,
@@ -87,7 +84,8 @@
   "email": "jputson8@cam.ac.uk",
   "address": "242 Heath Parkway",
   "tel": "(875) 8682092",
-  "password": "NH5zTM"
+  "password": "NH5zTM",
+  "avatar": "default.png"
  },
  {
   "id": 10,
@@ -97,80 +95,7 @@
   "email": "fmatijevic9@oracle.com",
   "address": "9282 Debra Hill",
   "tel": "(923) 4385421",
-  "password": "cgRqITKs"
- },
- {
-  "user_name": "asdsad",
-  "first_name": "asd",
-  "last_name": "sadd",
-  "email": "asdasd@asd",
-  "address": "asd ",
-  "password": "asdasdasd",
-  "user_avatar": "",
-  "id": 11
- },
- {
-  "user_name": "asdas",
-  "first_name": "asds",
-  "last_name": "sadas",
-  "email": "sad@asd",
-  "address": "sad",
-  "password": "dsa",
-  "user_avatar": "",
-  "id": 12
- },
- {
-  "user_name": "Fbas",
-  "first_name": "a",
-  "last_name": "s",
-  "email": "un@email.com",
-  "address": "asdas",
-  "password": "",
-  "id": 13
- },
- {
-  "user_name": "",
-  "first_name": "",
-  "last_name": "",
-  "email": "",
-  "address": "",
-  "password": "",
-  "id": 14
- },
- {
-  "user_name": "",
-  "first_name": "",
-  "last_name": "",
-  "email": "",
-  "address": "",
-  "password": "",
-  "id": 15
- },
- {
-  "user_name": "Fbas",
-  "first_name": "fd",
-  "last_name": "",
-  "email": "d@as.com",
-  "address": "",
-  "password": "",
-  "id": 16
- },
- {
-  "user_name": "sA",
-  "first_name": "",
-  "last_name": "",
-  "email": "",
-  "address": "",
-  "password": "",
-  "id": 17
- },
- {
-  "user_name": "a",
-  "first_name": "",
-  "last_name": "",
-  "email": "",
-  "address": "",
-  "password": "",
-  "id": 18
+  "password": "cgRqITKs",
+  "avatar": "default.png"
  }
 ]

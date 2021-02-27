@@ -1,42 +1,29 @@
 const express = require('express');
 const router = express.Router();
-
-// Multer + Storage + Subir Imágenes
-const multer = require('multer')
-const path = require('path')
-const storage = multer.diskStorage ({
-    destination: (req,file, cb) => {
-        cb(null, './public/images/avatars')
-    },
-    filename: (req, file,cb) => {
-        let fileName = 'user-' + Date.now() + path.extname(file.originalname)
-        cb(null, fileName)
-    }
-})
-
-const uploadFile = multer ({ storage });
-
+const path = require('path');
+// Requiero multer: storage 
+const upload = require('../database/helpers/storage');
 // Express Validator
-
 const { check } = require('express-validator')
-
 const validationsRegister = require('../validations/validations')
-// Rutas
+
+// Controlador
 const userController = require('../controllers/userController');
 
-
-//muestra form de login
+// muestra form de login
 router.get(['/login', '/ingreso'], userController.login);
-//proceso form de login
+// proceso form de login
 router.post(['/login', '/ingreso'], userController.auth);
 
-//muestra form de register
+// muestra form de register
 router.get(['/register', '/registro'], userController.register);
-//proceso form de register
-router.post(['/register', '/registro'], uploadFile.single('user_avatar'), validationsRegister.register, userController.create);
+// proceso form de register
+router.post(['/register', '/registro'], upload.single('user_avatar'), validationsRegister.register, userController.create);
 
+router.get(['/admin/all', '/admin/todos'], userController.adminAll);
+router.get(['/admin/detail/:id', '/admin/detalle/:id'], userController.detail);
+router.get(['/admin/edit/:id', '/admin/editar/:id'], userController.edit);
+router.delete(['/admin/detalle/:id', '/admin/detalle/:id'], userController.delete);
 
-
-// crear usuario, editar usuario, borrar usuario
 
 module.exports = router;

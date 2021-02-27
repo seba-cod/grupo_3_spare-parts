@@ -36,8 +36,8 @@ const product = require('./src/router/productRouter');
 
 // Vinculo el Modelo al Controlador
 app.use('/', main);
-app.use('/', user);
-app.use('/', product);
+app.use('/user', user);
+app.use('/product', product);
 
 // Levanto Servidor
 app.listen(3000, () => { 

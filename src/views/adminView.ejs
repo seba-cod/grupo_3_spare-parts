@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+  <body>
+    <%- include('./partials/header') %>
+      <div class="container-admin">
+        <% users.forEach(user=> {%>
+          <div class="row-admin">
+            <div class="card_img">
+              <img src="../../images/avatars/<%=user.avatar%>" alt="">
+            </div>
+            <div class="card">
+              <h4>
+              Nombre de Uario:  <%= user.user_name %>
+              </h4>
+              <p>Correo electrónico: <%= user.email %>
+              </p>
+            </div>
+            <div class="admin">
+                <a href="/user/admin/detail/<%= user.id %>"><input type="submit" value="Detalle" class="admin ok"></a>
+              </form>
+            </div>
+          </div>
+          <% } ) %>
+      </div>
+      <%- include('./partials/footer') %>
+  </body>
+
+</html>

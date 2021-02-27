@@ -903,3 +903,60 @@ input#terms.check-form{
   width: 100%;
   margin-left: 25px;
 }
+
+
+
+.container-admin{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  max-width: 800px;
+  padding: 0 0 35px 0;
+}
+
+.row-admin{
+  display: flex;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 15%) 0 2px 8px;
+  border-radius: 8px;
+  width: 100%;
+  justify-content: left;
+  margin: 15px 0 15px 0;
+  align-content: center;
+}
+.row-admin button{
+  display:flex;
+  flex-basis: 40%;
+}
+.card{
+  width: 100%;
+  flex-basis: 50%;
+}
+.card_img{
+  margin: auto 30px auto 15px;
+  width: 100%;
+  flex-basis: 15%;
+}
+.card_img img{
+  border-radius: 30%;
+  width: 100%;
+  max-width: 150px;
+}
+.admin{
+  flex-basis: 35%;
+  align-self: space-between;
+  margin: 10px  0;
+  width: 100%;
+}
+/* background-image: linear-gradient(to right, #ffffff 0%,#badfde 20%, #394dc0  100%); */
+input[type="submit"].admin{
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px 0px;
+  margin-bottom: 4px;
+}
+.danger{
+  background-color: rgb(226, 88, 88);
+}

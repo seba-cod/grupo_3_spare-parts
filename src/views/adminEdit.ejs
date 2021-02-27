@@ -5,23 +5,13 @@
     <%- include('./partials/header') %>
       <div class="container-form  log-reg">
         <div class="row">
-          <form action="/user/register" METHOD="POST" class="publish" id="regform" enctype="multipart/form-data">
-            <h5>Registración</h5>
-            <div id="user_name" class="col-1">
-              <label for="user_name">Nombre de Usuario</label>
-              <div>
-                <input type="text" class="txt_input" name="user_name" id="user_name">
-              </div>
-              <% if (locals.errors && errors.user_name) { %>
-                <div class="text-danger">
-                  <%= errors.user_name.msg %>
-                </div>
-                <% } %>
-            </div>
+          <form action="/<%= user.id %>?_method=PUT" METHOD="POST" class="publish" id="form" >
+            <h5>Edición de Usuario: <%= user.user_name %> </h5>
+
             <div id="first_name" class="col-1">
               <label for="first_name">Nombre/s</label>
               <div>
-                <input type="text" class="txt_input" name="first_name" id="first_name">
+                <input type="text" class="txt_input" name="first_name" id="first_name" value="<%=user.user_name%>">
               </div>
               <% if (locals.errors && errors.first_name) { %>
                 <div class="text-danger">
@@ -32,7 +22,7 @@
             <div id="last_name" class="col-1">
               <label for="last_name">Apellido/s</label>
               <div>
-                <input type="text" class="txt_input" name="last_name" id="last_name">
+                <input type="text" class="txt_input" name="last_name" id="last_name"  value="<%=user.last_name%>">
               </div>
               <% if (locals.errors && errors.last_name) { %>
                 <div class="text-danger">
@@ -43,7 +33,7 @@
             <div id="email" class="col-1">
               <label for="correo">Correo Electrónico</label>
               <div class="container_input">
-                <input type="email" class="txt_input" name="email" id="email" placeholder="ejemplo@email.com">
+                <input type="email" class="txt_input" name="email" id="email" value="<%=user.email%>">
               </div>
               <% if (locals.errors && errors.email) { %>
                 <div class="text-danger">
@@ -54,7 +44,7 @@
             <div id="address" class="col-1">
               <label for="address">Dirección</label>
               <div class="container_input">
-                <input type="text" class="txt_input" name="address" id="address" placeholder="Calle # - CP - Localidad">
+                <input type="text" class="txt_input" name="address" id="address" <% if (user.address) { %> value="<%=user.last_name%>" <% } %> placeholder="Calle # - CP - Localidad" >
               </div>
               <% if (locals.errors && errors.address) { %>
                 <div class="text-danger">
