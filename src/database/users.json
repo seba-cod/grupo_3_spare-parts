@@ -7,8 +7,8 @@
   "email": "rpridham0@prlog.org",
   "address": "7036 Hazelcrest Hill",
   "tel": "(159) 3359244",
-  "password": "111",
-  "avatar": "default.png" 
+  "password": "12345678",
+  "avatar": "default.png"
  },
  {
   "id": 2,
@@ -97,5 +97,38 @@
   "tel": "(923) 4385421",
   "password": "cgRqITKs",
   "avatar": "default.png"
+ },
+ {
+  "user_name": "Prueba1",
+  "first_name": "Prueba1",
+  "last_name": "Prueba1",
+  "email": "Prueba1@gmail.com",
+  "address": "Prueba1",
+  "password": "12345678",
+  "repassword": "12345678",
+  "terms": "on",
+  "id": 11
+ },
+ {
+  "user_name": "usuario1234",
+  "first_name": "Deusuario",
+  "last_name": "Apellido",
+  "email": "prueba2@msn.com",
+  "address": "Calle falsa 2929292",
+  "password": "12345678",
+  "repassword": "12345678",
+  "terms": "on",
+  "id": 12
+ },
+ {
+  "user_name": "usuario1234",
+  "first_name": "Deusuario",
+  "last_name": "Apellido",
+  "email": "prueba2@msn.com",
+  "address": "Calle falsa 2929292",
+  "password": "12345678",
+  "repassword": "12345678",
+  "terms": "on",
+  "id": 13
  }
 ]

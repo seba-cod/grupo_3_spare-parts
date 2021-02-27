@@ -5,62 +5,107 @@ const { validationResult } = require('express-validator');
 
 module.exports = {
     login: (req, res) => {
+        // Se renderiza por GET
         res.render('login');
     },
     auth: (req, res) => {
-        //verificar los datos del usuario
-        let user = undefined;
-        let allUsers = userTable.all();
-        user = allUsers.forEach(userNow => userNow.user_name == req.body.user_name)
-
-        if (user != undefined) {
-            if (user.password == req.body.password) {
-                req.session.user = user;
+    // Método por POST para envío de form
+        // Utilizo express validator para cargar los errores
+        let errors = validationResult(req);
+        // Declaro un usuario, recupero el email del body y encuentro al usuario buscado
+        let userWanted;
+        let email = req.body.email;
+        userWanted = userTable.emailFind(email);
+        // Si lo encontré verifico la contraseña y le cargo los datos en session
+        if (userWanted) {
+            if (userWanted.password == req.body.password) {
+                req.session.user = userWanted;
+                return res.redirect('/')
             }
+        // Render de form con datos ya ingresados
+        } else { 
+            res.render('login', { 
+                errors: errors.mapped(), 
+                old: req.body 
+                }
+            )
         }
-        // else { res.render ('login', { 
-        //         errors: { user_name: { msg: 'No te encuentras registrado' }, password: { msg: 'La contraseña es incorrecta'} }  }  )  }
-
-
-        //redireccionar
-        res.send(allUsers)
+    },
+    logout: (req, res) => {
+        // Borro session actual, ¿intento borrar cookies?
+        req.session.destroy();
+        res.clearCookie("/");
+        // Intento redirigir al home pero no funciona-revisar
+        res.redirect('/');
     },
     register: (req, res) => {
+        // Se renderiza por GET
         res.render('register');
     },
     create: (req, res) => {
-        // intento de validación
-        // Valido los campos
+    // Método por POST para envío de form
+        // Utilizo express validator para cargar los errores
         let errors = validationResult(req);
-
-        // Me fijo si no hay errores
+        // Atajo ruta en primer ingreso
         if (errors.isEmpty()) {
             let user = req.body;
-
-            res.redirect('/');
+            user.avatar = req.file.filename;
+            userTable.create(user);
+            return res.redirect('/');
         } else {
-            // Renderizo el formulario nuevamente con los errors y los datos completados
+        // Render de form con datos ya ingresados
             return res.render('register', { errors: errors.mapped(), old: req.body });
         }
     },
     adminAll: (req, res) => {
+    // Se renderiza por GET
         let users = userTable.all();
-        return res.render('adminView', {users: users});
+        return res.render('adminView', { users: users });
     },
     detail: (req, res) => {
+    // Se renderiza por GET
         let users = userTable.all();
         let user;
-        users.forEach( (x) => { if (x.id == req.params.id) { return user = x;} } )
+        users.forEach( x => { if (x.id == req.params.id) { return user = x; } })
         user.id = req.params.id;
-        res.render('adminDetail', {user}); 
+        return res.render('adminDetail', { user });
     },
     delete: (req, res) => {
-        jsonTable.delete(req.params.id)
+    // Método por POST para envío de form
+        userTable.delete(req.params.id)
         return res.redirect('/user/admin/all')
     },
     edit: (req, res) => {
-            let user = userTable.find(req.params.id);
-            res.render('adminEdit', {user}); 
-    }
+    // Edicion de Usuario como Admin
+    // Método por GET para envío de form
+    let user = userTable.find(req.params.id);
+        return res.render('adminEdit', { user });
+    },    
+    update: (req, res) => {
+        // Método por POST para envío de form
+            // Utilizo express validator para cargar los errores
+            let errors = validationResult(req);
+            // Atajo ruta en primer ingreso
+            if (errors.isEmpty()) {
+                let user = req.body;
+                if (user.avatar != req.file.filename) {
+                    user.avatar = req.file.filename;
+                }
+                userTable.create(user);
+                return res.redirect('/');
+            } else {
+            // Render de form con datos ya ingresados
+                return res.render('adminEdit', { errors: errors.mapped(), old: req.body });
+            }
+        },
 
 };
+
+
+
+/*hacer mañana:
+1. cerrar session req.session y cookies.
+3. ejs en index para si es administrador muestre las opciones de ver usuarios y editarlos
+4. ejs para que un usuario vea sus productos con detalle y edicion como la lista de usuarios de adm
+5. sequelize y hacer las BD
+6. vincular el modelo con todo esto*/

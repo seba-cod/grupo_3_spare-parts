@@ -34,6 +34,10 @@ let model = function(tableName) {
             let rows = this.readFile();
             return rows.find(row => row.id == id);
         },
+        emailFind(email){
+            let rows = this.readFile();
+            return rows.find(row => row.email == email)
+        },
         findByField(field, value) {
             let rows = this.readFile();
             return rows.find(row => row[field] == value);

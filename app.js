@@ -6,7 +6,6 @@ const methodOverride = require('method-override');
 const session = require ('express-session');
 const auth = require ('./src/middleware/auth');
 const cookieParser = require('cookie-parser');
-
 // Configuro el directorio de recursos estaticos
 app.use(express.static('public'));
 // Configuro EJS

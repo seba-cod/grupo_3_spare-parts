@@ -9,7 +9,7 @@
         <!-- <h2>Creación de producto</h2> -->
         <div class="row">
 
-           <form action="/product/publicar" METHOD="POST" class="publish" id="form" >
+           <form action="/product/publicar" METHOD="POST" class="publish" id="form" enctype="multipart/form-data">
             <h5>¡Crea tu publicación!</h5>
             <div class="col-1">
               <label for="name">Nombre del producto</label>
@@ -85,7 +85,7 @@
             </div>
             <div class="col-1">
               <label for="original">Subí tus imágenes</label>
-              <input type="file" name="image" id="image" multiple>
+              <input type="file" name="product_img" id="image" multiple>
             </div>
             <div class="col-1">
               <h5>Opcionales</h5>

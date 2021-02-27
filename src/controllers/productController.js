@@ -63,11 +63,10 @@ module.exports = {
         };
         products.create(newProduct);
         let allProducts = products.all();
-        res.render('products', { allProducts });
+        return res.render('products', { allProducts });
     }  
     else {
         return res.render('publish', { errors: errors.mapped(), old: req.body }); 
-        // ACÁ HAY ALGO QUE NO ME ESTÁ FUNCIONANDO
     }
     },
     edit: (req, res) => {
@@ -89,6 +88,6 @@ module.exports = {
 
         let productId = products.update(product);
 
-        res.redirect(productId + '/editar');
+        return res.redirect(productId + '/editar');
     },
 }

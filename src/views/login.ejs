@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head') %>
+
   <body>
     <%- include('./partials/header') %>
       <div class="container-form log-reg">
         <div class="row">
           <form action="/user/login" class="publish" id="logform" method="POST">
-            <div id="user_name" class="col-1">
-              <label for="user_name">Nombre de Usuario</label>
+            <div id="email" class="col-1">
+              <label for="email">Correo electrónico</label>
               <div>
-                <input type="text" class="txt_input" name="user_name" id="user_name">
-                <% if (locals.errors && errors.user_name) { %>
-                  <p class="txt_error">Puede contener letras, numeros, puntos, guiones y guion bajo.</p>
-                  <%= errors.user_name.msg %>
+                <input type="text" class="txt_input" name="email" id="email" <% if (locals.old && old.email) { %> value="<%= old.email %>"
 
-                  <% } %>
-                <i class="icon_validation fas fa-times-circle"></i>
+                  <% } %> >
+                    <% if (locals.errors && errors.email) { %>
+                      <div class="text-danger">
+                        <%= errors.email.msg %>
+                      </div>
+                      <% } %>
               </div>
             </div>
             <div id="password" class="col-1">
@@ -23,16 +25,17 @@
               <div>
                 <input type="password" class="txt_input" name="password" id="password">
                 <% if (locals.errors && errors.password) { %>
-                  <p class="txt_error">Tiene que ser de 6 a 12 dígitos.</p>
-                  <%= errors.password.msg  %> 
-                <% } %>
-                <i class="icon_validation fas fa-times-circle"></i>
+                  <div class="text-danger">
+                    <%= errors.password.msg %>
+                  </div>
+                  <% } %>
               </div>
             </div>
-              <input type="submit" value="Ingresá" class="ok-input">
-            </form>
+            <input type="submit" value="Ingresá" class="ok-input">
+          </form>
         </div>
       </div>
       <%- include('./partials/footer') %>
   </body>
+
 </html>
