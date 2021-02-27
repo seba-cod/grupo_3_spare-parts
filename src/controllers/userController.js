@@ -10,20 +10,23 @@ module.exports = {
     },
     auth: (req, res) => {
         //verificar los datos del usuario
-        let user;
-        user = userTable.forEach(userNow = userNow.user_name == req.body.user_name)
-        
+        let user = undefined;
+        allUsers = userTable.all();
+        user = allUsers.forEach(userNow => userNow.user_name == req.body.user_name)
+           
         if (user !=undefined) {
-            user.password == req.body.password 
+            if (user.password == req.body.password) {
+                req.session.user = user;
+            } 
         }
-        req.session.user = user;
-        
-        res.cookie('rememberToken', token, { maxAge: 1000 * 60  * 60 *  24 * 90 });
-        //redireccionar
-        res.redirect('/')
+        // else { res.render ('login', { 
+        //         errors: { user_name: { msg: 'No te encuentras registrado' }, password: { msg: 'La contraseña es incorrecta'} }  }  )  }
 
-        
+
+        //redireccionar
+        res.send(allUsers)
     },
+        
     register: (req, res) => {
         res.render('register');
     },
