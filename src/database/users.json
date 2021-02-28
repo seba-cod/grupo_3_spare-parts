@@ -8,7 +8,8 @@
   "address": "7036 Hazelcrest Hill",
   "tel": "(159) 3359244",
   "password": "12345678",
-  "avatar": "default.png"
+  "avatar": "default.png",
+  "admin": true
  },
  {
   "id": 2,
@@ -19,7 +20,8 @@
   "address": "7425 Lindbergh Drive",
   "tel": "(906) 1542433",
   "password": "n9rQVmMC",
-  "avatar": "default.png"
+  "avatar": "default.png",
+  "admin": true
  },
  {
   "id": 4,
@@ -30,7 +32,8 @@
   "address": "69 Evergreen Alley",
   "tel": "(553) 3136252",
   "password": "UbcPgaL",
-  "avatar": "default.png"
+  "avatar": "default.png",
+  "admin": true
  },
  {
   "id": 5,
@@ -129,6 +132,41 @@
   "password": "12345678",
   "repassword": "12345678",
   "terms": "on",
-  "id": 13
+  "id": 13,
+  "admin": true
+ },
+ {
+  "user_name": "aaaaaaaaaa",
+  "first_name": "bnbnnnnnnnnnn",
+  "last_name": "ccccccccc",
+  "email": "sadasd@gasdas.com",
+  "address": "asdasddsasa",
+  "password": "$2a$10$m4kAL1D1qbxRpd2Cw7NCt.plGy3YRgfMT/pYHhXzuJGWF/I0nRPAO",
+  "avatar": "user-1614545775913img.png",
+  "id": 14
+ },
+ {
+  "user_name": "Prueba1@gmail.com",
+  "first_name": "Prueba1@gmail.com",
+  "last_name": "Prueba1@gmail.com",
+  "email": "aaaPrueba1@gmail.com",
+  "address": "Prueba1@gmail.com",
+  "password": "$2a$10$RoybRDpLx4KCd8jjmhNf/.RKl.OsReTgOpr.0XP1fAh3/4EZwSuia",
+  "terms": "on",
+  "avatar": "user-1614546445576img.jpg",
+  "id": 15,
+  "admin": true
+ },
+ {
+  "user_name": "Admin",
+  "first_name": "Admin",
+  "last_name": "Istrador",
+  "email": "test1@a.com",
+  "address": "aaaaaaaaa",
+  "password": "$2a$10$cwKf1NB43dVnBv.sbH2bV.0KW4Dj9k.j7lE9ToRCVrNxr6WrMvxha",
+  "terms": "on",
+  "avatar": "default.png",
+  "id": 16,
+  "admin": true
  }
 ]

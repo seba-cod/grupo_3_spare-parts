@@ -8,11 +8,21 @@
           <h2>Spare Parts</h2>
         </div>
         <nav class="header-top-nav-bar">
-          <a href="/user/login">Inicia sesión</a>
-          <span>|</span>
-          <a href="/user/register">Registrate</a>
-          <!--  if (user active)
-          <a href=""></*%=user.name%*/>*/</a> -->
+
+          <% if (locals.isLogged) { %>
+            <div class="avatar">
+              <img src="../../../images/avatars/<%=locals.user.avatar%>" class="user-avatar">
+            </div>
+            <a href="/user/profile"> <%=locals.user.user_name%> </a>
+            <a href="/user/logout">Cerrar sesión</a>
+            <a href="/user/admin/all">Panel de usuarios</a>
+          <% } else {%>
+            <a href="/user/login">Inicia sesión</a>
+            <span>|</span>
+            <a href="/user/register">Registrate</a>
+            <span>|</span>
+          <% } %>
+          
         </nav>
       </div>
 
@@ -33,8 +43,11 @@
         <nav class="header-bottom-nav-bar">
           <a href="/home">Inicio</a>
           <a href="/product/all">Productos</a>
-          <a href="/product/cart">Carrito</a>
-          <a href="/product/publicar">Vender</a>
+
+          <% if (locals.isLogged) { %>
+            <a href="/product/cart">Carrito</a>
+            <a href="/product/publicar">Vender</a>
+          <% } %>
         </nav>
       </div>
     </div>

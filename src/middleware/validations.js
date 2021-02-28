@@ -1,9 +1,10 @@
-const { check } = require('express-validator')
+const { check } = require('express-validator');
+const path = require('path');
 
 module.exports ={
     register: [
         check('user_name')
-            .notEmpty().withMessage('Debes completar el nombre')
+            .notEmpty().withMessage('Debes elegir un nombre de usuario')
             .isLength({ min: 4 }).withMessage('El nombre debe tener al menos 4 caracteres')
             .isLength({ max: 20 }).withMessage('El nombre debe tener menos de 20 caracteres'),
         check('first_name')
@@ -17,13 +18,25 @@ module.exports ={
         check('password')
         .notEmpty().withMessage('Debes completar tu contraseña')
         .isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres')
-        .isLength({ max: 15 }).withMessage('No te pases de listo muchacho')
+        .isLength({ max: 15 }).withMessage('No te pases de listo muchacho'),
+        check('user_avatar').custom((value, { req }) => {
+            let file = req.file;
+            let extensions = ['.jpg','.png'];
+            if (!file) {
+                throw new Error('Debes subir una imágen');
+            } else {
+                let fileExt = path.extname(file.originalname);
+                if (!extensions.includes(fileExt)) {
+                        throw new Error(`Solo podes subir archivos en formato: ${extensions.join(', ')}`);
+                }
+            }
+            return true;
+        })
     ],
     login: [
-        check('user_name')
-            .notEmpty().withMessage('Debes completar el nombre')
-            .isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres')
-            .isLength({ max: 20 }).withMessage('El nombre debe tener menos de 20 caracteres'),
+        check('email')
+            .notEmpty().withMessage('Ingresa tu correo electrónico para loguearte')
+            .isEmail().withMessage('El email debe ser válido. Ejemplo: mail@falso.com'),
         check('password')
             .notEmpty().withMessage('Debes completar tu contraseña')
     ],

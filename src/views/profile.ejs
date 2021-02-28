@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+  <body>
+    <%- include('./partials/header') %>
+      <div class="container-admin">
+        
+          <div class="row-admin">
+            <div class="card_img">
+              <img src="../../../images/avatars/<%=user.avatar%>" alt="">
+            </div>
+            <div class="card">
+              <h4> Hola <%= user.user_name %> ! </h4>
+              <p>Tus datos:</p>
+              <p>Nombre completo: <%= user.first_name + " " + user.last_name %> 
+              </p>
+              <p>Correo electrónico: <%= user.email %>
+              </p>
+              <p>Dirección: <%= user.address %>
+              </p>
+            </div>
+            <div class="admin">
+              <a href="/user/admin/edit/<%=user.id%>"><input type="submit" value="Editar" class="admin ok"></a>
+              </form>
+            </div>
+          </div>
+      </div>
+      <%- include('./partials/footer') %>
+  </body>
+
+</html>

@@ -1,6 +1,6 @@
 const jsonTable = require('../database/jsonTable');
 const userTable = jsonTable('users');
-const bcrypt = require('bcryptjs');
+const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
 module.exports = {
@@ -13,28 +13,32 @@ module.exports = {
         // Utilizo express validator para cargar los errores
         let errors = validationResult(req);
         // Declaro un usuario, recupero el email del body y encuentro al usuario buscado
-        let userWanted;
-        let email = req.body.email;
-        userWanted = userTable.emailFind(email);
+        // let userWanted;
+        // let email = req.body.email;
+        let userWanted = userTable.findByField('email', req.body.email);
+
+        // userWanted = userTable.emailFind(email);
         // Si lo encontré verifico la contraseña y le cargo los datos en session
         if (userWanted) {
-            if (userWanted.password == req.body.password) {
+            let comparePsw = bcryptjs.compareSync(req.body.password, userWanted.password)
+            if (comparePsw) {
+                delete userWanted.password;
+                delete userWanted.terms;
                 req.session.user = userWanted;
-                return res.redirect('/')
+                return res.redirect('/user/profile')
             }
-        // Render de form con datos ya ingresados
+            else { return res.render('login', { errors: { password: { msg: 'La contraseña es incorrecta' } }, old: req.body } ) }
+        // Si no encontre un usuario render de form con datos ya ingresados
         } else { 
-            res.render('login', { 
-                errors: errors.mapped(), 
-                old: req.body 
-                }
-            )
-        }
+            return res.render('login', { 
+                errors:  { email: { msg: 'No te encuentras registrado' } }, old: req.body } ) }
+    },
+    profile: (req, res) => {
+        res.render('profile', {user: req.session.user})
     },
     logout: (req, res) => {
         // Borro session actual, ¿intento borrar cookies?
         req.session.destroy();
-        res.clearCookie("/");
         // Intento redirigir al home pero no funciona-revisar
         res.redirect('/');
     },
@@ -46,12 +50,16 @@ module.exports = {
     // Método por POST para envío de form
         // Utilizo express validator para cargar los errores
         let errors = validationResult(req);
-        // Atajo ruta en primer ingreso
-        if (errors.isEmpty()) {
+        // Reviso que no se encuentre el correo electronico ya registrado
+        let existUser = userTable.findByField('email', req.body.email);
+        if (existUser) { return res.render('register', { errors: { email: { msg: 'Este correo ya se encuentra registrado'}}}) }
+        // Si no existe un usuario con ese correo atajo ruta en primer ingreso
+        else if (errors.isEmpty()) {
             let user = req.body;
+            user.password = bcryptjs.hashSync(req.body.password, 10)
             user.avatar = req.file.filename;
             userTable.create(user);
-            return res.redirect('/');
+            return res.redirect('/user/login');
         } else {
         // Render de form con datos ya ingresados
             return res.render('register', { errors: errors.mapped(), old: req.body });

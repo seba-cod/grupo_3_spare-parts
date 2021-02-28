@@ -119,6 +119,14 @@ header .header-bottom-nav-bar a {
   transform: scale(1.005);
   color: #7E0606;
 }
+div.avatar{
+  flex-basis: 5%;
+  align-self:flex-start;
+}
+img.user-avatar{
+  width: 100%;
+  border-radius: 47%;
+}
 
 /* media queries solo del header*/
 @media (min-width: 768px) {
@@ -475,6 +483,10 @@ padding: 0 0 40px 0;
   font-size: 12px;
   margin-bottom: 0;
   display: none;
+}
+
+label.checkbox {
+  text-align: center;
 }
 
 .txt_error-activo { display: block; }

@@ -83,21 +83,26 @@
                 </div>
                 <% } %>
             </div>
-            <div id="repassword" class="col-1">
+            <!-- <div id="repassword" class="col-1">
               <label for="repassword">Repetir Contraseña</label>
               <input type="password" class="txt_input" name="repassword" id="repassword">
               <i class="icon_validation fas fa-times-circle"></i>
-            </div>
-            <div>
+            </div> -->
+            <!-- <div>
               <p class="txt_error">Ambas contraseñas deben ser iguales.</p>
-            </div>
+            </div> -->
             <div id="avatar" class="col-1">
               <label for="profile">Avatar </label>
               <input type="file" name="user_avatar" id="user_avatar">
             </div>
+            <% if (locals.errors && errors.user_avatar) { %>
+              <div class="text-danger">
+                <%= errors.user_avatar.msg %>
+              </div>
+              <% } %>
             <div id="terms" class="col-1 terms">
               <label>Acepto los Términos y Condiciones
-                <input class="check-form" type="checkbox" name="terms" id="terms"></label>
+                <input class="check-form" type="checkbox" name="terms" id="terms" required></label>
             </div>
             <input type="submit" class="ok-input" value="Registrate">
           </form>
