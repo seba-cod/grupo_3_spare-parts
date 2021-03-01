@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const session = require ('express-session');
 const isLogged = require ('./src/middleware/userLogged');
 const admin = require ('./src/middleware/admin');
-const cookieParser = require('cookie-parser');
+const cookie = require('cookie-parser');
 
 // Configuro EJS
 app.set('view engine', 'ejs');
@@ -17,7 +17,7 @@ app.use(express.static('public'));
 // Configuro Session
 app.use(session({ secret: 'Spare Parts', resave: false, saveUninitialized: false }));
 //Cookie parser
-app.use(cookieParser());
+app.use(cookie());
 app.use(isLogged);
 // app.use(admin);
 

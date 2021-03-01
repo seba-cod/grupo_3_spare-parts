@@ -25,6 +25,10 @@ module.exports = {
                 delete userWanted.password;
                 delete userWanted.terms;
                 req.session.user = userWanted;
+
+                if (req.body.remember_user){
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)}) // la guardo durante 1 minuto
+                }
                 return res.redirect('/user/profile')
             }
             else { return res.render('login', { errors: { password: { msg: 'La contraseña es incorrecta' } }, old: req.body } ) }
@@ -37,6 +41,8 @@ module.exports = {
         res.render('profile', {user: req.session.user})
     },
     logout: (req, res) => {
+        // Limpio la Cookie de remember_user
+        res.clearCookie('userEmail');
         // Borro session actual, ¿intento borrar cookies?
         req.session.destroy();
         // Intento redirigir al home pero no funciona-revisar
