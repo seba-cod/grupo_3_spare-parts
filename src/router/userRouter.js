@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-// Middlewares
+/*------------------------------------------------------middlewares----------------------------------------------------*/
 // Requiero multer: storage 
 const multer = require('multer');
 const storage = multer.diskStorage ({
@@ -26,6 +26,7 @@ const auth = require('../middleware/auth');
 // Controlador
 const userController = require('../controllers/userController');
 
+/*------------------------------------------------------vistas------------------------------------------------------*/
 // muestra form de login
 router.get(['/login', '/ingreso'], guest, userController.login);
 // proceso form de login
@@ -50,5 +51,5 @@ router.get(['/admin/edit/:id', '/admin/editar/:id'], userController.edit);
 router.put(['/admin/edit/:id', '/admin/editar/:id'], upload.single('user_avatar'), validations.register, userController.update); /*no quiere andar ni con PUT ni con PATCH, hay que generar un nuevo metodo en validaciones para este update*/
 router.delete(['/admin/detalle/:id', '/admin/detalle/:id'], userController.delete);
 
-
+/*------------------------------------------------------export------------------------------------------------------*/
 module.exports = router;

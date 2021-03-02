@@ -14,21 +14,21 @@ module.exports = {
         let allProducts = products.all();
         res.render('products', { allProducts });
     },
-    //Renderiza el detalle de un producto por get
     productdetail: (req, res) => {
+        //Renderiza el detalle de un producto por get
         let product = products.find(req.params.id);
         res.render('productDetail', {product}); 
     },
-    //Renderiza el carrito de compras
     checkout: (req, res) => {
+        //Renderiza el carrito de compras
         res.render('cart');
     },
-    //Renderiza la web de creación de producto por get
     publish: (req, res) => {
+        //Renderiza la web de creación de producto por get
         res.render('publish');
     },
-    //Crea producto por post
     createproduct: (req, res) => {
+        //Crea producto por post
         let errors = validationResult(req);
         // Me fijo si no hay errores
         if (errors.isEmpty()) {
