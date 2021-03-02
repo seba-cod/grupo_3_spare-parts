@@ -24,7 +24,9 @@
     "express-session": "^1.17.1",
     "express-validator": "^6.9.2",
     "method-override": "^3.0.0",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0"
   },
   "keywords": []
 }
