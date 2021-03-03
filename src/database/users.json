@@ -168,5 +168,16 @@
   "avatar": "default.png",
   "id": 16,
   "admin": true
+ },
+ {
+  "user_name": "Tango",
+  "first_name": "12345",
+  "last_name": "89245",
+  "email": "falso@falso.com",
+  "address": "11111",
+  "password": "$2a$10$dFbA7bGNZfgsqldD/1qp7eu5UH/CguZeCO7kk0U/Ws3.xEWDO1mZK",
+  "terms": "on",
+  "avatar": "user-1614740586696img.jpg",
+  "id": 17
  }
 ]

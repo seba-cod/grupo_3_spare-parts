@@ -155,7 +155,7 @@ img.user-avatar{
   header .header-bottom-nav-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 40%;
     padding-right: 20px;
   }
@@ -298,18 +298,13 @@ main .text-banner p {
   margin-block-start: 0;
   margin-block-end: 0;
 }
-.container h1{
-padding: 0 0 40px 0;
-}
 .offer{
   animation-name: expand;
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-.container h1.category{
-  padding: 0 0 40px 0;
-}
+
 @keyframes expand {
   0% {transform:scale(1.0)}
   50% {transform: scale(1.15)}
@@ -317,13 +312,30 @@ padding: 0 0 40px 0;
 }
 
 .col-3{
-  flex-basis: 30%;
+  flex-basis: 280px;
+  max-width: 380px;
+  flex-grow: 1;
 }
 .col-5{
-  flex-basis: 18.333%;
+  flex-basis: 230px;
+  flex-grow: 1;
+  max-width: 240px;
 }
+
+.row-all{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 0;
+  gap: 3rem;
+  width: 100%;
+}
+
 .col-4{
-  flex-basis: 22%;
+  flex-basis: 260px;
+  flex-grow: 1;
+  max-width: 300px;
 }
 
 .col-5 a, .col-3 a, .col-4 a{
@@ -332,7 +344,6 @@ padding: 0 0 40px 0;
   overflow: hidden;
   box-shadow: rgb(0 0 0 / 15%) 0 2px 4px;
   text-decoration: none;
-  margin-bottom: 30px;
   transition: all 0.2s;
 }
 .col-5 a:hover, .col-3 a:hover{
@@ -390,14 +401,7 @@ padding: 0 0 40px 0;
   background-color: white;
 }
 
-.row-all{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 40px 0;
-  width: 100%;
-}
+
 
 .col-4 a .text-img h4{ font-size: 14px; }
 
@@ -900,6 +904,7 @@ width: 100%;
 
 input#terms.check-form{
   margin-top: 8px;
+  padding: 2px;
 }
 .container-form input[type="submit"] {
   margin-top: 15px;

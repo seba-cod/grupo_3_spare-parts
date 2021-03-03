@@ -4,9 +4,9 @@ module.exports=
     "username": "root",
     "password": 'bardecarnes',
     "database": "spare-parts",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "port": 8889
   },
   "test": {
     "username": "root",

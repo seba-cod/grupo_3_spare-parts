@@ -4,7 +4,7 @@ const app = express();
 const methodOverride = require('method-override');
 const session = require ('express-session');
 const isLogged = require ('./src/middleware/userLogged');
-const admin = require ('./src/middleware/admin');
+// const admin = require ('./src/middleware/admin');
 const cookie = require('cookie-parser');
 
 // Configuro EJS
