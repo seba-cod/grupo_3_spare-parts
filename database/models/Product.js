@@ -5,26 +5,50 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER
-            },
-            name: {
-            type: dataTypes.STRING,
+        },
+        name: {
+            type: dataTypes.STRING(25),
             allowNull: true
-            },
-            price: {
+        },
+        price: {
             type: dataTypes.DECIMAL,
-            },
-            image: {
-            type: dataTypes.STRING(200),
-            },
-            offer: {
-            type: dataTypes.BOOLEAN
-            }
-        }
+        },
+        description: {
+            type: dataTypes.STRING,
+        },
+        quantity: {
+            type: dataTypes.SRING,
+        },
+        brand: {
+            type: dataTypes.SRING,
+        },
+        original: {
+            type: dataTypes.STRING,
+            allowNull: true,
+        },
+        piecenumber: {
+            type: dataTypes.SRING,
+            allowNull: true,
+        },
+        carBrand: {
+            type: dataTypes.SRING,
+            allowNull: true,
+        },
+        carModel: {
+            type: dataTypes.SRING,
+            allowNull: true,
+        },
+        carYear: {
+            type: dataTypes.SRING,
+            allowNull: true,
+        },
+
+    }
     const config = {
-        tableName: ‘products’,
+        tableName: 'products',
         timestamps: true,
         paranoid: true
-        }
+    }
     const Model = sequelize.define(alias, columns, config);
     return Model;
-}
+};

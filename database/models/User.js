@@ -1,6 +1,6 @@
-module.export = (sequelize, DataTypes) => {
-    let alias = "Users"
-    let cols = {
+module.exports = (sequelize, DataTypes) => {
+    const alias = "users"
+    const columns = {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -9,7 +9,7 @@ module.export = (sequelize, DataTypes) => {
         user_name: {
             type: DataTypes.STRING,
             unique,
-            allowNull = false;
+            allowNull = false,
         },
         first_name: {
             type: DataTypes.STRING
@@ -20,8 +20,18 @@ module.export = (sequelize, DataTypes) => {
         email: {
             type: DataTypes.email
         },
-        bday: {
-            type: DataTypes.DATE
+        address: {
+            type: DataTypes.STRING
+        },
+        password: {
+            type: DataTypes.password
+        },
+        avatar: {
+            type: DataTypes.STRING
+        },
+        admin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
         }
     };
     let config = {
@@ -29,6 +39,6 @@ module.export = (sequelize, DataTypes) => {
         timestamps: true,
         paranoid: true
     }
-    const User = sequelize.define(alias, col, config);
-    return User
+    const Model = sequelize.define(alias, columns, config);
+    return Model;
 }
