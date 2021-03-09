@@ -9,15 +9,11 @@ module.exports = {
         res.render('login');
     },
     auth: (req, res) => {
-    // Método por POST para envío de form
+        // Método por POST para envío de form
         // Utilizo express validator para cargar los errores
         let errors = validationResult(req);
         // Declaro un usuario, recupero el email del body y encuentro al usuario buscado
-        // let userWanted;
-        // let email = req.body.email;
         let userWanted = userTable.findByField('email', req.body.email);
-
-        // userWanted = userTable.emailFind(email);
         // Si lo encontré verifico la contraseña y le cargo los datos en session
         if (userWanted) {
             let comparePsw = bcryptjs.compareSync(req.body.password, userWanted.password)
@@ -26,19 +22,21 @@ module.exports = {
                 delete userWanted.terms;
                 req.session.user = userWanted;
 
-                if (req.body.remember_user){
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)}) // la guardo durante 1 minuto
+                if (req.body.remember_user) {
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) }) // la guardo durante 1 minuto
                 }
                 return res.redirect('/user/profile')
             }
-            else { return res.render('login', { errors: { password: { msg: 'La contraseña es incorrecta' } }, old: req.body } ) }
-        // Si no encontre un usuario render de form con datos ya ingresados
-        } else { 
-            return res.render('login', { 
-                errors:  { email: { msg: 'No te encuentras registrado' } }, old: req.body } ) }
+            else { return res.render('login', { errors: { password: { msg: 'La contraseña es incorrecta' } }, old: req.body }) }
+            // Si no encontre un usuario render de form con datos ya ingresados
+        } else {
+            return res.render('login', {
+                errors: { email: { msg: 'No te encuentras registrado' } }, old: req.body
+            })
+        }
     },
     profile: (req, res) => {
-        res.render('profile', {user: req.session.user})
+        res.render('profile', { user: req.session.user })
     },
     logout: (req, res) => {
         // Limpio la Cookie de remember_user
@@ -53,12 +51,12 @@ module.exports = {
         res.render('register');
     },
     create: (req, res) => {
-    // Método por POST para envío de form
+        // Método por POST para envío de form
         // Utilizo express validator para cargar los errores
         let errors = validationResult(req);
         // Reviso que no se encuentre el correo electronico ya registrado
         let existUser = userTable.findByField('email', req.body.email);
-        if (existUser) { return res.render('register', { errors: { email: { msg: 'Este correo ya se encuentra registrado'}}}) }
+        if (existUser) { return res.render('register', { errors: { email: { msg: 'Este correo ya se encuentra registrado' } } }) }
         // Si no existe un usuario con ese correo atajo ruta en primer ingreso
         else if (errors.isEmpty()) {
             let user = req.body;
@@ -67,51 +65,78 @@ module.exports = {
             userTable.create(user);
             return res.redirect('/user/login');
         } else {
-        // Render de form con datos ya ingresados
+            // Render de form con datos ya ingresados
             return res.render('register', { errors: errors.mapped(), old: req.body });
         }
     },
     adminAll: (req, res) => {
-    // Se renderiza por GET
+        // Se renderiza por GET
         let users = userTable.all();
         return res.render('adminView', { users: users });
     },
     detail: (req, res) => {
-    // Se renderiza por GET
+        // Se renderiza por GET
         let users = userTable.all();
         let user;
-        users.forEach( x => { if (x.id == req.params.id) { return user = x; } })
+        users.forEach(x => { if (x.id == req.params.id) { return user = x; } })
         user.id = req.params.id;
         return res.render('adminDetail', { user });
     },
     delete: (req, res) => {
-    // Método por POST para envío de form
+        // Método por POST para envío de form
         userTable.delete(req.params.id)
         return res.redirect('/user/admin/all')
     },
     edit: (req, res) => {
-    // Edicion de Usuario como Admin
-    // Método por GET para envío de form
-    let user = userTable.find(req.params.id);
+        // Edicion de Usuario como Admin
+        // Método por GET para envío de form
+        let user = userTable.find(req.params.id);
         return res.render('adminEdit', { user });
-    },    
+    },
     update: (req, res) => {
         // Método por POST para envío de form
-            // Utilizo express validator para cargar los errores
-            let errors = validationResult(req);
-            // Atajo ruta en primer ingreso
-            if (errors.isEmpty()) {
-                let user = req.body;
+        // Utilizo express validator para cargar los errores
+        let errors = validationResult(req);
+        // Atajo ruta en primer ingreso
+        if (errors.isEmpty()) {
+            console.log('editar usuarios no errores')
+            let user = req.body;
+            if (req.file) {
                 if (user.avatar != req.file.filename) {
                     user.avatar = req.file.filename;
                 }
-                userTable.create(user);
-                return res.redirect('/');
-            } else {
-            // Render de form con datos ya ingresados
-                return res.render('adminEdit', { errors: errors.mapped(), old: req.body });
             }
-        },
+            userTable.create(user);
+            return res.redirect('/');
+        } else {
+            console.error(errors.mapped())    // req obligatorio cambair la imagen y el nombre de usuario-modif.
+            // Render de form con datos ya ingresados
+            return res.render('adminEdit', { errors: errors.mapped(), old: req.body });
+        }
+    }
+            // SEQUELIZE
+            // const old = await Product.findByPk(req.params.id)
+            // let { first_name, last_name, address, avatar}
+            // let arrayData = [ first_name, last_name, address, avatar ];
+            // for ( let i = 0 ; i < arrayData.lenght ; i++ ) {
+            //     if ( req.body.arrayData[i] != old.arrayData[i]) {
+            //         arrayData[i] = req.body.arrayData[i]
+            //     } else { arrayData[i] = old.arrayData[i] }
+            // }
+            // db.Product.update({
+            // first_name,
+            // last_name,
+            // address,
+            // avatar: req.file ? req.file.filename : old.image
+            // },
+            // { where: { id: req.params.id } }
+            // )
+            // .then( () => res.redirect('productDetail') )
+            // .catch( err =>  { 
+            //     return res.render('adminEdit', { errors: errors.mapped(), old: req.body }) 
+            // }
+
+    ,
 
 };
 

@@ -53,6 +53,26 @@ module.exports ={
             .notEmpty().withMessage('Debes seleccionar una categoría'),
         check('quantity')
             .notEmpty().withMessage('La cantidad debe ser mayor a 0 y menor a 99'),
+    ],
+    update: [
+        check('first_name')
+            .notEmpty().withMessage('Debes completar tu nombre'),
+        check('last_name')
+            .notEmpty().withMessage('Debes completar tu apellido'),
+        check('address')
+            .notEmpty().withMessage('Debes indicarnos una dirección válida'),
+        check('user_avatar').custom((value, { req }) => {
+            let file = req.file;
+            let extensions = ['.jpg','.png', '.jpeg', '.jfif'];
+            if (!file) {
+                return true;
+            } else {
+                let fileExt = path.extname(file.originalname);
+                if (!extensions.includes(fileExt)) {
+                        throw new Error(`Solo podes subir archivos en formato: ${extensions.join(', ')}`);
+                }
+            }
+        })
     ]
 
 }
