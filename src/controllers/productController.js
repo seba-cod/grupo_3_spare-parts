@@ -18,7 +18,7 @@ module.exports = {
         //     .then(product => {
         //         res.render('products', {product})
         //     })
-        //     .catch(err => console.log(err))
+        //     .catch(err => console.log(err)) 
 
     },
     productdetail: (req, res) => {

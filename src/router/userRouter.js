@@ -48,7 +48,7 @@ router.get(['/admin/detail/:id', '/admin/detalle/:id'], userController.detail);
 router.post(['/register', '/registro'], upload.single('user_avatar'), validations.register, userController.create);
 // proceso form de administrador
 router.get(['/admin/edit/:id', '/admin/editar/:id'], userController.edit);
-router.put(['/admin/edit/:id', '/admin/editar/:id'], upload.single('user_avatar'), validations.register, userController.update); /*no quiere andar ni con PUT ni con PATCH, hay que generar un nuevo metodo en validaciones para este update*/
+router.put(['/admin/edit/:id', '/admin/editar/:id'], upload.single('user_avatar'), validations.update, userController.update); /*no quiere andar ni con PUT ni con PATCH, hay que generar un nuevo metodo en validaciones para este update*/
 router.delete(['/admin/detalle/:id', '/admin/detalle/:id'], userController.delete);
 
 /*------------------------------------------------------export------------------------------------------------------*/

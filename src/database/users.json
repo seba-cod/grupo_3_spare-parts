@@ -179,5 +179,29 @@
   "terms": "on",
   "avatar": "user-1614740586696img.jpg",
   "id": 17
+ },
+ {
+  "first_name": "TRENTO",
+  "last_name": "Dionisi",
+  "email": "bdionisi1@blinklist.com",
+  "address": "Dionisi",
+  "password": "",
+  "id": 18
+ },
+ {
+  "first_name": "TRENTO",
+  "last_name": "Dionisi",
+  "email": "bdionisi1@blinklist.com",
+  "address": "Dionisi",
+  "password": "",
+  "id": 19
+ },
+ {
+  "first_name": "ALF",
+  "last_name": "Dionisi",
+  "email": "bdionisi1@blinklist.com",
+  "address": "Dionisi",
+  "password": "",
+  "id": 20
  }
 ]

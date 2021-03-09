@@ -30,17 +30,6 @@
                 </div>
                 <% } %>
             </div>
-            <div id="email" class="col-1">
-              <label for="correo">Correo Electrónico</label>
-              <div class="container_input">
-                <input type="email" class="txt_input" name="email" id="email" value="<%=user.email%>">
-              </div>
-              <% if (locals.errors && errors.email) { %>
-                <div class="text-danger">
-                  <%= errors.email.msg %>
-                </div>
-                <% } %>
-            </div>
             <div id="address" class="col-1">
               <label for="address">Dirección</label>
               <div class="container_input">
@@ -49,17 +38,6 @@
               <% if (locals.errors && errors.address) { %>
                 <div class="text-danger">
                   <%= errors.address.msg %>
-                </div>
-                <% } %>
-            </div>
-            <div id="password" class="col-1">
-              <label for="password">Contraseña</label>
-              <div class="container_input">
-                <input type="password" class="txt_input" name="password" id="password">
-              </div>
-              <% if (locals.errors && errors.password) { %>
-                <div class="text-danger">
-                  <%= errors.password.msg %>
                 </div>
                 <% } %>
             </div>
