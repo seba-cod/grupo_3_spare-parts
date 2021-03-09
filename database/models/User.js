@@ -9,11 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         user_name: {
             type: DataTypes.STRING,
             unique,
-<<<<<<< HEAD
             allowNull = false
-=======
-            allowNull = false,
->>>>>>> 97f26378bf89ef41bcebf99e2e91fa0e9920fd11
         },
         first_name: {
             type: DataTypes.STRING

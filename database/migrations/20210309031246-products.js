@@ -32,16 +32,22 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
         allowNull: false
-      }
-    } ) },
-      //foreign key usage // NI LO TOQUE
-      // category: {
-      //   type: Sequelize.STRING,
-      //   references: {
-      //     model: 'categories',
-      //     key: 'categorie_id'
-      //   }
-      down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('products');
-      }
-    };
+      },
+      category_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'categories'
+          },
+          key: 'id'
+        },
+        allowNull: false
+      },
+    })
+  },
+
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('products');
+  }
+};

@@ -2,11 +2,11 @@ module.exports=
 {
   "development": {
     "username": "root",
-    "password": 'bardecarnes',
-    "database": "spare-parts",
-    "host": "localhost",
+    "password": null,
+    "database": "spare-parts-dev",
+    "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": 8889
+    "port": 3306
   },
   "test": {
     "username": "root",
