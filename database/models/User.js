@@ -8,8 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         user_name: {
             type: DataTypes.STRING,
-            unique,
-            allowNull = false
+            unique: true
         },
         first_name: {
             type: DataTypes.STRING
@@ -18,13 +17,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         email: {
-            type: DataTypes.email
+            type: DataTypes.STRING
         },
         address: {
             type: DataTypes.STRING
         },
         password: {
-            type: DataTypes.password
+            type: DataTypes.STRING
         },
         avatar: {
             type: DataTypes.STRING

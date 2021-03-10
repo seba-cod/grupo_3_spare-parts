@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, dataTypes) => {
     const alias = "products"
     const columns = {
         id: {
@@ -17,29 +17,29 @@ module.exports = (sequelize, DataTypes) => {
             type: dataTypes.STRING,
         },
         quantity: {
-            type: dataTypes.SRING,
+            type: dataTypes.STRING,
         },
         brand: {
-            type: dataTypes.SRING,
+            type: dataTypes.STRING,
         },
         original: {
             type: dataTypes.STRING,
             allowNull: true,
         },
         piecenumber: {
-            type: dataTypes.SRING,
+            type: dataTypes.STRING,
             allowNull: true,
         },
         carBrand: {
-            type: dataTypes.SRING,
+            type: dataTypes.STRING,
             allowNull: true,
         },
         carModel: {
-            type: dataTypes.SRING,
+            type: dataTypes.STRING,
             allowNull: true,
         },
         carYear: {
-            type: dataTypes.SRING,
+            type: dataTypes.STRING,
             allowNull: true,
         },
 

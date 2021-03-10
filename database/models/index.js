@@ -1,5 +1,5 @@
 'use strict';
-
+//NO LO TOQUES ESCUCHASTE?
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');

@@ -32,7 +32,6 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
         allowNull: false
-<<<<<<< HEAD:database/migrations/20210309031246-products.js
       },
       category_id: {
         type: Sequelize.INTEGER,
@@ -52,18 +51,3 @@ module.exports = {
     await queryInterface.dropTable('products');
   }
 };
-=======
-      }
-    } ) },
-      //foreign key usage // NI LO TOQUE
-      // category: {
-      //   type: Sequelize.STRING,
-      //   references: {
-      //     model: 'categories',
-      //     key: 'categorie_id'
-      //   }
-      down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('products');
-      }
-    };z
->>>>>>> 218241497a95a28d426bb9894c6880f441c869d0:database/migrations/20210304031246-products.js

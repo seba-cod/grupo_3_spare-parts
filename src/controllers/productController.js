@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require ('path');
 const jsonTable = require('../database/jsonTable');
 const products = jsonTable('spareparts');
-// const Product = require('../database/models/Product');
+const db = require('../../database/models');
 //Validaciones
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator')
@@ -11,14 +11,15 @@ module.exports = {
     products: (req, res) => {
         //Renderiza el detalle de todos los productos por get
         // Solicito todos los productos utilizando el método all() dentro del objeto products, que trae la función de trabajos s/json.
-        let allProducts = products.all();
-        res.render('products', { allProducts });
-        // /*SEQUELIZE*/
-        // db.Product.findAll()
-        //     .then(product => {
-        //         res.render('products', {product})
-        //     })
-        //     .catch(err => console.log(err)) 
+        //let allProducts = products.all();
+        //res.render('products', { allProducts });
+         /*SEQUELIZE*/
+         console.log('products')
+         db.products.findAll()
+             .then(product => {
+                 res.render('products', {product})
+             })
+             .catch(err => console.log(err)) 
 
     },
     productdetail: (req, res) => {

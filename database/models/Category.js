@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, dataTypes) => {
     const alias = "categories"
     const columns = {
         id: {
