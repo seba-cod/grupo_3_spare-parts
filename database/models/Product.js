@@ -1,47 +1,55 @@
-module.exports = (sequelize, dataTypes) => {
+const model = require("../../src/database/jsonTable");
+
+module.exports = (sequelize, DataTypes) => {
     const alias = "products"
     const columns = {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER
+            type: DataTypes.INTEGER
         },
         name: {
-            type: dataTypes.STRING(25),
+            type: DataTypes.STRING(25),
             allowNull: true
         },
         price: {
-            type: dataTypes.DECIMAL,
+            type: DataTypes.DECIMAL,
         },
         description: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
         },
         quantity: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
         },
         brand: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
+        },
+        image: {
+            type: DataTypes.STRING,
         },
         original: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
         },
         piecenumber: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
         },
         carBrand: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
         },
         carModel: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
         },
         carYear: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
         },
+        category_id: {
+            type: DataTypes.INTEGER,
+        }
 
     }
     const config = {
@@ -50,5 +58,8 @@ module.exports = (sequelize, dataTypes) => {
         paranoid: true
     }
     const Model = sequelize.define(alias, columns, config);
+    Model.associate = function (models) {
+        Model.belongsTo(models.categories, { as: 'category', foreingKey: 'category_id'})
+    }  // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
     return Model;
 };

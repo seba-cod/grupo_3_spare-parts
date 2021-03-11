@@ -14,10 +14,13 @@ module.exports = (sequelize, dataTypes) => {
 
     }
     const config = {
-        tableName: 'products',
+        tableName: 'categories',
         timestamps: true,
         paranoid: true
     }
     const Model = sequelize.define(alias, columns, config);
+    // Model.associate = function (models) {
+    //     Model.hasMany(models.products, { as: 'products' })
+    // }  // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
     return Model;
 };
