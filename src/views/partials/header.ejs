@@ -1,53 +1,51 @@
- 
 <header>
-    <div class="container">
+  <div class="container">
 
-      <div class="header-top">
-        <!--  if (user anonymus)-->
-        <div class="spare">
-          <h2>Spare Parts</h2>
-        </div>
-        <nav class="header-top-nav-bar">
+    <div class="header-top">
+      <!--  if (user anonymus)-->
+      <div class="header-logo">
+        <img src=".././../../images/parts.svg" alt="LOGO">
+        <!-- <i class="fas fa-wrench"></i> -->
+      </div>
 
-          <% if (locals.isLogged) { %>
-            <div class="avatar">
-              <img src="../../../images/avatars/<%=locals.user.avatar%>" class="user-avatar">
-            </div>
-            <a href="/user/profile"> <%=locals.user.user_name%> </a>
-            <a href="/user/logout">Cerrar sesión</a>
-            <a href="/user/admin/all">Panel de usuarios</a>
+      <nav class="header-top-nav-bar">
+
+        <% if (locals.isLogged) { %>
+          <div class="avatar">
+            <img src="../../../images/avatars/<%=locals.user.avatar%>" class="user-avatar">
+          </div>
+          <a href="/user/profile">
+            <%=locals.user.user_name%>
+          </a>
+          <a href="/user/logout">Cerrar sesión</a>
+          <a href="/user/admin/all">Panel de usuarios</a>
           <% } else {%>
             <a href="/user/login">Inicia sesión</a>
             <span>|</span>
             <a href="/user/register">Registrate</a>
-          <% } %>
-          
-        </nav>
-      </div>
+            <% } %>
 
-      <div class="header-bottom">
-
-        <div class="header-logo">
-          <i class="fas fa-wrench"></i>
-           
-        </div>
-        
-        <div class="header-search-bar">
-          <form action="" method="GET">
-            <input type="text" class="search-input" placeholder="Buscá tu repuesto, marcas y más"> <button class="fa fa-search search-button"> </button>
-          </form>
-        </div>
-        
-        
-        <nav class="header-bottom-nav-bar">
-          <a href="/home">Inicio</a>
-          <a href="/product/all">Productos</a>
-
-          <% if (locals.isLogged) { %>
-            <a href="/product/cart">Carrito</a>
-            <a href="/product/publicar">Vender</a>
-          <% } %>
-        </nav>
-      </div>
+      </nav>
     </div>
+    <div class="header-bottom">
+
+
+      <div class="header-search-bar">
+        <form action="/search" method="GET">
+          <input type="text" class="search-input" placeholder="Buscá tu repuesto, marcas y más" name="query"> <button class="fa fa-search search-button" > </button>
+        </form>
+      </div>
+
+
+      <nav class="header-bottom-nav-bar">
+        <a href="/home">Inicio</a>
+        <a href="/product/all">Productos</a>
+
+        <% if (locals.isLogged) { %>
+          <a href="/product/cart">Carrito</a>
+          <a href="/product/publicar">Vender</a>
+          <% } %>
+      </nav>
+    </div>
+  </div>
 </header>

@@ -6,6 +6,8 @@ const session = require ('express-session');
 const isLogged = require ('./src/middleware/userLogged');
 // const admin = require ('./src/middleware/admin');
 const cookie = require('cookie-parser');
+const favicon = require('serve-favicon');
+app.use(favicon('./public/images/favicon.ico'));
 
 // Configuro EJS
 app.set('view engine', 'ejs');
