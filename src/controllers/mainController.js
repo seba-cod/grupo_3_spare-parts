@@ -31,5 +31,8 @@ module.exports = {
             return res.send('No existen productos encontrados con tu busqueda: ')
         })
         .catch(err => console.log(err))
+    },
+    notfound: (req, res) => {
+        res.render('not_found');
     }
 };
