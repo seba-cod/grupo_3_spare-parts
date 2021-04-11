@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const jsonTable = require('../database/jsonTable');
-const products = jsonTable('spareparts');
+// const jsonTable = require('../database/jsonTable');
+// const products = jsonTable('spareparts');
 const db = require('../../database/models');
 //Validaciones
 const bcrypt = require('bcryptjs');
@@ -35,57 +35,58 @@ module.exports = {
     // Crea producto por post
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.render('publish', { errors: errors.mapped(), old: req.body }) };
+            return res.render('publish', { errors: errors.mapped(), old: req.body }) 
+        };
 
         const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear, categorie } = req.body;
+
         db.products.create({
-                name,
-                description,
-                price,
-                quantity,
-                brand,
-                original,
-                piecenumber,
-                carBrand,
-                carModel,
-                carYear,
-                image: req.filename,
-                owner: req.session.user.user_name,
-                category_id: parseInt(categorie)
-                })
+            name,
+            price,
+            description,
+            quantity,
+            brand,
+            original,
+            piecenumber,
+            carBrand,
+            carModel,
+            carYear,
+            image: req.file.filename,
+            owner: req.session.user.user_name,
+            category_id: parseInt(categorie)
+        })
             .then( () => { res.redirect('/products') })
             .catch(err => { res.send(err) }) /*, const cat = await findByPk(req.body.categorie); setCategories(cat)*/
     },
     edit: (req, res) => {
         db.products.findByPk(req.params.id)
-        .then( product => res.render('productEdit', {product}))
-        .catch( err => console.log(err));
+            .then( product => res.render('productEdit', {product}))
+            .catch( err => console.log(err));
     },
-    update: (req, res) => {
-        // let filename = '';
-        // if (req.body.image == undefined){
-        //     filename = req.body.currentImage
-        //     } else{
-        //     filename = req.body.image
-        //     }
+    update: async (req, res) => {
+        const old = await db.product.findByPk(req.params.id)
+        let filename = '';
+        if (old.image != undefined) { 
+            let filename = old.image;
+        }
         let { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear, categorie } = req.body;
         db.products.update({
-        name,
-        description,
-        price,
-        categorie,
-        quantity,
-        brand, 
-        original,
-        piecenumber,
-        carBrand,
-        carModel,
-        carYear,
-        // image: req.file ? req.file.filename
-        },
-        { where: { id: req.params.id } }
-        )
-        .then( () => res.redirect('/detail/' + req.params.id) )
+            name,
+            description,
+            price,
+            categorie,
+            quantity,
+            brand, 
+            original,
+            piecenumber,
+            carBrand,
+            carModel,
+            carYear,
+            image: req.body.file ? req.body.file.filename : filename
+        }, {
+            where: { id: req.params.id } 
+        })
+            .then( () => res.redirect('/detail/' + req.params.id) )
 
     },
     delete: (req, res) => {
