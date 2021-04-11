@@ -9,13 +9,17 @@ const { validationResult } = require('express-validator')
 
 module.exports = {
     products: (req, res) => {
+        // Implementar APIs, levantarlas con JS y borrar el resto, dejar solo esta
+        // return res.render('products')
         db.products.findAll()
-            .then(products => {
-                return res.render('products', { products })
-            })
-            .catch(err => console.log(err))
+        .then(products => {
+            return res.render('products', { products })
+        })
+        .catch(err => console.log(err))
     },
     productdetail: (req, res) => {
+        // Implementar APIs, levantarlas con JS y borrar el resto, dejar solo esta
+        // return res.render('productDetail')
         let id = req.params.id
         db.products.findOne({ where: { id } })
             .then(product => {
@@ -59,6 +63,9 @@ module.exports = {
             .catch(err => { res.send(err) }) /*, const cat = await findByPk(req.body.categorie); setCategories(cat)*/
     },
     edit: (req, res) => {
+        // Implementar APIs, levantarlas con JS y borrar el resto, dejar solo esta
+        // return res.render('productEdit')
+
         db.products.findByPk(req.params.id)
             .then( product => res.render('productEdit', {product}))
             .catch( err => console.log(err));
