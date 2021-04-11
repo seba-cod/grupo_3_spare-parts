@@ -6,8 +6,9 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
+        // Datos obligatorios al cargar un producto
         name: {
-            type: DataTypes.STRING(25),
+            type: DataTypes.STRING(30),
             allowNull: true
         },
         price: {
@@ -25,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         image: {
             type: DataTypes.STRING,
         },
+        // Datos no obligatorios en la carga de productos
         original: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -45,10 +47,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
         },
+        // Seleccionable y vinculante con la tabla de categorias
         category_id: {
             type: DataTypes.INTEGER,
         }
-
     }
     const config = {
         tableName: 'products',
@@ -57,7 +59,10 @@ module.exports = (sequelize, DataTypes) => {
     }
     const Model = sequelize.define(alias, columns, config);
     Model.associate = function (models) {
-        Model.belongsTo(models.categories, { as: 'category', foreingKey: 'category_id'})
-    }  // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
+        Model.belongsTo(models.categories, {
+            as: 'category',
+            foreingKey: 'category_id'
+        })
+    } // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
     return Model;
 };

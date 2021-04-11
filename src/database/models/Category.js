@@ -10,8 +10,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(25),
             allowNull: true
         },
-        
-
     }
     const config = {
         tableName: 'categories',
@@ -19,8 +17,8 @@ module.exports = (sequelize, dataTypes) => {
         paranoid: true
     }
     const Model = sequelize.define(alias, columns, config);
-    // Model.associate = function (models) {
-    //     Model.hasMany(models.products, { as: 'products' })
-    // }  // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
+    Model.associate = function (models) {
+        Model.hasMany(models.products, { as: 'products' })
+    }  // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
     return Model;
 };

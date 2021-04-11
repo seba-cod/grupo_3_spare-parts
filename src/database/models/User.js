@@ -28,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         avatar: {
             type: DataTypes.STRING
         },
+        // ¿Es administrador?
         admin: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
@@ -39,5 +40,8 @@ module.exports = (sequelize, DataTypes) => {
         paranoid: true
     }
     const Model = sequelize.define(alias, columns, config);
+    Model.associate = function (models) {
+        Model.hasMany(models.products, { as: 'products' })
+    }  // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
     return Model;
 }
