@@ -6,11 +6,12 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+        allowNull:false
       },
       user_name: Sequelize.STRING,
       first_name: Sequelize.STRING,
-      last_name: Sequelize.DECIMAL,
+      last_name: Sequelize.STRING,
       email: Sequelize.STRING,
       address: Sequelize.STRING,
       password: Sequelize.STRING,
@@ -30,16 +31,7 @@ module.exports = {
         allowNull: true
       },
       //Tabla pivot que linkee al usuario a una tabla que contenga USUARIOS y PRODUCTOS
-      products: {
-        type: Sequelize.STRING,
-        references: {
-          model: {
-            tableName: 'userProducts'
-          },
-          key: 'id_product'
-        },
-        allowNull: false
-      },
+      
 
     })
   },

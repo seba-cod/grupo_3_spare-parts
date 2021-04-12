@@ -23,17 +23,7 @@ module.exports = {
       updatedAt: { type: Sequelize.DATE },
       deletedAt: { type: Sequelize.DATE },
       // Id de usuario que tiene el producto -- NOFUNCIONA
-      owner: {
-        type: Sequelize.STRING,
-        references: {
-          //Tabla pivot para los productos que tenga un usuario
-          model: {
-            tableName: 'userProducts'
-          },
-          key: 'id_product'
-        },
-        allowNull: false
-      },
+      
       // Tabla de relaciones 1:N -- TIRA ERROR (constrain de FK)
       categoryId: {
         type: Sequelize.INTEGER,
@@ -45,6 +35,7 @@ module.exports = {
         },
         allowNull: false
       },
+      
     })
   },
   
