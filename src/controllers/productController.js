@@ -2,7 +2,7 @@
 // const jsonTable = require('../database/jsonTable');
 // const products = jsonTable('spareparts');
 // Solicito mi DB (MySQL)
-const db = require('../../database/models');
+const db = require('../database/models');
 // Encriptado de contraseña
 const bcrypt = require('bcryptjs');
 //Validaciones

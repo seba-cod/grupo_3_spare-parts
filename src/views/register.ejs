@@ -85,11 +85,11 @@
             </div>
             <div id="avatar" class="col-1">
               <label for="profile">Avatar </label>
-              <input type="file" name="user_avatar" id="user_avatar">
+              <input type="file" name="avatar" id="avatar">
             </div>
-            <% if (locals.errors && errors.user_avatar) { %>
+            <% if (locals.errors && errors.avatar) { %>
               <div class="text-danger">
-                <%= errors.user_avatar.msg %>
+                <%= errors.avatar.msg %>
               </div>
               <% } %>
             <div id="terms" class="col-1 terms">

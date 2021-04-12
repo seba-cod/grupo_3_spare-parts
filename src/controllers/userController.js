@@ -2,7 +2,7 @@
 const jsonTable = require('../database/jsonTable');
 const userTable = jsonTable('users');
 // Solicito mi DB (MySQL)
-const db = require('../../database/models');
+const db = require('../database/models');
 // Encriptado de contraseña
 const bcryptjs = require('bcryptjs');
 // Validaciones
