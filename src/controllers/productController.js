@@ -1,10 +1,11 @@
-const fs = require('fs');
-const path = require('path');
+// Solicito métodos y la base en .json
 // const jsonTable = require('../database/jsonTable');
 // const products = jsonTable('spareparts');
+// Solicito mi DB (MySQL)
 const db = require('../../database/models');
-//Validaciones
+// Encriptado de contraseña
 const bcrypt = require('bcryptjs');
+//Validaciones
 const { validationResult } = require('express-validator')
 
 module.exports = {
@@ -12,10 +13,10 @@ module.exports = {
         // Implementar APIs, levantarlas con JS y borrar el resto, dejar solo esta
         // return res.render('products')
         db.products.findAll()
-        .then(products => {
-            return res.render('products', { products })
-        })
-        .catch(err => console.log(err))
+            .then(products => {
+                return res.render('products', { products })
+            })
+            .catch(err => console.log(err))
     },
     productdetail: (req, res) => {
         // Implementar APIs, levantarlas con JS y borrar el resto, dejar solo esta
