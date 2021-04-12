@@ -13,14 +13,16 @@ module.exports = {
         res.render('contact');
     },
     search: (req, res) => {
-        console.log(req.query.query)
-        let unArrayQueVoyAConstruir = [];
-        req.query.query.split(' ').forEach(algoMejorQueX => unArrayQueVoyAConstruir.push({ [Op.substring]: algoMejorQueX }))
-
+        // Declaro un array vacío para poder trabajar la busqueda
+        let searchArray = [];
+        // Divido lo que escribió el Usuario como busqueda para poder buscar cada palabra
+        req.query.query.split(' ').forEach(eachWordOfTheSearch => searchArray.push({ [Op.substring]:(eachWordOfTheSearch) }))
+        // Iré a buscar si dentro de mis productos existe algo que coincida con alguna palabra del array de busqueda
         db.products.findAll({
             where: {
                 name: {
-                    [Op.or]: unArrayQueVoyAConstruir // req.query para acceder a la URL, .query para acceder al parametro de busqueda
+                    // Utilizamos el operador de "o"
+                    [Op.or]: searchArray // req.query para acceder a la URL, .query para acceder al parametro de busqueda
                 }
             }
         })
@@ -33,6 +35,7 @@ module.exports = {
         .catch(err => console.log(err))
     },
     notfound: (req, res) => {
+        // Renderizado de status:404
         res.render('not_found');
     }
 };
