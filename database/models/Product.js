@@ -48,8 +48,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
         },
         // Seleccionable y vinculante con la tabla de categorias
-        category_id: {
+        categoryId: {
             type: DataTypes.INTEGER,
+        },
+        userId: {
+            type: DataTypes.INTEGER
         }
     }
     const config = {
@@ -61,7 +64,11 @@ module.exports = (sequelize, DataTypes) => {
     Model.associate = function (models) {
         Model.belongsTo(models.categories, {
             as: 'category',
-            foreingKey: 'category_id'
+            foreingKey: 'categoryId'
+        })
+        Model.belongsTo(models.users, {
+            as: 'user',
+            foreingKey: 'userId'
         })
     } // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
     return Model;

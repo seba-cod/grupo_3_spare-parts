@@ -35,6 +35,16 @@ module.exports = {
         },
         allowNull: false
       },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'users'
+          },
+          key: 'id'
+        },
+        allowNull: false
+      }
       
     })
   },

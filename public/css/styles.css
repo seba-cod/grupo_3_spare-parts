@@ -974,6 +974,7 @@ input#terms.check-form{
   flex-basis: 15%;
 }
 .card_img img{
+  margin: 10px 0;
   border-radius: 30%;
   width: 100%;
   max-width: 150px;
@@ -1075,4 +1076,15 @@ body.not-found .is-medium{
 body.not-found .to-right{
 text-align: right;
 padding-right: 5%;
+}
+
+.img_update{
+  display: flex;
+}
+.img_update img{
+  display: block;
+  border-radius: 30%;
+  max-width: 100px;
+  box-shadow: 0 0 2px 1px;
+  margin: 10px auto 0;
 }

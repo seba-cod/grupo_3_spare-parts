@@ -7,8 +7,7 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         user_name: {
-            type: DataTypes.STRING,
-            unique: true
+            type: DataTypes.STRING
         },
         first_name: {
             type: DataTypes.STRING
@@ -26,12 +25,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         avatar: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         },
         // ¿Es administrador?
         admin: {
             type: DataTypes.BOOLEAN,
-            allowNull: true,
+            allowNull: true
         }
     };
     let config = {
@@ -41,7 +41,9 @@ module.exports = (sequelize, DataTypes) => {
     }
     const Model = sequelize.define(alias, columns, config);
     Model.associate = function (models) {
-        Model.hasMany(models.products, { as: 'products' })
-    }  // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
+        Model.hasMany(models.products, {
+            as: 'products'
+        })
+    } // models => todos los modelos. ; *models.categories* => el alias de la que queremos relacionar
     return Model;
 }

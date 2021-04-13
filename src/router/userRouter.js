@@ -45,11 +45,11 @@ router.get(['/admin/all', '/admin/todos'], userController.adminAll);
 router.get(['/admin/detail/:id', '/admin/detalle/:id'], userController.detail);
 
 // proceso form de register
-router.post(['/register', '/registro'], upload.single('user_avatar'), validations.register, userController.create);
+router.post(['/register', '/registro'], upload.single('avatar'), validations.register, userController.create);
 // proceso form de administrador
 router.get(['/admin/edit/:id', '/admin/editar/:id'], userController.edit);
-router.put(['/admin/edit/:id', '/admin/editar/:id'], upload.single('user_avatar'), validations.update, userController.update); /*no quiere andar ni con PUT ni con PATCH, hay que generar un nuevo metodo en validaciones para este update*/
-router.delete(['/admin/detalle/:id', '/admin/detalle/:id'], userController.delete);
+router.patch(['/admin/edit/:id', '/admin/editar/:id'], upload.single('avatar'), validations.update, userController.update); 
+router.delete(['/admin/detaile/:id', '/admin/detalle/:id'], userController.delete);
 
 /*------------------------------------------------------export------------------------------------------------------*/
 module.exports = router;

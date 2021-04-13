@@ -5,8 +5,15 @@
     <%- include('./partials/header') %>
       <div class="container-form  log-reg">
         <div class="row">
-          <form action="/user/admin/edit/<%= user.id %>?_method=PUT" METHOD="POST" class="publish" id="form"  enctype="multipart/form-data">
-            <h5>Edición de Usuario: <%= user.user_name %> </h5>
+          <form action="/user/admin/edit/<%= user.id %>?_method=PATCH" METHOD="POST" class="publish" id="form"  enctype="multipart/form-data">
+              <div>
+                <h5>Edición de Usuario: <%= user.user_name %> </h5>
+              </div>
+              <% if (user.avatar) { %>
+                  <div class="img_update">
+                    <img src="../../../images/avatars/<%= user.avatar %>" alt="avatar del usuario">
+                </div>
+                <% } %>
 
             <div id="first_name" class="col-1">
               <label for="first_name">Nombre/s</label>
@@ -33,7 +40,7 @@
             <div id="address" class="col-1">
               <label for="address">Dirección</label>
               <div class="container_input">
-                <input type="text" class="txt_input" name="address" id="address" <% if (user.address) { %> value="<%=user.last_name%>" <% } %> placeholder="Calle # - CP - Localidad" >
+                <input type="text" class="txt_input" name="address" id="address" <% if (user.address) { %> value="<%=user.address%>" <% } %> placeholder="Calle # - CP - Localidad" >
               </div>
               <% if (locals.errors && errors.address) { %>
                 <div class="text-danger">
@@ -41,9 +48,10 @@
                 </div>
                 <% } %>
             </div>
+            
             <div id="avatar" class="col-1">
-              <label for="profile">Avatar </label>
-              <input type="file" name="user_avatar"> <!--podré cambiar lo que dice "Seleccionar archivo? "-->
+              <label for="profile">¿Deseas cambiar tu Avatar?</label>
+              <input type="file" name="avatar">
             </div>
             <input type="submit" class="ok-input" value="Actualizá tu información">
           </form>
