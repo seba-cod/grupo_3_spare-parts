@@ -6,9 +6,7 @@ const db = require('../../database/models');
 // Encriptado de contraseña
 const bcryptjs = require('bcryptjs');
 // Validaciones
-const {
-    validationResult
-} = require('express-validator');
+const { validationResult } = require('express-validator');
 
 
 
