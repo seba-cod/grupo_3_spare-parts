@@ -34,17 +34,21 @@ app.use(isLogged);
 app.use(express.urlencoded({
     extended: false
 }));
+app.use(express.json());
 app.use(methodOverride('_method'));
 
 // Requiero los ruteadores
 const main = require('./src/router/mainRouter');
 const user = require('./src/router/userRouter');
 const product = require('./src/router/productRouter');
+const api = require('./src/router/apiRouter')
 
 // Vinculo el Modelo al Controlador
 app.use('/', main);
 app.use('/user', user);
 app.use('/product', product);
+app.use('/api', api);
+
 
 // Levanto Servidor
 app.listen(3000, () => {
