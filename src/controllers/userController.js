@@ -127,7 +127,7 @@ module.exports = {
         let user = await db.users.findByPk(id)
         return res.render('adminDetail', { user } );
     },
-    delete: (req, res) => {
+    destroy: (req, res) => {
         // Método por POST para envío de form
         let id = req.params.id
         db.users.destroy({ where: { id } } )
