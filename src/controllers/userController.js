@@ -130,7 +130,7 @@ module.exports = {
     delete: (req, res) => {
         // Método por POST para envío de form
         let id = req.params.id
-        db.users.delete({ where: { id } } )
+        db.users.destroy({ where: { id } } )
             .then(() => { return res.redirect('/user/admin/all') })
             .catch(err => { res.send('something went wrong ' + err) })
         },
@@ -138,7 +138,7 @@ module.exports = {
         let id = req.params.id
         db.users.findByPk(id)
         .then(user => {
-            return res.render('adminEdit', { user } ) } )
+            return res.redirect('adminDetail') } )
         .catch(err => { res.send('something went wrong ' + err) })
     },
     update: async (req, res) => {
