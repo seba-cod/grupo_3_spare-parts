@@ -108,7 +108,42 @@ module.exports = {
                     error
                 })
         })
-}
+},
+     
+// // USER API-CONTROLLER !
+//     users: (req,res)=>{
+//         db.users.findAll()
+//         .then(users=>{
+//             req.json(users)
+//         })
+//         .catch(error => {
+//             res.status(500).json({
+//                     status: STATUS_ERROR,
+//                     error,
+//                 })
+//         })
+//     },
+    
+//     creatuser: (req, res) => {
+//         const body = req.body
+        
+//         db.users.create(body)
+//             .then(user => {
+//                 res.status(201)
+//                     .json({
+//                         data: user,
+//                         status: STATUS_SUCCESS
+//                     })
+//             })
+//             .catch(error => {
+//                 res
+//                     .status(500).json({
+//                         status: STATUS_ERROR,
+//                         error
+//                     })
+//             })
+// },
+
 }
 
          
