@@ -87,7 +87,7 @@ module.exports = {
         category_id: parseInt(categorie),
       })
       .then(() => {
-        res.redirect("/products");
+        res.redirect("/product/all");
       })
       .catch((err) => {
         res.send(err);

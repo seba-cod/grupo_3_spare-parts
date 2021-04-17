@@ -6,8 +6,8 @@ const userController = require('../controllers/API_userController');
 /*  -------------------------------------------- PRODUCT ROUTES ------------------------------------------------ */
 
 router.get('/products', productController.products)
-router.get('/products/:id', productController.productdetail)
-router.post('/products', productController.createproduct)
+router.get('/products/:id', productController.productDetail)
+router.post('/products', productController.createProduct)
 router.patch('/products/:id', productController.update)
 router.delete('/products/:id', productController.delete)
 
