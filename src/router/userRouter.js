@@ -15,18 +15,25 @@ const storage = multer.diskStorage ({
     }
 });
 const upload = multer ({ storage });
+
 // Express Validator
 const { check } = require('express-validator');
 const validations = require('../middleware/validations');
+
 // Invitados
 const guest = require('../middleware/guest');
+
 // Acceso solo para usuarios logueados
 const auth = require('../middleware/auth');
+
+// Require Admin midd
+const admin = require('../middleware/authAdm');
 
 // Controlador
 const userController = require('../controllers/userController');
 
 /*------------------------------------------------------vistas------------------------------------------------------*/
+
 // muestra form de login
 router.get(['/login', '/ingreso'], guest, userController.login);
 // proceso form de login
@@ -41,7 +48,7 @@ router.get('/logout', userController.logout);
 router.get(['/register', '/registro'], guest, userController.register);
 
 // muestra rutas de administrador -- agregar midd "authAdm" que verifica que el usuario en su prop user.admin == true
-router.get(['/admin/all', '/admin/todos'], userController.adminAll);
+router.get(['/admin/all', '/admin/todos'], admin, userController.adminAll);
 router.get(['/admin/detail/:id', '/admin/detalle/:id'], userController.detail);
 
 // proceso form de register

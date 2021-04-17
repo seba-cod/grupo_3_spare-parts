@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/mainController');
 
-router.get(['/home', '/', ''], mainController.index);
+const admin = require('../middleware/authAdm');
+
+
+router.get(['/home', '/', ''], admin, mainController.index);
 router.get(['/about', '/sobre'], mainController.about);
 router.get(['/contact', '/contacto'], mainController.contact);
 router.get(['/search', '/busqueda'], mainController.search);

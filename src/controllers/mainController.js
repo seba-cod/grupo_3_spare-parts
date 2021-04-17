@@ -3,7 +3,6 @@ const Op = db.Sequelize.Op;
 
 module.exports = {
     index: (req, res) => {
-        console.log(req.session);
         res.render('index');
     },
     about: (req, res) => {

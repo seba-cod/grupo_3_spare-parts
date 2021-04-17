@@ -38,8 +38,8 @@ module.exports = {
                 // Si el usuario marca la casilla de Recuerdame, guardo su información en una cookie
                 if (req.body.remember_user) {
                     res.cookie('userEmail', user.email, {
-                        maxAge: (1000 * 60)
-                    }) // la guardo durante 1 mes
+                        maxAge: (1000 * 60 *60 * 24)
+                    })
                 }
                 return res.redirect('/user/profile')
             } )
