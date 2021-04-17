@@ -15,7 +15,7 @@ const productApiMethods = {
         });
       });
   },
-  productdetail: (req, res) => {
+  productdetail: (req, res) => { // TODO FIXME: este método no esta andando desde postman cuando envías el req.params de id = 1, no envía información y tira error
     const { id } = req.params;
 
     db.products
@@ -40,22 +40,24 @@ const productApiMethods = {
         });
       });
   },
-  createproduct: (req, res) => {
-    const body = req.body;
+  createproduct: (req, res) => { // TODO FIXME: este método no esta andando desde postman cuando envías form-data no llega la información, se agrega a la DB un nuevo ID pero llega todo null
+    const body = req.body
+    console.log(req.body)
+    
     db.products
       .create(body)
       .then((product) => {
         res.status(201).json({
           data: product,
           status: STATUS_SUCCESS,
-        });
+        })
       })
       .catch((error) => {
         res.status(500).json({
           status: STATUS_ERROR,
           error,
-        });
-      });
+        })
+      })
   },
   update: (req, res) => {
     const body = req.body;
