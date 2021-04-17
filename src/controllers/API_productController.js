@@ -15,14 +15,16 @@ const productApiMethods = {
         });
       });
   },
-  productdetail: (req, res) => { // TODO FIXME: este método no esta andando desde postman cuando envías el req.params de id = 1, no envía información y tira error
+  productdetail: (req, res) => { // TODO FIXME: este método no esta andando si le incluyo las categorias
     const { id } = req.params;
-
+    console.log(id)
     db.products
-      .findByPk(id, {
+      .findByPk(id, 
+    /*     {
         include: "categories",
-      })
-      .then((product) => {
+      } */
+      )
+      .then(product => {
         if (!product) {
           return res.status(404).json({
             status: STATUS_NOT_FOUND,
@@ -46,7 +48,7 @@ const productApiMethods = {
     
     db.products
       .create(body)
-      .then((product) => {
+      .then(product => {
         res.status(201).json({
           data: product,
           status: STATUS_SUCCESS,

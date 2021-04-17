@@ -4,6 +4,7 @@ const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookie = require('cookie-parser');
+const cors = require('cors');
 const favicon = require('serve-favicon');
 // TODO eliminar ese favicón, se mantiene el mismo que en primera carga
 // REQ. DE RUTAS
@@ -21,6 +22,8 @@ app.set('views', './src/views');
 
 // CFG. DIRECTORIO ESTATICO
 app.use(express.static('public'));
+// CORS
+app.use(cors())
 // FAVICON
 app.use(favicon('./public/images/favicon.ico'));
 
