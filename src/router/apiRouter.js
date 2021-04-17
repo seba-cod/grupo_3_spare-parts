@@ -1,15 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/apiController');
-//products api rutas
-router.get('/products', controller.products)
-router.get('/products/:id', controller.productdetail)
-router.post('/products', controller.createproduct)
-router.patch('/products/:id', controller.update)
-router.delete('/products/:id', controller.delete)
+const productController = require('../controllers/API_productController');
+const userController = require('../controllers/API_userController');
 
+/*  -------------------------------------------- PRODUCT ROUTES ------------------------------------------------ */
+
+router.get('/products', productController.products)
+router.get('/products/:id', productController.productdetail)
+router.post('/products', productController.createproduct)
+router.patch('/products/:id', productController.update)
+router.delete('/products/:id', productController.delete)
+
+/*  -------------------------------------------- USER ROUTES ------------------------------------------------ */
 //users api rutas
-// router.get('/user', controller.users)
-// router.post('/user', controller.createuser)
+router.get('/user', userController.allUsers)
+router.get('/user/:id', userController.userByUsername)
+router.post('/user', userController.createUser)
+
 
 module.exports = router;
