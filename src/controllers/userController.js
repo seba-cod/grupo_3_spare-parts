@@ -1,20 +1,15 @@
-// Solicito métodos y la base en .json
-// const jsonTable = require('../database/jsonTable');
-// const userTable = jsonTable('users');
-// Solicito mi DB (MySQL)
+/*  ------------------------------------------------- REQUIRES -------------------------------------------------- */
+
 const db = require("../../database/models");
-// Encriptado de contraseña
 const bcryptjs = require("bcryptjs");
-// Validaciones
 const { validationResult } = require("express-validator");
 
+/*  ----------------------------------------- METODOS DEL CONTROLADOR -------------------------------------------- */
 module.exports = {
   login: (req, res) => {
-    // Renderizado del login
     res.render("login");
   },
   auth: (req, res) => {
-    // Método por POST para envío de form
     // Utilizo express validator para cargar los errores
     let errors = validationResult(req);
     db.users
@@ -62,17 +57,13 @@ module.exports = {
   logout: (req, res) => {
     // Limpio la Cookie de remember_user
     res.clearCookie("userEmail");
-    // Borro session actual, ¿intento borrar cookies? // Si lo hago desde el front con local storage hay que borrarlo también
     req.session.destroy();
-    // Intento redirigir al home pero no funciona-revisar
     res.redirect("/");
   },
   register: (req, res) => {
-    // Se renderiza por GET
     res.render("register");
   },
   create: (req, res) => {
-    // Método por POST para envío de form
     // Utilizo express validator para cargar los errores
     let errors = validationResult(req);
     //  Reviso que no se encuentre el correo electronico ya registrado
@@ -120,7 +111,6 @@ module.exports = {
   },
 
   adminAll: (req, res) => {
-    // Se renderiza por GET
     db.users
       .findAll()
       .then((users) => {
@@ -129,13 +119,11 @@ module.exports = {
       .catch((err) => res.send("Tu DB no está andando por: " + err));
   },
   detail: async (req, res) => {
-    // Se renderiza por GET
     let id = req.params.id;
     let userWanted = await db.users.findByPk(id);
     return res.render("userDetail", { userWanted });
   },
   delete: (req, res) => {
-    // Método por POST para envío de form
     let id = req.params.id;
     db.users
       .destroy({ where: { id } })
