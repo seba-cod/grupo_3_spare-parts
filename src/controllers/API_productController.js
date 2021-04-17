@@ -2,7 +2,7 @@ const db = require("../../database/models");
 const { STATUS_SUCCESS, STATUS_ERROR, STATUS_NOT_FOUND } = require("./status");
 
 const productApiMethods = {
-  products: (req, res) => {
+  allProducts: (req, res) => {
     db.products
       .findAll()
       .then((products) => {
@@ -15,7 +15,7 @@ const productApiMethods = {
         });
       });
   },
-  productDetail: (req, res) => {
+  productByPk: (req, res) => {
     // TODO FIXME: este método no esta andando si le incluyo las categorias
     const { id } = req.params;
     db.products
@@ -60,7 +60,7 @@ const productApiMethods = {
         })
       })
   },
-  update: (req, res) => {
+  updateProduct: (req, res) => {
     const body = req.body;
     db.products
       .update(body, {
@@ -83,7 +83,7 @@ const productApiMethods = {
         });
       });
   },
-  delete: (req, res) => {
+  deleteProduct: (req, res) => {
     db.products
       .destroy({
         where: {

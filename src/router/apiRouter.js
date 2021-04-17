@@ -5,17 +5,19 @@ const userController = require('../controllers/API_userController');
 
 /*  -------------------------------------------- PRODUCT ROUTES ------------------------------------------------ */
 
-router.get('/products', productController.products)
-router.get('/products/:id', productController.productDetail)
+router.get('/products', productController.allProducts)
+router.get('/products/:id', productController.productByPk)
 router.post('/products', productController.createProduct)
-router.patch('/products/:id', productController.update)
-router.delete('/products/:id', productController.delete)
+router.patch('/products/:id', productController.updateProduct)
+router.delete('/products/:id', productController.deleteProduct)
 
 /*  -------------------------------------------- USER ROUTES ------------------------------------------------ */
-//users api rutas
-router.get('/user', userController.allUsers)
-router.get('/user/:id', userController.userByUsername)
-router.post('/user', userController.createUser)
+
+router.get('/users', userController.allUsers)
+router.get('/users/:id', userController.userByPk)
+router.post('/users', userController.createUser)
+router.patch('/users/:id', userController.updateUser)
+router.delete('/users/:id', userController.deleteUser)
 
 
 module.exports = router;

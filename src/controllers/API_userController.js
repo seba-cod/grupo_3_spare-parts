@@ -1,12 +1,13 @@
 const db = require("../../database/models");
-const { STATUS_SUCCESS, STATUS_ERROR , STATUS_NOT_FOUND } = require('./status')
+const { STATUS_SUCCESS, STATUS_ERROR, STATUS_NOT_FOUND } = require("./status");
+const bcryptjs = require('bcryptjs');
 
 const userApiMethods = {
   allUsers: (req, res) => {
     db.users
       .findAll()
       .then((users) => {
-        req.json(users);
+        res.json(users);
       })
       .catch((error) => {
         res.status(500).json({
@@ -15,11 +16,11 @@ const userApiMethods = {
         });
       });
   },
-  userByUsername: (req, res) => {
+  userByPk: (req, res) => {
     db.users
       .findByPk(req.params.id)
       .then((user) => {
-        req.json(user);
+        res.json(user);
       })
       .catch((error) => {
         res.status(500).json({
@@ -29,7 +30,9 @@ const userApiMethods = {
       });
   },
   createUser: (req, res) => {
-    const body = req.body;
+    const password = bcryptjs.hashSync(req.body.password, 10);
+    let body = req.body;
+    body.password = password;
     db.users
       .create(body)
       .then((user) => {
@@ -45,6 +48,50 @@ const userApiMethods = {
         });
       });
   },
+  updateUser: (req, res) => {
+    const body = req.body;
+    db.users
+      .update(body, {
+        where: {
+          id: req.params.id,
+        },
+      })
+      .then(() => {
+        db.users.findByPk(req.params.id).then((product) => {
+          res.status(201).json({
+            data: product,
+            status: STATUS_SUCCESS,
+          });
+        });
+      })
+      .catch((error) => {
+        res.status(500).json({
+          status: STATUS_ERROR,
+          error,
+        })
+      })
+  },
+  deleteUser: (req, res) => {
+    db.users
+      .destroy({
+        where: {
+          id: req.params.id,
+        },
+      })
+      .then(() => {
+        res.status(200).json({
+          status: STATUS_SUCCESS,
+        });
+      })
+      .catch((error) => {
+        res.status(500).json({
+          status: STATUS_ERROR,
+          error,
+        })
+      })
+  },
 };
+
+
 
 module.exports = userApiMethods;
