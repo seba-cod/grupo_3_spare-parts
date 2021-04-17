@@ -101,7 +101,7 @@ module.exports = {
                     password,
                     avatar: avatar ? req.file.filename : "default.png"
                 })
-                .then(() => {
+                .then( user => {
                     res.redirect('/user/login')
                 } )
              } )
@@ -127,7 +127,7 @@ module.exports = {
         let user = await db.users.findByPk(id)
         return res.render('adminDetail', { user } );
     },
-    destroy: (req, res) => {
+    delete: (req, res) => {
         // Método por POST para envío de form
         let id = req.params.id
         db.users.destroy({ where: { id } } )
