@@ -34,29 +34,22 @@ const userController = require('../controllers/userController');
 
 /*------------------------------------------------------vistas------------------------------------------------------*/
 
-// muestra form de login
 router.get(['/login', '/ingreso'], guest, userController.login);
-// proceso form de login
 router.post(['/login', '/ingreso'], validations.login, userController.auth);
-// muestra perfil de usuario
 router.get(['/profile', '/profile'], auth, userController.profile);
-// cierre de sesion
-router.get('/logout', userController.logout); 
-
-
-// muestra form de register
 router.get(['/register', '/registro'], guest, userController.register);
+router.get(['/logout', '/salir'], userController.logout); 
 
-// muestra rutas de administrador -- agregar midd "authAdm" que verifica que el usuario en su prop user.admin == true
 router.get(['/admin/all', '/admin/todos'], admin, userController.adminAll);
 router.get(['/admin/detail/:id', '/admin/detalle/:id'], userController.detail);
 
-// proceso form de register
 router.post(['/register', '/registro'], upload.single('avatar'), validations.register, userController.create);
-// proceso form de administrador
-router.get(['/admin/edit/:id', '/admin/editar/:id'], userController.edit);
-router.patch(['/admin/edit/:id', '/admin/editar/:id'], upload.single('avatar'), validations.update, userController.update); 
-router.delete(['/admin/detaile/:id', '/admin/detalle/:id'], userController.delete);
+
+router.get(['/edit/:id', '/editar/:id'], userController.userEdit);
+router.get(['/admin/edit/:id', '/admin/editar/:id'], admin, userController.adminEdit);
+router.patch(['/admin/edit/:id', '/admin/editar/:id'], upload.single('avatar'), validations.update, userController.adminUpdate); 
+router.patch(['/edit/:id', '/editar/:id'], upload.single('avatar'), validations.update, userController.userUpdate); 
+router.delete(['/admin/delet/:id', '/admin/delete/:id'], userController.delete);
 
 /*------------------------------------------------------export------------------------------------------------------*/
 module.exports = router;

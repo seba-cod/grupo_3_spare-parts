@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+  <body>
+    <%- include('./partials/header') %>
+      <div class="container-admin">
+        
+          <div class="row-admin">
+            <div class="card_img">
+              <img src="../../../images/avatars/<%=userWanted.avatar%>" alt="">
+            </div>
+            <div class="card">
+              <h4>
+                <%= userWanted.user_name %>
+              </h4>
+              <p>Nombre completo: <%= userWanted.first_name + " " + userWanted.last_name%>
+              </p>
+              <p>Correo electrónico: <%= userWanted.email %>
+              </p>
+              <p>Dirección: <%= userWanted.address %>
+              </p>
+              <p>Teléfono: <%= userWanted.tel %>
+              </p>
+            </div>
+
+            <% if (locals.isAdmin) { %> 
+              <div class="admin">
+              <form action="/user/admin/delete/<%=userWanted.id%>?_method=DELETE" method="POST">
+                <input type="submit" value="Borrar" class="admin danger">
+              </form>
+              <% } %> 
+              <a href="/user/admin/edit/<%=userWanted.id%>"><input type="submit" value="Editar" class="admin ok"></a>
+              </form>
+            </div>
+
+          </div>
+      </div>
+      <%- include('./partials/footer') %>
+  </body>
+
+</html>

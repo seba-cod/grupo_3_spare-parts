@@ -15,6 +15,9 @@ module.exports = async (req, res, next) =>{
             res.locals.isLogged = true;
             res.locals.user = req.session.user;
         }
+        if (req.session && req.session.user.admin){
+            res.locals.isAdmin = true;
+        }
     }
 
     next();

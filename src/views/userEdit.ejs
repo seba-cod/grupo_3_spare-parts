@@ -5,39 +5,15 @@
     <%- include('./partials/header') %>
       <div class="container-form  log-reg">
         <div class="row">
-          <form action="/user/admin/edit/<%= user.id %>?_method=PATCH" METHOD="POST" class="publish" id="form"  enctype="multipart/form-data">
+          <form action="/user/edit/<%= user.id %>?_method=PATCH" METHOD="POST" class="publish" id="form"  enctype="multipart/form-data">
               <div>
                 <h5>Edición de Usuario: <%= user.user_name %> </h5>
               </div>
-              <% if (user.avatar) { console.log(user.avatar) %>
+              <% if (user.avatar) { %>
                   <div class="img_update">
                     <img src="../../../images/avatars/<%= user.avatar %>" alt="avatar del usuario">
                 </div>
                 <% } %>
-
-            <div id="user_name" class="col-1">
-              <label for="user_name">Nombre de usuario</label>
-              <div>
-                <input type="text" class="txt_input" name="user_name" id="user_name" value="<%=user.user_name%>">
-              </div>
-              <% if (locals.errors && errors.user_name) { %>
-                <div class="text-danger">
-                  <%= errors.user_name.msg %>
-                </div>
-                <% } %>
-            </div>
-            
-            <div id="email" class="col-1">
-              <label for="email">Nombre de usuario</label>
-              <div>
-                <input type="text" class="txt_input" name="email" id="email" value="<%=user.email%>">
-              </div>
-              <% if (locals.errors && errors.email) { %>
-                <div class="text-danger">
-                  <%= errors.email.msg %>
-                </div>
-                <% } %>
-            </div>
 
             <div id="first_name" class="col-1">
               <label for="first_name">Nombre/s</label>

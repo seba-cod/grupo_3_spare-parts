@@ -1,6 +1,3 @@
-// Solicito métodos y la base en .json
-// const jsonTable = require('../database/jsonTable');
-// const products = jsonTable('spareparts');
 // Solicito mi DB (MySQL)
 const db = require("../../database/models");
 // Encriptado de contraseña
@@ -10,18 +7,16 @@ const { validationResult } = require("express-validator");
 
 module.exports = {
   products: (req, res) => {
-    // Implementar APIs, levantarlas con JS y borrar el resto, dejar solo esta
-    // return res.render('products')
     db.products
       .findAll()
       .then((products) => {
         return res.render("products", { products });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
   },
   productdetail: (req, res) => {
-    // Implementar APIs, levantarlas con JS y borrar el resto, dejar solo esta
-    // return res.render('productDetail')
     let id = req.params.id;
     db.products
       .findOne({

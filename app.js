@@ -29,7 +29,7 @@ app.use(favicon('./public/images/favicon.ico'));
 
 // REQ MIDDLEWARE USERS
 const isLogged = require('./src/middleware/userLogged');
-// const admin = require ('./src/middleware/admin');
+// const admin = require ('./src/middleware/authAdm');
 
 // SESSION
 app.use(session({

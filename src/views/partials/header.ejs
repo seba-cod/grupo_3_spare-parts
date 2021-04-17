@@ -18,7 +18,7 @@
             <%=locals.user.user_name%>
           </a>
           <a href="/user/logout">Cerrar sesión</a>
-          <% if (locals.admin) { %> 
+          <% if (locals.isAdmin) { %> 
           <a href="/user/admin/all">Panel de usuarios</a>
           <% } %> 
           <% } else {%>
