@@ -44,23 +44,9 @@ const productApiMethods = {
       });
   },
   createProduct: (req, res) => {
-    const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear, categoryId, userId, image } = req.body;
+    const body = req.body;
     db.products
-      .create({
-        name,
-        price,
-        description,
-        quantity,
-        brand,
-        original,
-        piecenumber,
-        carBrand,
-        carModel,
-        carYear,
-        image,
-        categoryId,
-        userId
-      })
+      .create(body)
       .then((product) => {
         res.status(201).json({
           data: product,
@@ -83,7 +69,7 @@ const productApiMethods = {
         },
       })
       .then(() => {
-        db.Product.findByPk(req.params.id).then((product) => {
+        db.products.findByPk(req.params.id).then((product) => {
           res.status(201).json({
             data: product,
             status: STATUS_SUCCESS,
