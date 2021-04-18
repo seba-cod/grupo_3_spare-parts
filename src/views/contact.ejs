@@ -6,16 +6,17 @@
     <%- include('./partials/header') %>
       <div class="container-form log-reg">
         <div class="row">
-          <form action="/contact" class="publish" id="contactForm" method="POST">
+          <form action="/contact" class="publish" id="contactForm" method="POST"  enctype="application/x-www-form-urlencoded">
             <div id="anon-name" class="col-1">
-              <label for="anon-name">Nombre completo</label>
+              <label for="anon_name">Nombre completo</label>
               <div>
-                <input type="text" class="txt_input" name="anon-name" id="anon-name">
+                <input type="text" class="txt_input" name="anon_name" id="anon-name">
               </div>
-              <div id="anon-email" class="col-1">
+              <div id="anon_email" class="col-1">
                 <label for="anon-email">Dejanos tu correo para contactarnos</label>
                 <div>
-                  <input type="text" class="txt_input" name="anon-email" id="anon-email">
+                  <input type="text" class="txt_input" name="anon_
+                  email" id="anon-email">
                 </div>
               </div>
               <div id="msg" class="col-1">

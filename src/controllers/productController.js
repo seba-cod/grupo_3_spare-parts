@@ -49,22 +49,10 @@ module.exports = {
       });
     }
 
-    const {
-      name,
-      description,
-      price,
-      quantity,
-      brand,
-      original,
-      piecenumber,
-      carBrand,
-      carModel,
-      carYear,
-      categorie,
-    } = req.body;
+    const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear,  categorie } = req.body;
+    console.log(req.file);
 
     let filename = "";
-
     db.products
       .create({
         name,
@@ -77,7 +65,7 @@ module.exports = {
         carBrand,
         carModel,
         carYear,
-        image: req.body.file ? req.body.file.filename : filename,
+        image: req.file ? req.file.filename : filename,
         owner: req.session.user.user_name,
         category_id: parseInt(categorie),
       })

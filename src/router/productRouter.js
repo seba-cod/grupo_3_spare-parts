@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+
+/*------------------------------------------------------middlewares----------------------------------------------------*/
 // Requiero multer: storage 
 const multer = require('multer');
 const storage = multer.diskStorage ({
@@ -13,6 +15,7 @@ const storage = multer.diskStorage ({
     }
 });
 const upload = multer ({ storage });
+
 // Express Validator
 const { check } = require('express-validator')
 const validations = require('../middleware/validations')
@@ -26,9 +29,9 @@ router.get(['/detail/:id', '/detalle/:id'], productController.productdetail); //
 
 //Rutas vendedor
 router.get(['/publicar', '/publish'], productController.publish);
-router.post(['/publicar', '/publish'], upload.any('product_img'), validations.createProduct, productController.createproduct);
+router.post(['/publicar', '/publish'], upload.single('image'), validations.createProduct, productController.createproduct);
 router.get(['/editar/:id','/edit/:id'], productController.edit);
-router.put(['/editar/:id','/edit/:id'], upload.any('product_img'), productController.update);
+router.put(['/editar/:id','/edit/:id'], upload.single('image'), productController.update);
 
 //Rutas user logueado
 router.get(['/cart', '/checkout', '/carrito'], productController.checkout);

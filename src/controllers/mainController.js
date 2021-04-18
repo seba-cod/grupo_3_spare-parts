@@ -11,6 +11,10 @@ module.exports = {
     contact: (req, res) => {
         res.render('contact');
     },
+    sendContact: (req, res) => {
+        /* TODO escribir el formulario para que envíe un correo electrónico a: correo-falso1@spare-parts.com */
+        /* TODO aprender a email framework */
+    },
     search: (req, res) => {
         // Declaro un array vacío para poder trabajar la busqueda
         let searchArray = [];

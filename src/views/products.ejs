@@ -1,60 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %>
+  <%- include('./partials/head') %>
 
   <body>
     <%- include('./partials/header') %>
 
-      <!-- Seccion productos-->
-      <main>
-        <div class="container">
-          <div class="sort">
-            <div class="collection-sort">
-              <label>Filtrar por:</label>
-              <select>
-                <option value="/">Todos los Repuestos</option>
-              </select>
-            </div>
-
-            <div class="collection-sort">
-              <label>Ordenar por:</label>
-              <select>
-                <option value="/">Categoria</option>
-              </select>
-            </div>
+    <!-- Seccion productos-->
+    <main>
+      <div class="container">
+        <div class="sort">
+          <div class="collection-sort">
+            <label>Filtrar por:</label>
+            <select>
+              <option value="/">Todos los Repuestos</option>
+            </select>
           </div>
 
-
-          <div class="row-all">
-            <% products.forEach(product=> { %>
-              <div class="col-4">
-                <a href="/product/detail/<%=product.id%>">
-                  <div class="image">
-                    <img src="../images/repuestos2.jpg" alt="" />
-                  </div>
-                  <div class="main-txt-product">
-
-                    <div class="text-img">
-                      <h4>
-                        <%= product.name %>
-                      </h4> <!-- tienen que ser máximo 25 letras-->
-                      <p>$<%= product.price %>
-                      </p>
-                    </div>
-                    <div class="text-button">
-                      <button>Agregar <i class="fas fa-cart-plus"></i></button>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <% } ) %>
-
+          <div class="collection-sort">
+            <label>Ordenar por:</label>
+            <select>
+              <option value="/">Categoria</option>
+            </select>
           </div>
         </div>
 
-      </main>
+        <div class="row-all">
+          <% products.forEach(product=> { %>
+          <div class="col-4">
+            <a class="productLink" href="/product/detail/<%=product.id%>">
+              <div class="image">
+                <img src="../images/products/<%=product.image%>" alt="" />
+              </div>
+              <div class="main-txt-product">
+                <div class="text-img">
+                  <h4><%= product.name %></h4>
+                  <p>$<%= product.price %></p>
+                </div>
+                <div class="text-button">
+                  <button href="/product/cart" class="addToCartButton">
+                    Agregar <i class="fas fa-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </a>
+          </div>
+          <% } ) %>
+        </div>
+      </div>
+    </main>
 
-      <%- include('./partials/footer') %>
+    <%- include('./partials/footer') %>
+    <script>
+
+      const productsFrameRow = document.querySelector('.row-all')
+      const productColumn = document.querySelector('.col-4')
+      const productLinkToDetail = document.querySelector('.col-4 a')
+      const addToCartButton = document.querySelector('.addToCartButton')
+      const product = document.querySelector('.text-img')
+
+      productsFrameRow.addEventListener('click', function(e) {
+
+        addToCartButton.addEventListener('click', function(e) {
+          console.log(product.name)
+        })
+
+        e.preventDefault();
+      })
+
+    </script>
   </body>
-
 </html>
