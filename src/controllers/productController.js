@@ -67,7 +67,7 @@ module.exports = {
         carYear,
         image: req.file ? req.file.filename : filename,
         owner: req.session.user.user_name,
-        category_id: parseInt(categorie),
+        categoryId: parseInt(categorie),
       })
       .then(() => {
         res.redirect("/product/all");
