@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 
 module.exports = {
-  products: (req, res) => {
+  allProducts: (req, res) => {
     db.products
       .findAll()
       .then((products) => {
@@ -16,7 +16,7 @@ module.exports = {
         console.log(err);
       });
   },
-  productdetail: (req, res) => {
+  productDetail: (req, res) => {
     let id = req.params.id;
     db.products
       .findOne({
@@ -35,12 +35,11 @@ module.exports = {
     //Renderiza el carrito de compras
     res.render("cart");
   },
-  publish: (req, res) => {
+  publishForm: (req, res) => {
     //Renderiza la web de creación de producto por get
     res.render("publish");
   },
-  createproduct: (req, res) => {
-    // Crea producto por post
+  createProduct: (req, res) => {
     let errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.render("publish", {
@@ -50,7 +49,6 @@ module.exports = {
     }
 
     const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear,  categorie } = req.body;
-    console.log(req.file);
 
     let filename = "";
     db.products
@@ -76,10 +74,7 @@ module.exports = {
         res.send(err);
       }); /*, const cat = await findByPk(req.body.categorie); setCategories(cat)*/
   },
-  edit: (req, res) => {
-    // Implementar APIs, levantarlas con JS y borrar el resto, dejar solo esta
-    // return res.render('productEdit')
-
+  editProduct: (req, res) => {
     db.products
       .findByPk(req.params.id)
       .then((product) =>
@@ -89,59 +84,59 @@ module.exports = {
       )
       .catch((err) => console.log(err));
   },
-  update: async (req, res) => {
-    const old = await db.product.findByPk(req.params.id);
-    let filename = "";
-    if (old.image != undefined) {
-      let filename = old.image;
+  updateProduct: (req, res) => {
+    let errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.render("publish", {
+        errors: errors.mapped(),
+        old: req.body,
+      });
     }
-    let {
-      name,
-      description,
-      price,
-      quantity,
-      brand,
-      original,
-      piecenumber,
-      carBrand,
-      carModel,
-      carYear,
-      categorie,
-    } = req.body;
+
+    let filename = "";
+    const id = req.params.id;
+    const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear,  categorie } = req.body;
+    let image = req.file;
+
     db.products
-      .update(
-        {
-          name,
-          description,
-          price,
-          categorie,
-          quantity,
-          brand,
-          original,
-          piecenumber,
-          carBrand,
-          carModel,
-          carYear,
-          image: req.body.file ? req.body.file.filename : filename,
-        },
-        {
-          where: {
-            id: req.params.id,
-          },
+      .findByPk(id)
+      .then( old => { 
+        if (old.image) {
+          filename = old.image;
         }
-      )
-      .then(() => res.redirect("/detail/" + req.params.id));
+
+        db.products
+          .update({
+            name,
+            price,
+            description,
+            quantity,
+            brand,
+            original,
+            piecenumber,
+            carBrand,
+            carModel,
+            carYear,
+            image: image ? req.file.filename : filename,
+            categoryId: parseInt(categorie),
+            },
+          {
+            where: {
+            id: req.params.id,
+          }
+        } )
+      })
+      .then(() => res.redirect("/product/detail/" + req.params.id))
+      .catch( err => { console.log(err) } )
   },
-  delete: (req, res) => {
+  deleteProduct: (req, res) => {
     db.products
-      .destroy({
-        where: {
-          id: req.params.id,
-        },
-      })
-      .then(() => {
-        res.redirect("/products");
-      })
-      .catch((error) => console.log(error));
+      .destroy({ where: {
+                    id: req.params.id, 
+      } } )
+        .then(() => {
+          res.redirect("/product/all");
+        })
+        .catch((error) => console.log(error));
   },
 };

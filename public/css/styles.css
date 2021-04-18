@@ -618,6 +618,11 @@ body div.car-image-banner img{
   margin: auto;
 }
 .car-brand img{
+  border-radius: 10px;
+  margin: 0 2%;
+  box-shadow: 0 0 10px 4px;
+}
+.car-brand img{
   width: 100%;
 }
 .row-product .col-1 .product h5{

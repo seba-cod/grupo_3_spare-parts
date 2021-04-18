@@ -6,19 +6,18 @@
             <div class="ubication-product-detail box-in-site">
                 Repuestos > Motor > Bujias (listado)
             </div>
-            <div class="car-image-banner">
-                <img src="..//images/productDetail/car-photo.jpg" alt="Imagen del auto">
-            </div>
+            <!-- <div class="car-image-banner">
+                <img src="../../../images/productDetail/car-photo.jpg" alt="Imagen del auto">
+            </div> -->
             <div class="container-detail">
                 <div class="row-product mb5">
                         <div class="col-1">
                             <div class="car-brand">
-                                <img src="./images/productDetail/audi-logo.png" alt="car-brand-logo">
+                                <img src="../../../images/products/<%=product.image%>" alt="<%=product.image%>">
                             </div>
                                 <div class="product">
                                     <h5 class="product-name"><%= product.name %> </h5>
                                     <div>
-                                            <img src="./images/productDetail/product-image-1.JPG" alt="">
                                         <div class="product-info">
                                             <p>Marca: <%= product.brand %> </p>
                                             <p>Modelo: <%= product.piecenumber %> </p>
@@ -78,19 +77,28 @@
                     <h6 class="related-art"> Artículos relacionados</h6>
                     <div class="row-product mb-5 row-related">
                             <div class="col-3 in-related">
-                                <img src="../images/productDetail/related/knock-sensor.JPG" alt="Sensor-detonacion">
+                                <img src="../../../images/productDetail/audi-logo.png" alt="Sensor-detonacion">
                                 <p>Sensor de detonación</p>
                             </div>
                             <div class="col-3 in-related">
-                                <img src="../images/productDetail/related/parking-sensor.JPG" alt="Sensor-estacionamiento">
+                                <img src="../../../images/productDetail/audi-logo.png" alt="Sensor-estacionamiento">
                                 <p>Sensor de estacionamiento</p>
                             </div>
                             <div class="col-3 in-related">
-                                <img src="../images/productDetail/related/sonda-lambda.JPG" alt="Sonda-lambda">
+                                <img src="../../../images/productDetail/audi-logo.png" alt="Sonda-lambda">
                                 <p>Sonda lambda</p>
                             </div>
                     </div>
                 </div>
+
+                <% if (locals.isAdmin) { %> 
+                    <div class="admin">
+                    <form action="/product/admin/delete/<%=product.id%>?_method=DELETE" method="POST">
+                      <input type="submit" value="Borrar" class="admin danger">
+                    </form>
+                    <a href="/product/edit/<%=product.id%>"><input type="submit" value="Editar" class="admin ok"></a>
+                    <% } %> 
+
             <%- include('./partials/footer') %>
     </body>
 </html>

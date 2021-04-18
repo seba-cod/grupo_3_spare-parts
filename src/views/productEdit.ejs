@@ -9,20 +9,25 @@
         <!-- <h2>Creación de producto</h2> -->
         <div class="row">
 
-           <form action="/product/editar/<%= product.id %>?_method=PUT" METHOD="POST" class="publish" id="form" >
+           <form action="/product/edit/<%= product.id %>?_method=PATCH" METHOD="POST" name="publicationForm" class="publish" id="form" >
             <h5>¡Crea tu publicación!</h5>
+            
+
             <div class="col-1">
               <label for="name">Nombre del producto</label>
               <input type="text" class="txt_input" name="name" id="name" placeholder="Kit Cree Led S6 Plus / S20" value="<%= product.name %>" required>
             </div>
+
             <div class="col-1">
               <label for="description">Descripción</label>
-              <textarea type="text-area" class="text-area-input" name="description" id="description" placeholder="Ingresa una descripción atractiva para tus clientes" value="<%= product.description %>" required></textarea>
+              <textarea type="text" class="text-area-input" name="description" id="description" placeholder="Ingresa una descripción atractiva para tus clientes" value="<%= product.description %>" required></textarea>
             </div>
+
             <div class="col-1">
               <label for="price">Precio AR$</label>
               <input type="number" class="txt_input" name="price" id="price" value="<%= product.price %>" required>
             </div>
+
 
             <div class="col-1">
               <label for="categorie">Categoria</label>
@@ -34,6 +39,7 @@
                 <option value="accesories"<% if ( product.categorie == "accesories" ) { %> selected <% } %> >Accesorios</option>
               </select>
             </div>
+
             <div class="col-1">
               <label for="quantity">Cantidad</label>
               <select class="select-input" name="quantity" id="quantity" placeholder="Disponibles" required>
@@ -44,18 +50,21 @@
                   <% } %>
               </select>
             </div>
-            <!-- <div class="col-1">
+
+            <div class="col-1">
               <label for="image">Subí tus imágenes</label>
-              <input type="text" readonly name="currentImage" id="currentImage" value="<%= product.image %> ">
-              <input type="file" name="image" id="image" multiple>
-            </div> -->
+              <input type="file" name="image" id="image">
+            </div>
+
             <div class="col-1">
               <h5>Opcionales</h5>
             </div>
+
             <div class="col-1">
               <label for="brand">Marca del producto</label>
               <input type="text" class="txt_input" name="brand" <% if (product.carBrand != "") { %> value="<%= product.carBrand %>" <% } %> >
             </div>
+
             <div class="col-1">
               <label for="original">¿Es original?</label>
               <select class="select-input" name="original">
@@ -64,18 +73,22 @@
               </select>
             </div>
 
+
             <div class="col-1">
               <label for="">Número de pieza</label>
               <input type="text" class="txt_input" name="piecenumber" <% if (product.piecenumber != "") { %> value="<%= product.piecenumber %>" <% } %> >
             </div>
+
             <div class="col-1">
               <label for="carBrand">Marca del auto</label>
               <input type="text" class="txt_input" name="carBrand" <% if (product.carBrand != "") { %> value="<%= product.carBrand %>" <% } %> >
             </div>
+
             <div class="col-1">
               <label for="carModel">Modelo del auto</label>
               <input type="text" class="txt_input" name="carModel" <% if (product.carModel != "") { %> value="<%= product.carModel %>" <% } %> >
             </div>
+
             <div class="col-1">
               <label for="carYear">Año</label>
               <input type="text" class="txt_input" name="carYear" <% if (product.carYear != "") { %> value="<%= product.carYear %>" <% } %> >
