@@ -4,7 +4,7 @@
     <div class="header-top">
       <!--  if (user anonymus)-->
       <div class="header-logo">
-        <img src=".././../../images/parts.svg" alt="LOGO">
+        <img src="/images/parts.svg" alt="LOGO">
         <!-- <i class="fas fa-wrench"></i> -->
       </div>
 
@@ -12,7 +12,7 @@
 
         <% if (locals.isLogged) { %>
           <div class="avatar">
-            <img src="../../../images/avatars/<%=locals.user.avatar%>" class="user-avatar">
+            <img src="/images/avatars/<%=locals.user.avatar%>" class="user-avatar">
           </div>
           <a href="/user/profile">
             <%=locals.user.user_name%>
