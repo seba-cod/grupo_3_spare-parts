@@ -158,10 +158,12 @@ module.exports = {
   },
   adminUpdate: (req, res) => {
     // Utilizo express validator para cargar los errores
+    // TODO revisar validaciones en UPDATE USUARIOS
     let errors = validationResult(req);
     let id = req.params.id;
     const { user_name, email, first_name, last_name, address } = req.body;
     let avatar = req.file;
+    console.log('este es el req.file ', avatar)
     db.users
       .findByPk(id)
       .then((old) => {

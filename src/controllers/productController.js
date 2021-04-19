@@ -93,20 +93,19 @@ module.exports = {
       });
     }
 
-    let filename = "";
+
     const id = req.params.id;
     const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear,  categorie } = req.body;
     let image = req.file;
-
+    console.log('req.file: ', image)
     db.products
       .findByPk(id)
       .then( old => { 
-        if (old.image) {
-          filename = old.image;
-        }
+      console.log('esto es old: ', old)
 
         db.products
-          .update({
+          .update(
+          {
             name,
             price,
             description,
@@ -117,18 +116,22 @@ module.exports = {
             carBrand,
             carModel,
             carYear,
-            image: image ? req.file.filename : filename,
+            image: image ? req.file.filename : old.image,
             categoryId: parseInt(categorie),
-            },
+          },
           {
-            where: {
-            id: req.params.id,
+            where: { id },
           }
-        } )
-      })
+      )
       .then(() => res.redirect("/product/detail/" + req.params.id))
-      .catch( err => { console.log(err) } )
-  },
+    })
+    .catch((err) => {
+      return res.render("productEdit", {
+        errors: errors.mapped(),
+        old: req.body,
+      });
+    });
+},
   deleteProduct: (req, res) => {
     db.products
       .destroy({ where: {
