@@ -163,8 +163,8 @@ module.exports = {
     let id = req.params.id;
     const { user_name, email, first_name, last_name, address } = req.body;
     let avatar = req.file;
-    console.log('este es el req.file ', avatar)
     db.users
+    console.log('este es el req.file ', avatar)
       .findByPk(id)
       .then((old) => {
         db.users
