@@ -103,10 +103,11 @@ module.exports = {
           });
       })
       .catch((err) => {
-        res.render("register", {
-          errors: errors.mapped(),
-          old: req.body,
-        });
+        console.log(err)
+        // res.render("register", {
+        //   errors: errors.mapped(),
+        //   old: req.body,
+        // });
       });
   },
 
