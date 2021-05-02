@@ -25,7 +25,7 @@
 
             <div class="col-1">
               <label for="price">Precio AR$</label>
-              <input type="number" class="txt_input" name="price" id="price" value="<%= product.price %>" required>
+              <input type="number" class="txt_input" name="price" id="price" placeholder="<%= product.price %>" required>
             </div>
 
 
@@ -33,18 +33,19 @@
               <label for="categorie">Categoria</label>
               <select class="select-input" name="categorie" id="categorie" placeholder="Selecciona una categoría de producto" required>
                 <option>Seleccionar</option>
-                <option value="motor"<% if ( product.categorie == "motor" ) { %> selected <% } %> >Motor</option>
-                <option value="interior"<% if ( product.categorie == "interior" ) { %> selected <% } %> >Interior</option>
-                <option value="exterior"<% if ( product.categorie == "exterior" ) { %> selected <% } %> >Exterior</option>
-                <option value="accesories"<% if ( product.categorie == "accesories" ) { %> selected <% } %> >Accesorios</option>
+                <option value="motor"<% if ( product.category == 1 ) { %> selected <% } %> >Motor</option>
+                <option value="interior"<% if ( product.category == 2 ) { %> selected <% } %> >Interior</option>
+                <option value="exterior"<% if ( product.category == 3 ) { %> selected <% } %> >Exterior</option>
+                <option value="accesories"<% if ( product.category == 4 ) { %> selected <% } %> >Accesorios</option>
               </select>
+
             </div>
 
             <div class="col-1">
               <label for="quantity">Cantidad</label>
               <select class="select-input" name="quantity" id="quantity" placeholder="Disponibles" required>
-                <% for (let i=1 ; i < 99 ; i ++) { %>
-                  <option value="<%=i%>">
+                <% for (let i=0 ; i < 99 ; i ++) { %>
+                  <option value="<%= i %>" <% if ( product.quantity == i ) { %> selected <% } %> >
                     <%=i%>
                   </option>
                   <% } %>
@@ -53,7 +54,8 @@
 
             <div class="col-1">
               <label for="image">Subí tus imágenes</label>
-              <input type="file" name="image" id="image"  accept="image/png, image/jpeg, image/jpg">
+              <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg">
+              <div> <img src="/images/products/<%=product.image%>" alt="Imagen del producto" width=150px> </div>
             </div>
 
             <div class="col-1">
@@ -68,8 +70,8 @@
             <div class="col-1">
               <label for="original">¿Es original?</label>
               <select class="select-input" name="original">
-                <option value="yes">Sí</option>
-                <option value="no">No</option>
+                <option value="1" <% if (product.original) {%> selected <% } %> >Sí</option>
+                <option value="0" <% if (!product.original) {%> selected <% } %> >No</option>
               </select>
             </div>
 

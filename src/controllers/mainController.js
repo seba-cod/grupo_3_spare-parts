@@ -1,9 +1,33 @@
+const { Sequelize } = require("../../database/models");
 const db = require("../../database/models");
 const Op = db.Sequelize.Op;
 
 module.exports = {
     index: (req, res) => {
-        res.render('index');
+        // db.products.findAll({ order: Sequelize.literal('rand()'), limit: 3 }).then((products) => {
+        //     // single random encounter
+        //     order: [
+        //         [Sequelize.fn('RAND')]
+        //       ]
+        //       DB.models.products.findAll({
+        //         limit: args.quantity,
+        //         order: [
+        //           [Sequelize.fn('RAND', '')]
+        //         ]
+        //     })
+        // }); 
+    db.categories
+      .findAll()
+      .then(async (categories) => {
+        const products = await db.products.findAll({limit: 4, order: [ [ Sequelize.fn('RAND')]]});
+        let randomProducts = [];
+        let randomProductsToSearch = products.forEach(randomProductsToSearch => {
+            randomProducts.push(randomProductsToSearch.dataValues) } )
+        return res.render("index", { categories, randomProducts });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     },
     about: (req, res) => {
         res.render('about');

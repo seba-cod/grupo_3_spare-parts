@@ -330,8 +330,8 @@ main .text-banner p {
 }
 
 .col-3{
-  flex-basis: 280px;
-  max-width: 380px;
+  flex-basis: 250px;
+  max-width: 260px;
   flex-grow: 1;
 }
 .col-5{

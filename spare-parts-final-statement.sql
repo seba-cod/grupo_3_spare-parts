@@ -208,6 +208,23 @@
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION;
 
+	ALTER TABLE `spare-parts`.`cart` 
+		DROP FOREIGN KEY `fk_cart__product`;
+	ALTER TABLE `spare-parts`.`cart` 
+		ADD CONSTRAINT `fk_cart__product`
+		FOREIGN KEY (`product`)
+		REFERENCES `spare-parts`.`products` (`id`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
+
+	ALTER TABLE `spare-parts`.`cart` 
+		DROP FOREIGN KEY `fk_cart__user`;
+	ALTER TABLE `spare-parts`.`cart` 
+		ADD CONSTRAINT `fk_cart__user`
+		FOREIGN KEY (`user`)
+		REFERENCES `spare-parts`.`users` (`id`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
 
 	/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 	/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

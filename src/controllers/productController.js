@@ -16,6 +16,23 @@ module.exports = {
         console.log(err);
       });
   },
+  productsByCategory: (req, res) => {
+    db.products
+      .findAll ({
+        include: [{
+          model: db.categories,
+          as: 'categoryId',
+          where: {
+            id: req.params.category
+          }
+      }]})
+      .then((products) => {
+        return res.render("products", { products });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
   productDetail: (req, res) => {
     let id = req.params.id;
     db.products
@@ -31,19 +48,19 @@ module.exports = {
       })
       .catch((err) => console.log(err));
   },
-  checkout: (req, res) => {
-    let id = req.session.id;
-    db.cart
-      .findAll({
-        where: { user: id },
-        include: "cartProduct", // en el include va el alias con el que referenciamos desde la tabla CART a la tabla PRODUCTS
-      })
-      .then(() => {
-        return res.render("cart");
-      })
-      .catch((err) => {
-        console.log("este es el error ---:", err);
-      });
+  showCart: (req, res) => {
+    console.log('estoy acaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+    db.cart.findAll(
+        {
+          where: { user: req.session.id },
+          include: { model: "products", as: "cartProduct"} // en el include va el alias con el que referenciamos desde la tabla CART a la tabla PRODUCTS
+        }
+      )
+      .then( async () => {
+        const products = await db.products.findAll({where: { id: cartProduct }})
+        console.log('esto me llega en product', products)
+        res.render("cart")})
+      .catch( (err) => { console.error(err)})
   },
   publishForm: (req, res) => {
     //Renderiza la web de creación de producto por get
@@ -69,7 +86,7 @@ module.exports = {
           description,
           quantity,
           brand,
-          original,
+          original: parseInt(original),
           piecenumber,
           carBrand,
           carModel,
@@ -153,7 +170,7 @@ module.exports = {
               description,
               quantity,
               brand,
-              original,
+              original: parseInt(original),
               piecenumber,
               carBrand,
               carModel,
@@ -186,4 +203,10 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
+  addToCart: (req, res) => {
+    db.cart.create({
+      user: req.session.user.id,
+      product: req.params.id
+    }).then(res => console.log('added to cart')).catch(err => console.log(err))
+  }
 };

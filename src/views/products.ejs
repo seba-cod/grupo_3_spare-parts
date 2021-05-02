@@ -36,13 +36,13 @@
                   <h4><%= product.name %></h4>
                   <p>$<%= product.price %></p>
                 </div>
+              </a>
                 <div class="text-button">
-                  <button href="/product/cart" class="addToCartButton">
-                    Agregar <i class="fas fa-cart-plus"></i>
-                  </button>
+                  <form method="GET" action="/product/cart/add/<%=product.id%>">
+                    <button class="addToCartButton">Agregar<i class="fas fa-cart-plus"></i></button>
+                  </form>
                 </div>
               </div>
-            </a>
           </div>
           <% } ) %>
         </div>

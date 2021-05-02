@@ -21,7 +21,7 @@
                                         <div class="product-info">
                                             <p>Marca: <%= product.brand %> </p>
                                             <p>Modelo: <%= product.piecenumber %> </p>
-                                            <p>Original: <%= product.original %> </p>
+                                            <p>Original: <% if (product.original) {%> Si <%} else{ %> No <% } %> </p>
                                             <p>Descripción: <%= product.description %> </p>
                                             <% if (product.carBrand !=null ) { %> 
                                             <p>Para vehículos marca: <%= product.carBrand %> </p>
@@ -38,7 +38,7 @@
 
                                             <button type="button" class="quantity-selector">
                                                 <select class="select-input" name="quantity" id="quantity">
-                                                    <% for (let i=0 ; i< product.quantity ; i++) { %>
+                                                    <% for (let i=1 ; i <= product.quantity ; i++) { %>
                                                         <option value="<%=i%>">
                                                             <%=i%>
                                                         </option>

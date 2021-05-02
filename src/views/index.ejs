@@ -7,57 +7,49 @@
       <main class="main">
         <div class="container">
           <div class="row-all">
-            <div class="col-5">
-              <a href="#">
-                <div class="image">
-                  <img src="/images/motor.jpg" alt="">
-                </div>
-                <div class="text-img">
-                  <h4>Motor</h4>
-                  <p>Buscá tu repuesto</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-5">
-              <a href="#">
-                <div class="image">
-                  <img src="/images/interior.jpg" alt="">
-                </div>
-                <div class="text-img">
-                  <h4>Interior</h4>
-                  <p>Alfombras, tapizados y más!</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-5">
-              <a href="#">
-                <div class="image">
-                  <img src="/images/exterior.jpg" alt="">
-                </div>
-                <div class="text-img">
-                  <h4>Exterior</h4>
-                  <p>Luces, llantas y más!</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-5">
-              <a href="#">
-                <div class="image">
-                  <img src="/images/accesorios.jpg" alt="">
-                </div>
-                <div class="text-img">
-                  <h4>Accesorios</h4>
-                  <p>Encontrá tu accesorio</p>
-                </div>
-              </a>
-            </div>
-          </div>
+            <% categories.forEach( category => { %>
+              <div class="col-5">
+                <a href="/product/<%=category.id%>">
+                  <div class="image">
+                    <img src="/images/<%=category.name%>.jpg" alt="">
+                  </div>
+                  <div class="text-img">
+                    <h4> <%= category.name %> </h4>
+                    <% if (category.name == "Motor") { %>
+                    <p>Buscá tu repuesto</p>
+                    <% } else if (category.name == "Interior") {%> 
+                    <p>Alfombras, tapizados y más!</p>
+                    <% } else if (category.name == "Exterior") {%> 
+                    <p>Luces, llantas y más!</p>
+                    <% } else if (category.name == "Accesorios") {%> 
+                    <p>Encontrá tu accesorio</p>
+                    <% } %>
+                  </div>
+                </a>
+              </div>
+            <% }) %> 
 
         <!--categorias de feature-->
         <div class="container">
           <h1 class="offer">Destacados</h1>
           <div class="row-all">
-            <div class="col-3">
+
+            <% randomProducts.forEach(product => { %>
+              <div class="col-3">
+                <a href="/product/detail/<%=product.id%>">
+                  <div class="image">
+                    <img src="/images/products/<%=product.image%>" alt="">
+                  </div>
+                  <div class="text-img">
+                    <h4><%= product.name %></h4>
+                    <p><%= product.description %></p>
+                  </div>
+                </a>
+              </div>
+
+            <% }) %>
+
+            <!-- <div class="col-3">
               <a href="#">
                 <div class="image">
                   <img src="/images/products/exhaust.jpg" alt="">
@@ -68,6 +60,7 @@
                 </div>
               </a>
             </div>
+
             <div class="col-3">
               <a href="#">
                 <div class="image">
@@ -89,8 +82,7 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, dolor.</p>
                 </div>
               </a>
-
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -103,37 +95,37 @@
               <div class="col-5 comment">
                 <div class="text-img">
                   <h4>Carlos Asturias</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum voluptatum laboriosam consectetur blanditiis autem architecto alias, necessitatibus earum excepturi!</p>
+                  <p>Estuve meses buscando una tapa de motor sin encontrarla, acá hay de todo!</p>
                 </div>
               </div>
               <div class="col-5 comment">
                 <div class="text-img">
-                  <h4>Carlos Asturias</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum voluptatum laboriosam consectetur blanditiis autem architecto alias, necessitatibus earum excepturi!</p>
+                  <h4>Romina Petrucceli</h4>
+                  <p>Quería cambiar las llantas del auto y odio a la competencia, me encantó Spare Parts</p>
                 </div>
               </div>
               <div class="col-5 comment">
                 <div class="text-img">
-                  <h4>Carlos Asturias</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum voluptatum laboriosam consectetur blanditiis autem architecto alias, necessitatibus earum excepturi!</p>
+                  <h4>Jose Luis Herbo</h4>
+                  <p>Buscaba un aromatizante para el auto, en tres clics lo tenía en mi casa</p>
                 </div>
               </div>
               <div class="col-5 comment">
                 <div class="text-img">
-                  <h4>Carlos Asturias</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum voluptatum laboriosam consectetur blanditiis autem architecto alias, necessitatibus earum excepturi!</p>
+                  <h4>Alejandra Dender</h4>
+                  <p>Necesitaba un escape de 320HP, me recorrí todo Warnes y nada, por suerte en Spare Parts hay de todo</p>
                 </div>
               </div>
               <div class="col-5 comment">
                 <div class="text-img">
-                  <h4>Carlos Asturias</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum voluptatum laboriosam consectetur blanditiis autem architecto alias, necessitatibus earum excepturi!</p>
+                  <h4>Roberto Spasa</h4>
+                  <p>Tengo un tallercito y no encontraba un caño de escape por ningún lado, por suerte en Spare Parts lo encontré rápidamente</p>
                 </div>
               </div>
               <div class="col-5 comment">
                 <div class="text-img">
-                  <h4>Carlos Asturias</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum voluptatum laboriosam consectetur blanditiis autem architecto alias, necessitatibus earum excepturi!</p>
+                  <h4>Ayrton Senna</h4>
+                  <p>Rápido e intuitivo, comprar en línea nunca fue tan fácil</p>
                 </div>
               </div>
             </div>

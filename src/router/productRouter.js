@@ -23,18 +23,18 @@ const validations = require('../middleware/validations')
 // Controlador
 const productController = require('../controllers/productController');
 
-//Rutas para todos los usuarios
 router.get(['/all', '/todos'], productController.allProducts);
-router.get(['/detail/:id', '/detalle/:id'], productController.productDetail); // ver que pasa con los links del header por esta sentencia
+router.get('/:category', productController.productsByCategory);
+router.get(['/detail/:id', '/detalle/:id'], productController.productDetail);
 
-//Rutas vendedor
+router.get(['/cart', '/carrito'], productController.showCart);
+
 router.get(['/publicar', '/publish'], productController.publishForm);
 router.get(['/editar/:id','/edit/:id'], productController.editProduct);
+router.get(['/cart/add/:id', '/cart/agregar/:id'], productController.addToCart);
 router.post(['/publicar', '/publish'], upload.single('image'), validations.createProduct, productController.createProduct);
 router.patch(['/editar/:id','/edit/:id'], upload.single('image'), productController.updateProduct);
 router.delete(['/admin/delete/:id', '/admin/borrar/:id'], productController.deleteProduct);
 
-//Rutas user logueado
-router.get(['/cart', '/checkout', '/carrito'], productController.checkout);
 
 module.exports = router;
