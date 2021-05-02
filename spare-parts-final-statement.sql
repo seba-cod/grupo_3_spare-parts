@@ -190,6 +190,25 @@
 	  ADD CONSTRAINT `fk_product__user` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 	COMMIT;
 
+	ALTER TABLE `products` 
+		DROP FOREIGN KEY `fk_product__category`;
+	ALTER TABLE `products` 
+		ADD CONSTRAINT `fk_product__category`
+		FOREIGN KEY (`category`)
+		REFERENCES `categories` (`id`)
+		ON DELETE CASCADE
+		ON UPDATE NO ACTION;
+
+  	ALTER TABLE `products` 
+		DROP FOREIGN KEY `fk_product__category`;
+	ALTER TABLE `products` 
+		ADD CONSTRAINT `fk_product__category`
+		FOREIGN KEY (`category`)
+		REFERENCES `categories` (`id`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
+
+
 	/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 	/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 	/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

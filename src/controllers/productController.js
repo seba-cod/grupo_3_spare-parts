@@ -36,7 +36,7 @@ module.exports = {
     db.cart
       .findAll({
         where: { user: id },
-        include: "cartProduct" // en el include va el alias con el que referenciamos desde la tabla CART a la tabla PRODUCTS
+        include: "cartProduct", // en el include va el alias con el que referenciamos desde la tabla CART a la tabla PRODUCTS
       })
       .then(() => {
         return res.render("cart");
@@ -58,43 +58,52 @@ module.exports = {
       });
     }
 
-    const {
-      name,
-      description,
-      price,
-      quantity,
-      brand,
-      original,
-      piecenumber,
-      carBrand,
-      carModel,
-      carYear,
-      categorie,
-    } = req.body;
-
     let filename = "";
+    const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear, } = req.body;
+
     db.products
-      .create({
-        name,
-        price,
-        description,
-        quantity,
-        brand,
-        original,
-        piecenumber,
-        carBrand,
-        carModel,
-        carYear,
-        image: req.file ? req.file.filename : filename,
-        owner: req.session.user.user_name,
-        categoryId: parseInt(categorie),
-      })
-      .then(() => {
+      .create(
+        {
+          name,
+          price,
+          description,
+          quantity,
+          brand,
+          original,
+          piecenumber,
+          carBrand,
+          carModel,
+          carYear,
+          image: req.file ? req.file.filename : filename,
+          category: parseInt(req.body.categorie),
+          user: req.session.user.id,
+        }
+        // la categoria y el usuario estan hardcodeados, si incluyo las asociaciones como abajo y las intento setear, el navegador me devuelve {} y no se crea el producto
+        // ,
+        // {
+        //   include: [
+        //     {
+        //       association: "categories",
+        //       as: "categoryId",
+        //     },
+        //     {
+        //       association: "users",
+        //       as: "products",
+        //     },
+        //   ],
+        // }
+      )
+      .then(async () => {
+        console.log("producto-creado");
+        // const productCategorie = await db.categories.findByPk(category);
+        // const productOwner = await db.users.findByPk(owner);
+        // await products.setCategory(productCategorie);
+        // await products.setUser(productOwner)
         res.redirect("/product/all");
       })
       .catch((err) => {
         res.send(err);
-      }); /*, const cat = await findByPk(req.body.categorie); setCategories(cat)*/
+      });
   },
   editProduct: (req, res) => {
     db.products
