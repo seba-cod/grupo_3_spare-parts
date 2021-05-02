@@ -66,9 +66,9 @@ module.exports = (sequelize, DataTypes) => {
     }
     const Model = sequelize.define(alias, columns, config);
     Model.associate = function (models) {
-        Model.hasMany(models.cart, { as: "carts"});
-        Model.hasMany(models.order, { as: "orders"});
-        Model.hasMany(models.products, { as: "products"});
+        Model.hasMany(models.cart, { as: "carts", foreignKey: "user" });
+        Model.hasMany(models.order, { as: "orders", foreignKey: "user" });
+        Model.hasMany(models.products, { as: "products", foreignKey: "user" });
     } 
     return Model;
 }

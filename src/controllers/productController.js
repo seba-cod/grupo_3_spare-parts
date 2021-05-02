@@ -32,8 +32,18 @@ module.exports = {
       .catch((err) => console.log(err));
   },
   checkout: (req, res) => {
-    //Renderiza el carrito de compras
-    res.render("cart");
+    let id = req.session.id;
+    db.cart
+      .findAll({
+        where: { user: id },
+        include: "cartProduct" // en el include va el alias con el que referenciamos desde la tabla CART a la tabla PRODUCTS
+      })
+      .then(() => {
+        return res.render("cart");
+      })
+      .catch((err) => {
+        console.log("este es el error ---:", err);
+      });
   },
   publishForm: (req, res) => {
     //Renderiza la web de creación de producto por get
@@ -48,7 +58,19 @@ module.exports = {
       });
     }
 
-    const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear,  categorie } = req.body;
+    const {
+      name,
+      description,
+      price,
+      quantity,
+      brand,
+      original,
+      piecenumber,
+      carBrand,
+      carModel,
+      carYear,
+      categorie,
+    } = req.body;
 
     let filename = "";
     db.products
@@ -93,53 +115,66 @@ module.exports = {
       });
     }
 
-
     const id = req.params.id;
-    const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear,  categorie } = req.body;
+    const {
+      name,
+      description,
+      price,
+      quantity,
+      brand,
+      original,
+      piecenumber,
+      carBrand,
+      carModel,
+      carYear,
+      categorie,
+    } = req.body;
     let image = req.file;
-    console.log('req.file: ', image)
+    console.log("req.file: ", image);
     db.products
       .findByPk(id)
-      .then( old => { 
-      console.log('esto es old: ', old)
+      .then((old) => {
+        console.log("esto es old: ", old);
 
         db.products
           .update(
-          {
-            name,
-            price,
-            description,
-            quantity,
-            brand,
-            original,
-            piecenumber,
-            carBrand,
-            carModel,
-            carYear,
-            image: image ? req.file.filename : old.image,
-            categoryId: parseInt(categorie),
-          },
-          {
-            where: { id },
-          }
-      )
-      .then(() => res.redirect("/product/detail/" + req.params.id))
-    })
-    .catch((err) => {
-      return res.render("productEdit", {
-        errors: errors.mapped(),
-        old: req.body,
+            {
+              name,
+              price,
+              description,
+              quantity,
+              brand,
+              original,
+              piecenumber,
+              carBrand,
+              carModel,
+              carYear,
+              image: image ? req.file.filename : old.image,
+              categoryId: parseInt(categorie),
+            },
+            {
+              where: { id },
+            }
+          )
+          .then(() => res.redirect("/product/detail/" + req.params.id));
+      })
+      .catch((err) => {
+        return res.render("productEdit", {
+          errors: errors.mapped(),
+          old: req.body,
+        });
       });
-    });
-},
+  },
   deleteProduct: (req, res) => {
     db.products
-      .destroy({ where: {
-                    id: req.params.id, 
-      } } )
-        .then(() => {
-          res.redirect("/product/all");
-        })
-        .catch((error) => console.log(error));
+      .destroy({
+        where: {
+          id: req.params.id,
+        },
+      })
+      .then(() => {
+        res.redirect("/product/all");
+      })
+      .catch((error) => console.log(error));
   },
 };

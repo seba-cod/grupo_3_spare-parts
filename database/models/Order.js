@@ -20,8 +20,13 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: true
     },
     products: {
-      type: dataTypes.STRING(255),
-      allowNull: false
+      type: dataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'products',
+        key: 'id'
+      }
     },
     user: {
       type: dataTypes.INTEGER,
@@ -61,7 +66,7 @@ module.exports = (sequelize, dataTypes) => {
     
     Model.belongsTo(models.users, { as: 'users', foreignKey: "user" })
 
-    Model.hasMany(models.order_item, { as: "order", foreignKey: "order" })
+    Model.belongsTo(models.products, { as: 'orderProducts', foreignKey: "product"  })
 
   }
   return Model;

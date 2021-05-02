@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
         },
         // Seleccionable y vinculante con la tabla de categorias
-        categoryId: {
+        category: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -63,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
               key: 'id'
             }
         },
-        userId: {
+        user: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -87,17 +87,17 @@ module.exports = (sequelize, DataTypes) => {
               ]
             },
             {
-              name: "idx_product__categoryId",
+              name: "idx_product__category",
               using: "BTREE",
               fields: [
-                { name: "categoryId" },
+                { name: "category" },
               ]
             },
             {
-              name: "idx_product__userId",
+              name: "idx_product__user",
               using: "BTREE",
               fields: [
-                { name: "userId" },
+                { name: "user" },
               ]
             }
         ]
@@ -105,20 +105,11 @@ module.exports = (sequelize, DataTypes) => {
 
     const Model = sequelize.define(alias, columns, config);
     Model.associate = function (models) {
-        Model.belongsTo(models.categories, {
-            as: 'categories',
-            foreingKey: 'categoryId'
-        })
-        Model.belongsTo(models.users, {
-            as: 'user',
-            foreingKey: 'userId'
-        })
+        Model.belongsTo(models.categories, { as: 'categoryId', foreignKey: "category" })
+        Model.belongsTo(models.users, { as: 'userOwner', foreignKey: "user" })
         
-        Model.belongsToMany(models.cart, { as:'cart', through: { model: "cart_product"}, foreignKey:'products', otherKey:'cart'})
-
-        Model.hasMany(models.cart_product, { as: 'cart_products', foreingKey:'product'})
-
-        Model.hasMany(models.order_item, { as: 'order_items', foreingKey:'product'})
+        Model.hasMany(models.cart, { as:'productInCart', foreignKey: "product" })
+        Model.hasMany(models.order, { as: 'productInOrder', foreignKey: "product" })
 
     }
     return Model;

@@ -14,6 +14,15 @@ module.exports = (sequelize, dataTypes) => {
             model: 'users',
             key: 'id'
           }
+        },
+        product: {
+          type: dataTypes.INTEGER,
+          allowNull: false,
+          primaryKey: true,
+          references: {
+            model: 'products',
+            key: 'id'
+          }
         }
     }
     const config = {
@@ -40,13 +49,8 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Model = sequelize.define(alias, columns, config);
     Model.associate = function (models) {
-      
-      Model.belongsTo(models.products, { as: 'products', through: { model: "cart_product" }, foreignKey: "cart", otherKey: "product" })
-      
+      Model.belongsTo(models.products, { as: 'cartProduct', foreignKey: "product"  })
       Model.belongsTo(models.users, { as: 'users', foreignKey: "user" })
-
-      Model.hasMany(models.cart_product, { as: "cart_products", foreignKey: "cart" })
-
     }
     return Model;
 };
