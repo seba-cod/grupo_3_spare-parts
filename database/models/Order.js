@@ -11,10 +11,6 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING(255),
       allowNull: false
     },
-    date_created: {
-      type: dataTypes.DATEONLY,
-      allowNull: true
-    },
     total_price: {
       type: dataTypes.DECIMAL(12,2),
       allowNull: true
@@ -66,7 +62,7 @@ module.exports = (sequelize, dataTypes) => {
     
     Model.belongsTo(models.users, { as: 'users', foreignKey: "user" })
 
-    Model.belongsTo(models.products, { as: 'orderProducts', foreignKey: "product"  })
+    Model.belongsTo(models.products, { as: 'orderProducts', foreignKey: "products"  })
 
   }
   return Model;

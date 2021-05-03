@@ -12,6 +12,7 @@ const main = require('./src/router/mainRouter');
 const user = require('./src/router/userRouter');
 const product = require('./src/router/productRouter');
 const api = require('./src/router/apiRouter')
+const cart = require('./src/router/cartRouter')
 
 
 /*  -------------------------------------------- TEMPLATE ENGINE ------------------------------------------------ */
@@ -56,6 +57,7 @@ app.use('/', main);
 app.use('/user', user);
 app.use('/product', product);
 app.use('/api', api);
+app.use('/cart', cart);
 
 
 /*  ------------------------------------------- SERVIDOR ESCUCHANDO ---------------------------------------------- */

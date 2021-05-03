@@ -30,9 +30,6 @@ router.get(['/detail/:id', '/detalle/:id'], productController.productDetail);
 
 router.get(['/publicar', '/publish'], productController.publishForm);
 router.get(['/editar/:id','/edit/:id'], productController.editProduct);
-router.get(['/cart/add/:id', '/cart/agregar/:id'], productController.addToCart);
-
-router.get(['/cart', '/carrito'], productController.showCart);
 
 router.post(['/publicar', '/publish'], upload.single('image'), validations.createProduct, productController.createProduct);
 router.patch(['/editar/:id','/edit/:id'], upload.single('image'), productController.updateProduct);

@@ -50,9 +50,13 @@ module.exports = {
       );
   },
   profile: (req, res) => {
-    res.render("profile", {
-      user: req.session.user,
-    });
+    const user = req.session.user
+    db.order.findAll(
+      {where:
+        { user: user.id }
+      }).then( orders => {
+        res.render("profile", { user, orders });
+      }).catch(err => console.error(err))
   },
   logout: (req, res) => {
     // Limpio la Cookie de remember_user

@@ -69,10 +69,14 @@
 
                     <div class="row-sell">
                         <div class="col-1">
-                            <p> Total: $123123<!-- (no se quiere alinea vert) --> </p>
+                            <p> Total: $ <%=total_price%> </p>
                         </div>
                         <div class="col-1">
+                        <form action="/cart/checkout" method="post">
+                            <input type="hidden" value=<%=products%> name="products">
+                            <input type="hidden" value=<%=total_price%> name="total_price">
                             <input type="submit" value="Comprar">
+                        </form>
                         </div>
                     </div>
                 </div>

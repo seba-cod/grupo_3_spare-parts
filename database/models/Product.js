@@ -109,7 +109,7 @@ module.exports = (sequelize, DataTypes) => {
         Model.belongsTo(models.users, { as: 'userOwner', foreignKey: "user" })
         
         Model.hasMany(models.cart, { as:'productInCart', foreignKey: "product" })
-        Model.hasMany(models.order, { as: 'productInOrder', foreignKey: "product" })
+        Model.hasMany(models.order, { as: 'productInOrder', foreignKey: "products" })
 
     }
     return Model;

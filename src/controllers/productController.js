@@ -48,44 +48,6 @@ module.exports = {
       })
       .catch((err) => console.log(err));
   },
-
-  showCart: (req, res) => {
-    db.cart.findAll({
-      include:[
-        {
-          model: db.products,
-          as: 'cartProduct',
-          where: {
-            user: req.session.user.id
-          }
-        },
-        {
-          model: db.users,
-          as: 'users'
-        }
-      ]
-    }).then( cart => {
-      let products = [];
-      let users = [];
-        // TODO de la nada me dejo de mostrar los carts
-        // Acá cart me devuelve un array de carros que contienen todas las opciones
-        // De esta forma obtengo un array de objetos con cada carro, dentro de la propiedad cartProduct, y de users, tengo los productos y usuarios respectivamente, que poseen dataValues (la info que me interesa) 
-
-        cart.forEach(eachCart => { 
-          products.push(eachCart.cartProduct.dataValues)
-          users.push(eachCart.users.dataValues)
-         } )
-
-        console.log('----------------------------')
-        console.log('esto es lo que viene en Cart: ', cart)
-        console.log('esto es lo que cargue en products: ', products)
-        console.log('esto es lo que cargue en users: ', users)
-        console.log('----------------------------')
-
-
-        return res.render('cart', {products, users})
-    }).catch( err => console.error(err));
-  },
   publishForm: (req, res) => {
     //Renderiza la web de creación de producto por get
     res.render("publish");
@@ -226,14 +188,5 @@ module.exports = {
         res.redirect("/product/all");
       })
       .catch((error) => console.log(error));
-  },
-  addToCart: (req, res) => {
-    const product = req.params.id;
-    return (
-      db.cart.create({
-        user: req.session.user.id,
-        product: product
-      }).then(res => console.log('####This is the promise of addToCart method on product controller, productId: ', product)).catch(err => console.log(err))
-    )
   }
 };

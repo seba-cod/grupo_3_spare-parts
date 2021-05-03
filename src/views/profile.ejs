@@ -25,6 +25,15 @@
               </form>
             </div>
           </div>
+          <div class="row-admin">
+            <div class="card">
+              <h4>Compras:</h4>
+              <% orders.forEach( order => { %>
+                <p>Pedido ID N°: <%= order.id %></p>
+                <p>Valor: <%= order.total_price %></p>
+              <% }) %> 
+            </div>
+          </div>
       </div>
       <%- include('./partials/footer') %>
   </body>
