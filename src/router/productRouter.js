@@ -24,7 +24,7 @@ const validations = require('../middleware/validations')
 const productController = require('../controllers/productController');
 
 router.get(['/all', '/todos'], productController.allProducts);
-router.get('/cat/:category', productController.productsByCategory); // entras por cualquier ruta /product y ejecuta una busqueda
+router.get('/cat/:category', productController.productsByCategory);
 router.get(['/detail/:id', '/detalle/:id'], productController.productDetail);
 
 

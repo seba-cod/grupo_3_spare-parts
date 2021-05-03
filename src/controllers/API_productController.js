@@ -4,9 +4,60 @@ const { STATUS_SUCCESS, STATUS_ERROR, STATUS_NOT_FOUND } = require("./status");
 const productApiMethods = {
   allProducts: (req, res) => {
     db.products
-      .findAll()
+      .findAll({
+        include:[
+        {
+          model: db.categories,
+          as: 'categoryId',
+        }
+        ]
+      })
       .then((products) => {
-        res.json(products);
+        let product = [];
+        let count = 0;
+
+        let motor = 0, interior = 0, exterior = 0, accesorios = 0;
+        products.forEach(data => {
+
+          count += 1;
+          let productObject = {
+            id: data.id,
+            name: data.name,
+            description: data.description,
+            category: [data.categoryId.dataValues.name],
+            detail: `http://localhost:3010/product/detail/${data.id}`
+          }
+
+          switch (data.categoryId.dataValues.name) {
+            case "Motor":
+                motor += 1;
+                console.log('SUME UNO DE MOTOR')
+                break;
+            case "Interior":
+                interior += 1;
+                break;
+            case "Exterior":
+                exterior += 1;
+                break;
+            case "Accesorios":
+                accesorios += 1;
+                break;
+          }
+
+          product.push(productObject)
+        })
+        let countByCategory = {
+          motor,
+          interior,
+          exterior,
+          accesorios
+        }
+        const productsData = {
+          count, 
+          countByCategory,
+          product,
+        }
+        res.json(productsData);
       })
       .catch((error) => {
         res.status(500).json({
@@ -16,25 +67,37 @@ const productApiMethods = {
       });
   },
   productByPk: (req, res) => {
-    // TODO FIXME: este método no esta andando si le incluyo las categorias
     const { id } = req.params;
     db.products
-      .findByPk(
-        id
-        /*     {
-        include: "categories",
-      } */
+    .findOne( { where: id }, { include:[
+          {
+            model: db.categories,
+            as: 'categoryId',
+          }
+        ]
+      } // TODO no está andando el findOne
       )
-      .then((product) => {
+      .then( product => {
+        console.log(product)
+        const productData = {
+          ...product.dataValues
+
+        }
+
+        delete productData.createdAt,
+        delete productData.updatedAt,
+        delete productData.deletedAt,
+        productData.image = `http://localhost:3010/images/products/${productData.image}`
+                
+
+
+
         if (!product) {
           return res.status(404).json({
             status: STATUS_NOT_FOUND,
           });
         }
-        res.status(200).json({
-          data: product,
-          status: STATUS_SUCCESS,
-        });
+        res.status(200).json({ productData });
       })
       .catch((error) => {
         res.status(500).json({

@@ -65,6 +65,7 @@ module.exports = {
         user: req.session.user.id
       }
     }).then( res => {
+      console.log(res)
       //como le envio los productos? hay una forma más eficiente de obtener el costo total?
         db.order.create({
           state: 'complete',
