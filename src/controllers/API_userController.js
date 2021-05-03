@@ -4,10 +4,31 @@ const bcryptjs = require('bcryptjs');
 
 const userApiMethods = {
   allUsers: (req, res) => {
+    // Deberá devolver un objeto literal con la cantidad de usuarios en la base, y un array con el id, name, email y url de cada uno
     db.users
       .findAll()
       .then((users) => {
-        res.json(users);
+        let user = [];
+        let count = 0;
+
+        users.forEach(data => {
+          count += 1;
+          let userObject = {
+            id: data.id,
+            user_name: data.user_name,
+            name: data.first_name + ' ' + data.last_name,
+            email: data.email,
+            detail: `http://localhost:3010/admin/detail/${data.id}`
+          }
+          user.push(userObject)
+        })
+
+        const usersData = {
+          count, 
+          user,
+        }
+
+        res.json(usersData);
       })
       .catch((error) => {
         res.status(500).json({
@@ -20,7 +41,17 @@ const userApiMethods = {
     db.users
       .findByPk(req.params.id)
       .then((user) => {
-        res.json(user);
+        const userData = {
+          ...user.dataValues
+        }
+        delete userData.password,
+        delete userData.admin,
+        delete userData.createdAt,
+        delete userData.updatedAt,
+        delete userData.deletedAt,
+        userData.avatar = `http://localhost:3010/images/avatars/${userData.avatar}`
+                
+        res.json(userData);
       })
       .catch((error) => {
         res.status(500).json({
