@@ -24,17 +24,20 @@ const validations = require('../middleware/validations')
 const productController = require('../controllers/productController');
 
 router.get(['/all', '/todos'], productController.allProducts);
-router.get('/:category', productController.productsByCategory);
+router.get('/cat/:category', productController.productsByCategory); // entras por cualquier ruta /product y ejecuta una busqueda
 router.get(['/detail/:id', '/detalle/:id'], productController.productDetail);
 
-router.get(['/cart', '/carrito'], productController.showCart);
 
 router.get(['/publicar', '/publish'], productController.publishForm);
 router.get(['/editar/:id','/edit/:id'], productController.editProduct);
 router.get(['/cart/add/:id', '/cart/agregar/:id'], productController.addToCart);
+
+router.get(['/cart', '/carrito'], productController.showCart);
+
 router.post(['/publicar', '/publish'], upload.single('image'), validations.createProduct, productController.createProduct);
 router.patch(['/editar/:id','/edit/:id'], upload.single('image'), productController.updateProduct);
 router.delete(['/admin/delete/:id', '/admin/borrar/:id'], productController.deleteProduct);
+
 
 
 module.exports = router;

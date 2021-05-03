@@ -4,18 +4,6 @@ const Op = db.Sequelize.Op;
 
 module.exports = {
     index: (req, res) => {
-        // db.products.findAll({ order: Sequelize.literal('rand()'), limit: 3 }).then((products) => {
-        //     // single random encounter
-        //     order: [
-        //         [Sequelize.fn('RAND')]
-        //       ]
-        //       DB.models.products.findAll({
-        //         limit: args.quantity,
-        //         order: [
-        //           [Sequelize.fn('RAND', '')]
-        //         ]
-        //     })
-        // }); 
     db.categories
       .findAll()
       .then(async (categories) => {

@@ -4,41 +4,39 @@
 
     <body>
         <%- include('./partials/header') %>
-            <main>
-                <div class="container-detail mt5">
- 
-             
-                    <div class="row-product mb5">
-                        <div class="col-1">
-                            <div class="product-img-small">
-                                <img src="" alt="foto del producto en chico">
-                            </div>
-                            <div class="product">
-                                <h5 class="product-name">
-                                    Nombre del producto
-                                    <!--acá va : product.name con tags de EJS, no los puse para poder maquetearlo-->
-                                </h5>
-                                <div class="vendor-data">
-                                    <p><span class="seller">Vendedor: Jorge Perez </span><span class="seller-score">Puntuacion: X
-                                            pts</span></p>
+        <main>
+            <div class="container-detail mt5">
+                    <% for ( let i = 0 ; i<products.length ; i++) { %>
+                        <div class="row-product mb5">
+                            <div class="col-1">
+                                <div class="product-img-small">
+                                    <img src="/images/products/<%=products[i].image%>" alt="foto del producto <%=products[i].name%>">
                                 </div>
-                                <form action="" class="quantity">
-                                    <span>Cantidad:</span>
-                                     <!-- if ( product.quantity> 1 ) { -->
-                                        <button type="button" class="quantity-selector">
-                                            <select class="select-input" name="quantity" id="quantity">
-                                                <% for (let i=0 ; i< 15 ; i++) { %>
-                                                    <option value="<%=i%>">
-                                                        <%=i%>
-                                                    </option>
-                                                    <% } %>
-                                            </select>
-                                        </button>
-                                </form>
+                                <div class="product">
+                                    <h5 class="product-name">
+                                        <%=products[i].name%>
+                                    </h5>
+                                    <div class="vendor-data">
+                                        <p><span class="seller">Vendedor: <%=users[i].user_name%></span></p>
+                                    </div>
+                                    <form action="" class="quantity">
+                                        <span>Cantidad: <% products[i].quantity %> </span>
+                                        <% if ( products[i].quantity > 1 ) { %>
+                                            <button type="button" class="quantity-selector">
+                                                <select class="select-input" name="quantity" id="quantity">
+                                                    <% for (let i=0 ; i< 15 ; i++) { %>
+                                                        <option value="<%=i%>">
+                                                            <%=i%>
+                                                        </option>
+                                                        <% } %>
+                                                </select>
+                                            </button>
+                                            <% } %> 
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
+                    <% } %> 
 
                     <div class="row-product mb5 pay-opt">
                         <div class="col-20 shipment">

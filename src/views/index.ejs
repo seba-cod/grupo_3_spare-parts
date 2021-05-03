@@ -9,7 +9,7 @@
           <div class="row-all">
             <% categories.forEach( category => { %>
               <div class="col-5">
-                <a href="/product/<%=category.id%>">
+                <a href="/product/cat/<%=category.id%>">
                   <div class="image">
                     <img src="/images/<%=category.name%>.jpg" alt="">
                   </div>
@@ -46,44 +46,7 @@
                   </div>
                 </a>
               </div>
-
             <% }) %>
-
-            <!-- <div class="col-3">
-              <a href="#">
-                <div class="image">
-                  <img src="/images/products/exhaust.jpg" alt="">
-                </div>
-                <div class="text-img">
-                  <h4>Escape deportivo</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, dolor.</p>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-3">
-              <a href="#">
-                <div class="image">
-                  <img src="/images/products/spoiler.jpg" alt="">
-                </div>
-                <div class="text-img">
-                  <h4>Spoiler deportivo</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, dolor.</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-3">
-              <a href="#">
-                <div class="image">
-                  <img src="/images/products/k04.jpg" alt="">
-                </div>
-                <div class="text-img">
-                  <h4>Motor k04</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, dolor.</p>
-                </div>
-              </a>
-            </div> -->
-
           </div>
         </div>
 

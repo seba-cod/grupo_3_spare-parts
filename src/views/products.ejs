@@ -27,6 +27,7 @@
         <div class="row-all">
           <% products.forEach(product=> { %>
           <div class="col-4">
+            <% if (locals.user.id == product.id ) {%> <span>ESTE ES TU PRODUCTO</span> <% } %> 
             <a class="productLink" href="/product/detail/<%=product.id%>">
               <div class="image">
                 <img src="/images/products/<%=product.image%>" alt="" />
@@ -50,23 +51,5 @@
     </main>
 
     <%- include('./partials/footer') %>
-<!--     <script>
-
-      const productsFrameRow = document.querySelector('.row-all')
-      const productColumn = document.querySelector('.col-4')
-      const productLinkToDetail = document.querySelector('.col-4 a')
-      const addToCartButton = document.querySelector('.addToCartButton')
-      const product = document.querySelector('.text-img')
-
-      productsFrameRow.addEventListener('click', function(e) {
-
-        addToCartButton.addEventListener('click', function(e) {
-          console.log(product.name)
-        })
-
-        e.preventDefault();
-      })
-
-    </script> -->
   </body>
 </html>
