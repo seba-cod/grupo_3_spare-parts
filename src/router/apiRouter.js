@@ -13,7 +13,7 @@ router.delete('/products/:id', productController.deleteProduct)
 
 /*  -------------------------------------------- USER ROUTES ------------------------------------------------ */
 
-router.get('/users', userController.allUsers)
+router.get('/users/:limit&:offset', userController.allUsers)
 router.get('/users/:id', userController.userByPk)
 router.post('/users', userController.createUser)
 router.patch('/users/:id', userController.updateUser)

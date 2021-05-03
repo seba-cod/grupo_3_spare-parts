@@ -97,7 +97,6 @@ module.exports = {
         // }
       )
       .then(async () => {
-        console.log("producto-creado");
         // const productCategorie = await db.categories.findByPk(category);
         // const productOwner = await db.users.findByPk(owner);
         // await products.setCategory(productCategorie);

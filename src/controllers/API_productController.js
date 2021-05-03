@@ -4,7 +4,7 @@ const { STATUS_SUCCESS, STATUS_ERROR, STATUS_NOT_FOUND } = require("./status");
 const productApiMethods = {
   allProducts: (req, res) => {
     db.products
-      .findAll({
+      .findAll({ limit: req.params.limit, offset: req.params.offset,
         include:[
         {
           model: db.categories,
@@ -31,7 +31,6 @@ const productApiMethods = {
           switch (data.categoryId.dataValues.name) {
             case "Motor":
                 motor += 1;
-                console.log('SUME UNO DE MOTOR')
                 break;
             case "Interior":
                 interior += 1;
@@ -69,34 +68,45 @@ const productApiMethods = {
   productByPk: (req, res) => {
     const { id } = req.params;
     db.products
-    .findOne( { where: id }, { include:[
+    .findOne(
+      { 
+        where:
+          {id}
+      }, {
+        include: [ // no está andando, no me trae categoryId ni userOwner
           {
             model: db.categories,
-            as: 'categoryId',
-          }
+            as: 'categoryId'
+          },
+          {
+            model: db.users,
+            as: "userOwner",
+          },
         ]
-      } // TODO no está andando el findOne
-      )
-      .then( product => {
-        console.log(product)
+      })
+      .then( async product => {
+
         const productData = {
           ...product.dataValues
-
         }
 
         delete productData.createdAt,
         delete productData.updatedAt,
         delete productData.deletedAt,
         productData.image = `http://localhost:3010/images/products/${productData.image}`
-                
+        
+        const category = await db.categories.findByPk(productData.category)
+        const user = await db.users.findByPk(productData.user)
 
-
+        productData.user = [user.dataValues.email]
+        productData.category = [category.dataValues.name]
 
         if (!product) {
           return res.status(404).json({
             status: STATUS_NOT_FOUND,
           });
         }
+        
         res.status(200).json({ productData });
       })
       .catch((error) => {
