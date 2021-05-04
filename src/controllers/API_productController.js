@@ -2,32 +2,9 @@ const db = require("../../database/models");
 const { STATUS_SUCCESS, STATUS_ERROR, STATUS_NOT_FOUND } = require("./status");
 
 const productApiMethods = {
-  allProducts: (req, res) => {
+  paginatedProducts: (req, res) => {
     const limit = 10;
     let offset = ( parseInt(req.params.offset) * limit )
-
-
-/*     const page = parseInt(req.query.page)
-    const limit = req.query.limit
-    const startIndex = (page - 1) * limit
-    const endIndex = page * limit
-    const results = {}
-    if (endIndex < db.users.length) {
-    results.next = {
-      page: page + 1,
-      limit: limit
-    }
-    }
-    if(startIndex > 0) {
-      results.previous = {
-        page : page -1,
-        limit: limit
-      }
-    }
-    results.results = db.users.slice(startIndex,endIndex)
-    res.json(results) */
-
-
     db.products
       .findAndCountAll({ limit, offset,
         include:[
@@ -49,7 +26,6 @@ const productApiMethods = {
             category: [data.categoryId.dataValues.name],
             detail: `http://localhost:3010/product/detail/${data.id}`
           }
-
           switch (data.categoryId.dataValues.name) {
             case "Motor":
                 motor += 1;
@@ -77,16 +53,14 @@ const productApiMethods = {
           countProductsByCategory,
           product,
         }
-
-
         const totalPages = Math.ceil( (count/limit) );
         const pageHardCoded = (parseInt(req.params.offset)+1)
-
         const forNextAndLast = (pageHardCoded >= totalPages)
-
+        const currentPage = (offset/10 + 1)
         const meta = {
           totalProductsInDb: count,
           totalPages,
+          currentPage,
           hasPrevious: offset != 0, 
           hasNext: !forNextAndLast, 
           isLast: forNextAndLast ,
@@ -125,16 +99,26 @@ const productApiMethods = {
           ...product.dataValues
         }
 
+        delete productData.category,
+        delete productData.user,
         delete productData.createdAt,
         delete productData.updatedAt,
         delete productData.deletedAt,
+        delete productData.categoryId.dataValues.createdAt,
+        delete productData.categoryId.dataValues.updatedAt,
+        delete productData.categoryId.dataValues.deletedAt,
+        delete productData.userOwner.dataValues.address,
+        delete productData.userOwner.dataValues.first_name,
+        delete productData.userOwner.dataValues.last_name,
+        delete productData.userOwner.dataValues.admin,
+        delete productData.userOwner.dataValues.password,
+        delete productData.userOwner.dataValues.createdAt,
+        delete productData.userOwner.dataValues.updatedAt,
+        delete productData.userOwner.dataValues.deletedAt,
+
+        productData.userOwner.dataValues.fullname = productData.userOwner.dataValues.first_name + ' ' + productData.userOwner.dataValues.last_name, 
         productData.image = `http://localhost:3010/images/products/${productData.image}`
-        
-        const category = await db.categories.findByPk(productData.category)
-        const user = await db.users.findByPk(productData.user)
-// modificar para obtener categoryId y userOwner
-        productData.user = [user.dataValues.email]
-        productData.category = [category.dataValues.name]
+  
 
         if (!product) {
           return res.status(404).json({

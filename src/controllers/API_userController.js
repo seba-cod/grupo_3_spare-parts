@@ -3,16 +3,14 @@ const { STATUS_SUCCESS, STATUS_ERROR, STATUS_NOT_FOUND } = require("./status");
 const bcryptjs = require('bcryptjs');
 
 const userApiMethods = {
-  allUsers: (req, res) => {
-    // Deberá devolver un objeto literal con la cantidad de usuarios en la base, y un array con el id, name, email y url de cada uno
+  paginatedUsers: (req, res) => {
+    const limit = 10;
+    let offset = ( parseInt(req.params.offset) * limit )
     db.users
-      .findAll()
+      .findAndCountAll({limit, offset})
       .then((users) => {
-        let user = [];
-        let count = 0;
-
-        users.forEach(data => {
-          count += 1;
+        const count = users.count;
+        const usersData = users.rows.map(data => {
           let userObject = {
             id: data.id,
             user_name: data.user_name,
@@ -20,15 +18,22 @@ const userApiMethods = {
             email: data.email,
             detail: `http://localhost:3010/admin/detail/${data.id}`
           }
-          user.push(userObject)
+          return userObject
         })
 
-        const usersData = {
-          count, 
-          user,
+        const totalPages = Math.ceil( (count/limit) );
+        const pageHardCoded = (parseInt(req.params.offset)+1)
+        const forNextAndLast = (pageHardCoded >= totalPages)
+        const currentPage = (offset/10 + 1)
+        const meta = {
+          totalUsersInDb: count,
+          totalPages,
+          currentPage,
+          hasPrevious: offset != 0, 
+          hasNext: !forNextAndLast, 
+          isLast: forNextAndLast ,
         }
-
-        res.json(usersData);
+        res.status(200).json({meta, usersData});
       })
       .catch((error) => {
         res.status(500).json({
