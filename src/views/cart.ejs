@@ -9,8 +9,10 @@
                     <% for ( let i = 0 ; i<products.length ; i++) { %>
                         <div class="row-product mb5">
                             <div class="col-1">
-                                <div class="product-img-small">
-                                    <img src="/images/products/<%=products[i].image%>" alt="foto del producto <%=products[i].name%>">
+                                <div class="col-4">
+                                    <div class="image">
+                                        <img src="/images/products/<%=products[i].image%>" alt="foto del producto <%=products[i].name%>">
+                                    </div>
                                 </div>
                                 <div class="product">
                                     <h5 class="product-name">
@@ -19,7 +21,7 @@
                                     <div class="vendor-data">
                                         <p><span class="seller">Vendedor: <%=users[i].user_name%></span></p>
                                     </div>
-                                    <form action="" class="quantity">
+                                    <!-- <form action="" class="quantity">
                                         <span>Cantidad: <% products[i].quantity %> </span>
                                         <% if ( products[i].quantity > 1 ) { %>
                                             <button type="button" class="quantity-selector">
@@ -32,6 +34,9 @@
                                                 </select>
                                             </button>
                                             <% } %> 
+                                    </form> -->
+                                    <form action="/cart/delete/<%=carts[i]%>?_method=DELETE" method="POST">
+                                        <input type="submit" value="Eliminar" class="admin danger">
                                     </form>
                                 </div>
                             </div>

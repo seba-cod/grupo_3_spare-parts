@@ -5,7 +5,7 @@ const userController = require('../controllers/API_userController');
 
 /*  -------------------------------------------- PRODUCT ROUTES ------------------------------------------------ */
 
-router.get('/products', productController.allProducts)
+router.get('/product/:offset', productController.allProducts)
 router.get('/products/:id', productController.productByPk)
 router.post('/products', productController.createProduct)
 router.patch('/products/:id', productController.updateProduct)
@@ -13,7 +13,7 @@ router.delete('/products/:id', productController.deleteProduct)
 
 /*  -------------------------------------------- USER ROUTES ------------------------------------------------ */
 
-router.get('/users/:limit&:offset', userController.allUsers)
+router.get('/user/:offset', userController.allUsers)
 router.get('/users/:id', userController.userByPk)
 router.post('/users', userController.createUser)
 router.patch('/users/:id', userController.updateUser)

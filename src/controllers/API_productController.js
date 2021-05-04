@@ -3,8 +3,33 @@ const { STATUS_SUCCESS, STATUS_ERROR, STATUS_NOT_FOUND } = require("./status");
 
 const productApiMethods = {
   allProducts: (req, res) => {
+    const limit = 10;
+    let offset = ( parseInt(req.params.offset) * limit )
+
+
+/*     const page = parseInt(req.query.page)
+    const limit = req.query.limit
+    const startIndex = (page - 1) * limit
+    const endIndex = page * limit
+    const results = {}
+    if (endIndex < db.users.length) {
+    results.next = {
+      page: page + 1,
+      limit: limit
+    }
+    }
+    if(startIndex > 0) {
+      results.previous = {
+        page : page -1,
+        limit: limit
+      }
+    }
+    results.results = db.users.slice(startIndex,endIndex)
+    res.json(results) */
+
+
     db.products
-      .findAll({ limit: req.params.limit, offset: req.params.offset,
+      .findAndCountAll({ limit, offset,
         include:[
         {
           model: db.categories,
@@ -13,13 +38,10 @@ const productApiMethods = {
         ]
       })
       .then((products) => {
-        let product = [];
-        let count = 0;
+        let count = products.count; 
 
         let motor = 0, interior = 0, exterior = 0, accesorios = 0;
-        products.forEach(data => {
-
-          count += 1;
+        let product = products.rows.map(data => {
           let productObject = {
             id: data.id,
             name: data.name,
@@ -43,22 +65,36 @@ const productApiMethods = {
                 break;
           }
 
-          product.push(productObject)
+          return productObject
         })
-        let countByCategory = {
+        let countProductsByCategory = {
           motor,
           interior,
           exterior,
           accesorios
         }
         const productsData = {
-          count, 
-          countByCategory,
+          countProductsByCategory,
           product,
         }
-        res.json(productsData);
+
+
+        const totalPages = Math.ceil( (count/limit) );
+        const pageHardCoded = (parseInt(req.params.offset)+1)
+
+        const forNextAndLast = (pageHardCoded >= totalPages)
+
+        const meta = {
+          totalProductsInDb: count,
+          totalPages,
+          hasPrevious: offset != 0, 
+          hasNext: !forNextAndLast, 
+          isLast: forNextAndLast ,
+        }
+        res.status(200).json({meta, productsData});
       })
       .catch((error) => {
+        console.log(error)
         res.status(500).json({
           status: STATUS_ERROR,
           error,
@@ -66,14 +102,13 @@ const productApiMethods = {
       });
   },
   productByPk: (req, res) => {
-    const { id } = req.params;
+    const id = req.params.id;
     db.products
     .findOne(
       { 
         where:
-          {id}
-      }, {
-        include: [ // no está andando, no me trae categoryId ni userOwner
+          {id},
+        include: [
           {
             model: db.categories,
             as: 'categoryId'
@@ -85,7 +120,7 @@ const productApiMethods = {
         ]
       })
       .then( async product => {
-
+        console.log('esto es product: ', product)
         const productData = {
           ...product.dataValues
         }
@@ -97,7 +132,7 @@ const productApiMethods = {
         
         const category = await db.categories.findByPk(productData.category)
         const user = await db.users.findByPk(productData.user)
-
+// modificar para obtener categoryId y userOwner
         productData.user = [user.dataValues.email]
         productData.category = [category.dataValues.name]
 
