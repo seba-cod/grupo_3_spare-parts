@@ -22,5 +22,6 @@ router.patch('/users/:id', userController.updateUser)
 router.delete('/users/:id', userController.deleteUser)
 
 /*  -------------------------------------------- CATEGORY ROUTES ------------------------------------------------ */
-//router.get('/categories/:id' ,categoryController.categoryByPk)
+router.get('/categories/:id' ,categoryController.categoryByPk)
+router.get('/categories/page/:offset',categoryController.paginatedCategories)
 module.exports = router;
