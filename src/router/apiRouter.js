@@ -3,7 +3,7 @@ const router = express.Router();
 const productController = require('../controllers/API_productController');
 const userController = require('../controllers/API_userController');
 const categoryController = require('../controllers/API_categoryController')
-
+const cartController = require('../controllers/API_cartController')
 /*  -------------------------------------------- PRODUCT ROUTES ------------------------------------------------ */
 
 router.get('/products/page/:offset', productController.paginatedProducts)
@@ -23,6 +23,9 @@ router.delete('/users/:id', userController.deleteUser)
 
 /*  -------------------------------------------- CATEGORY ROUTES ------------------------------------------------ */
 router.get('/categories/:id' ,categoryController.categoryByPk)
-router.get('/categories/page/:offset', categoryController.paginatedCategories)
+router.get('/category', categoryController.categoryProducts)
+
+/*  -------------------------------------------- CART ROUTES ------------------------------------------------ */
+router.get('/' , cartController.showCart)
 
 module.exports = router;

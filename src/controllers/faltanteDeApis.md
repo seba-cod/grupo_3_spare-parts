@@ -1,10 +1,10 @@
 ## Para REACT
 ### FALTAN APIS:
 
-    -- De ultimo producto agregado en la DB
-    -- De categorias
+    -- De ultimo producto agregado en la DB // agregado
+    -- De categorias // en curso
     -- De Ordenes y su informacion
-    -- De Carritos y su informacion
+    -- De Carritos y su informacion//en curso
 
 ## Para Proyecto Integador
 ### JS FRONT
