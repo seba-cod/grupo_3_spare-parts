@@ -27,7 +27,6 @@
         <div class="row-all">
           <% products.forEach(product=> { %>
           <div class="col-4">
-            <% if (locals.user.id == product.id ) {%> <span>ESTE ES TU PRODUCTO</span> <% } %> 
             <a class="productLink" href="/product/detail/<%=product.id%>">
               <div class="image">
                 <img src="/images/products/<%=product.image%>" alt="" />

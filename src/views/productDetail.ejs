@@ -91,7 +91,7 @@
                     </div>
                 </div>
 
-                <% if (locals.isAdmin || locals.user.id == product.user ) { %> 
+                <% if (locals.isAdmin || locals.user && locals.user.id == product.user ) { %> 
                     <div class="admin">
                     <form action="/product/admin/delete/<%=product.id%>?_method=DELETE" method="POST">
                       <input type="submit" value="Borrar" class="admin danger">

@@ -28,6 +28,7 @@ const productApiMethods = {
             id: data.id,
             name: data.name,
             description: data.description,
+            price: data.price,
             category: [data.categoryId.dataValues.name],
             detail: `http://localhost:3010/product/detail/${data.id}`,
           };
@@ -97,7 +98,6 @@ const productApiMethods = {
         ],
       })
       .then(async (product) => {
-        console.log("esto es product: ", product);
         const productData = {
           ...product.dataValues,
         };
@@ -198,17 +198,53 @@ const productApiMethods = {
         });
       });
   },
-  lastProductDB: async (req, res) => {
+  lastProductDB: (req, res) => {
     db.products
     .findOne({ 
       order: [
           ['createdAt', 'DESC']
-      ],
-      include: [ ]
+      ], include: [
+        {
+          model: db.categories,
+          as: "categoryId",
+        },
+        {
+          model: db.users,
+          as: "userOwner",
+        },
+      ]
   })
-  .then((product) => {
+  .then( product => {
+    const productData = {
+      ...product.dataValues,
+    };
+
+      delete productData.category,
+      delete productData.user,
+      delete productData.createdAt,
+      delete productData.updatedAt,
+      delete productData.deletedAt,
+      delete productData.categoryId.dataValues.createdAt,
+      delete productData.categoryId.dataValues.updatedAt,
+      delete productData.categoryId.dataValues.deletedAt,
+      delete productData.userOwner.dataValues.address,
+      delete productData.userOwner.dataValues.first_name,
+      delete productData.userOwner.dataValues.last_name,
+      delete productData.userOwner.dataValues.admin,
+      delete productData.userOwner.dataValues.password,
+      delete productData.userOwner.dataValues.createdAt,
+      delete productData.userOwner.dataValues.updatedAt,
+      delete productData.userOwner.dataValues.deletedAt,
+
+      (productData.userOwner.dataValues.fullname =
+        productData.userOwner.dataValues.first_name +
+        " " +
+        productData.userOwner.dataValues.last_name),
+      (productData.image = `http://localhost:3010/images/products/${productData.image}`);
+      productData.link = `http://localhost:3010/product/detail/${productData.id}`,
+
     res.status(200).json({
-      data:product,
+      data: productData,
       status: STATUS_SUCCESS,
     });
   })
