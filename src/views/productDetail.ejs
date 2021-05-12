@@ -4,12 +4,11 @@
     <body>
         <%- include('./partials/header') %>
             <div class="ubication-product-detail box-in-site">
-                Repuestos > Motor > Bujias (listado)
             </div>
             <!-- <div class="car-image-banner">
                 <img src="../../../images/productDetail/car-photo.jpg" alt="Imagen del auto">
             </div> -->
-            <div class="container-detail">
+            <div class="container-detail  mb5">
                 <div class="row-product mb5">
                         <div class="col-1">
                             <div class="car-brand">
@@ -52,7 +51,7 @@
                                 </div>
                             </div>
                         </div>
-                <div class="row-product">
+                <div class="row-product mb5">
                         <div class="col-1">
                             <div class="buy-options">
                                 <div class="costs">
@@ -61,43 +60,27 @@
                                         <p class="bold">Stock disponible</p>
                                     <% } %>
                                 </div>
-                                <div class="buttons-buy">
-                                    <button type="submit" class="buy-button">Comprar $</button>
+                                <form class="buttons-buy" method="GET" action="/cart/add/<%=product.id%>">
                                     <button type="submit" class="add-to-cart-button">Agregar al carrito</button>
-                                </div>
-                            </div>
+                                </form>
+                              </div>
                             <div class="contact">
                                 <p class="bold">¿Tenés dudas sobre el producto?</p>
-                                <button type="submit">Contactate con el vendedor</button>
+                                <a href="/contact">Contactanos</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="container-detail container-related">
-                    <h6 class="related-art"> Artículos relacionados</h6>
-                    <div class="row-product mb-5 row-related">
-                            <div class="col-3 in-related">
-                                <img src="../../../images/productDetail/audi-logo.png" alt="Sensor-detonacion">
-                                <p>Sensor de detonación</p>
-                            </div>
-                            <div class="col-3 in-related">
-                                <img src="../../../images/productDetail/audi-logo.png" alt="Sensor-estacionamiento">
-                                <p>Sensor de estacionamiento</p>
-                            </div>
-                            <div class="col-3 in-related">
-                                <img src="../../../images/productDetail/audi-logo.png" alt="Sonda-lambda">
-                                <p>Sonda lambda</p>
-                            </div>
+                    <div class="row-product">
+                        <% if (locals.isAdmin || locals.user && locals.user.id == product.user ) { %> 
+                            <div class="admin">
+                            <form action="/product/admin/delete/<%=product.id%>?_method=DELETE" method="POST">
+                            <input type="submit" value="Eliminar producto" class="admin danger great-buttons-product">
+                            </form>
+                            <a href="/product/edit/<%=product.id%>"><input type="submit" value="Editar" class="admin ok great-buttons-product"></a>
+                            <% } %> 
                     </div>
                 </div>
-
-                <% if (locals.isAdmin || locals.user && locals.user.id == product.user ) { %> 
-                    <div class="admin">
-                    <form action="/product/admin/delete/<%=product.id%>?_method=DELETE" method="POST">
-                      <input type="submit" value="Borrar" class="admin danger">
-                    </form>
-                    <a href="/product/edit/<%=product.id%>"><input type="submit" value="Editar" class="admin ok"></a>
-                    <% } %> 
+                </div>
 
             <%- include('./partials/footer') %>
     </body>

@@ -40,6 +40,7 @@ module.exports = {
   },
   addToCart: (req, res) => { // pegarle con JS desde el front y e.preventDefault
     const product = req.params.id;
+    if (!req.session.user) { return res.redirect('/user/login')}
     return (
       db.cart.create({
         user: req.session.user.id,

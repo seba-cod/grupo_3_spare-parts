@@ -6,18 +6,20 @@
         <%- include('./partials/header') %>
         <main>
             <div class="container-detail mt5">
-                    <% for ( let i = 0 ; i<products.length ; i++) { %>
+                <% for ( let i = 0 ; i<products.length ; i++) { %>
                         <div class="row-product mb5">
                             <div class="col-1">
-                                <div class="col-4">
-                                    <div class="image">
+                                    <div class="car-brand">
                                         <img src="/images/products/<%=products[i].image%>" alt="foto del producto <%=products[i].name%>">
                                     </div>
-                                </div>
                                 <div class="product">
                                     <h5 class="product-name">
                                         <%=products[i].name%>
                                     </h5>
+                                    <br>
+                                    <div class="vendor-data">
+                                        <p><span class="seller">Valor: $ <%=products[i].price%></span></p>
+                                    </div>
                                     <div class="vendor-data">
                                         <p><span class="seller">Vendedor: <%=users[i].user_name%></span></p>
                                     </div>
@@ -36,7 +38,7 @@
                                             <% } %> 
                                     </form> -->
                                     <form action="/cart/delete/<%=carts[i]%>?_method=DELETE" method="POST">
-                                        <input type="submit" value="Eliminar" class="admin danger">
+                                        <input type="submit" value="Eliminar del carrito" class="admin danger">
                                     </form>
                                 </div>
                             </div>

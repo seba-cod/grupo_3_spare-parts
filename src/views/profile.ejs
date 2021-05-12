@@ -26,12 +26,16 @@
             </div>
           </div>
           <div class="row-admin">
-            <div class="card">
-              <h4>Compras:</h4>
+            <div class="col-1">
+            <h4>Compras:</h4>
+            <div class="orders">
               <% orders.forEach( order => { %>
-                <p>Pedido ID N°: <%= order.id %></p>
-                <p>Valor: <%= order.total_price %></p>
-              <% }) %> 
+                <div class="col-4">
+                  <p class="order">Pedido ID N°: <%= order.id %></p>
+                  <p class="value">Valor:$ <%= order.total_price %></p>
+                </div>
+                <% }) %> 
+              </div>
             </div>
           </div>
       </div>
