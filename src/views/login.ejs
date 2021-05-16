@@ -10,7 +10,7 @@
             <div id="email" class="col-1">
               <label for="email">Correo electrónico</label>
               <div>
-                <input type="text" class="txt_input" name="email" id="email" <% if (locals.old && old.email) { %> value="<%= old.email %>"
+                <input type="text" class="txt_input" name="email" id="emailInput" <% if (locals.old && old.email) { %> value="<%= old.email %>"
 
                   <% } %> >
                     <% if (locals.errors && errors.email) { %>
@@ -18,17 +18,23 @@
                         <%= errors.email.msg %>
                       </div>
                       <% } %>
-              </div>
+                      <div id="toScriptOnEmail" class="text-danger">
+                        <h6></h6>
+                      </div>
+                </div>
             </div>
             <div id="password" class="col-1">
               <label for="password">Contraseña</label>
               <div>
-                <input type="password" class="txt_input" name="password" id="password">
+                <input type="password" class="txt_input" name="password" id="passwordInput">
                 <% if (locals.errors && errors.password) { %>
                   <div class="text-danger">
                     <%= errors.password.msg %>
                   </div>
                   <% } %>
+                  <div id='toScriptOnPassword' class='text-danger'>
+                    <h6></h6>
+                  </div>
               </div>
             </div>
             <div class="col-1">
@@ -41,6 +47,8 @@
         </div>
       </div>
       <%- include('./partials/footer') %>
+      
+    <script src='/scripts/loginForm.js'></script> <!-- No se porque se está intentando ir a localhost:3010/.../script ; si lo quiero vincular con una carpeta que está dentro de la carpeta de views, tuve que poner el script en una carpeta en public-->
   </body>
 
 </html>

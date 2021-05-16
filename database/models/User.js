@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
           },
           avatar: {
             type: DataTypes.STRING(255),
-            allowNull: true
+            allowNull: false
           },
           admin: {
             type: DataTypes.BOOLEAN,

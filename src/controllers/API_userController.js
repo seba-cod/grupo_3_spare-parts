@@ -21,18 +21,26 @@ const userApiMethods = {
           return userObject
         })
 
-        const totalPages = Math.ceil( (count/limit) );
-        const pageHardCoded = (parseInt(req.params.offset)+1)
-        const forNextAndLast = (pageHardCoded >= totalPages)
-        const currentPage = (offset/10 + 1)
+        let totalPages = []
+
+        const pagesToDisplay = Math.ceil(count / limit); // divido la cantidad de números que tengo por el límite que es 10, si me da con decimal devuelvo el entero inmediato mayor para tener una página más
+
+        for (let i = 1; i <= pagesToDisplay; i++) { totalPages.push(i) } // recorro las páginas que tengo y las empujo a un array
+
+        const pageHardCoded = parseInt(req.params.offset) + 1; // como mi offset tiene que arrancar en cero le sumo uno a lo que me venga
+
+        const forNextAndLast = pageHardCoded >= pagesToDisplay; // pregunto si donde estoy parado es menor o igual a la cantidad de páginas que tengo *REF (1)
+
+        const currentPage = offset / 10 + 1;
+
         const meta = {
-          totalUsersInDb: count,
+          totalProductsInDb: count,
           totalPages,
           currentPage,
-          hasPrevious: offset != 0, 
-          hasNext: !forNextAndLast, 
-          isLast: forNextAndLast ,
-        }
+          hasPrevious: offset != 0, // si mi offset que me indica el número de página por req params no es cero significa que no estoy en la primera página entonces tengo páginas anteriores
+          hasNext: !forNextAndLast, // si donde estoy parado es distinto a la cantidad de páginas que tengo (porque es menor *Ver REF(1)) significa que tengo una página siguiente
+          isLast: forNextAndLast, // si donde estoy parado es igual a la cantidad de páginas que tengo significa que estoy en la última
+        };
         res.status(200).json({meta, usersData});
       })
       .catch((error) => {

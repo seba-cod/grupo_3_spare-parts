@@ -17,11 +17,11 @@ module.exports ={
             .notEmpty().withMessage('Debes indicarnos una dirección válida'),
         check('password')
         .notEmpty().withMessage('Debes completar tu contraseña')
-        .isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres')
-        .isLength({ max: 15 }).withMessage('No te pases de listo muchacho'),
-        check('user_avatar').custom((value, { req }) => {
-            let file = req.file;
-            let extensions = ['.jpg','.png'];
+        .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres')
+        .isLength({ max: 10 }).withMessage('No te pases de listo muchacho'),
+        check('avatar').custom((value) => {
+            let file = value;
+            let extensions = ['.jpg','.png','.jpeg','.gif'];
             if (!file) {
                 throw new Error('Debes subir una imágen');
             } else {
@@ -29,8 +29,8 @@ module.exports ={
                 if (!extensions.includes(fileExt)) {
                         throw new Error(`Solo podes subir archivos en formato: ${extensions.join(', ')}`);
                 }
+                return true;
             }
-            return true;
         })
     ],
     login: [

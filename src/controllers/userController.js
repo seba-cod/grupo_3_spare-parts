@@ -100,7 +100,7 @@ module.exports = {
             email,
             address,
             password,
-            avatar: avatar ? req.file.filename : "default.png",
+            avatar
           })
           .then((user) => {
             res.redirect("/user/login");
