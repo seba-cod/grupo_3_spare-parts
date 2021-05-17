@@ -6,94 +6,118 @@
     <%- include('./partials/header') %>
       <br>
       <div class="container-form">
-        <!-- <h2>Creación de producto</h2> -->
         <div class="row mt-25">
 
            <form action="/product/publish" METHOD="POST" class="publish" id="form" enctype="multipart/form-data">
             <h5>¡Crea tu publicación!</h5>
+
             <div class="col-1">
               <label for="name">Nombre del producto</label>
-              <input type="text" class="txt_input" name="name" id="name" placeholder="Kit Cree Led S6 Plus / S20" required>
+              <input type="text" class="txt_input" name="name" id="name" placeholder="Kit Cree Led S6 Plus / S20" >
 
-              <!-- ejs validaciones-->
               <% if (locals.errors && errors.name) { %>
                 <div class="text-danger">
                   <%= errors.name.msg %>
                 </div>
               <% } %>
-              <!-- ejs validaciones-->
+
+              <div id="toScriptOnProductName" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
 
             <div class="col-1">
               <label for="description">Descripción</label>
-              <textarea type="text-area" class="text-area-input" name="description" id="description" placeholder="Ingresa una descripción atractiva para tus clientes"required></textarea>
-              <!-- ejs validaciones-->
+              <textarea type="text-area" class="text-area-input" name="description" id="description" placeholder="Ingresa una descripción atractiva para tus clientes"></textarea>
+
               <% if (locals.errors && errors.description) { %>
                 <div class="text-danger">
                   <%= errors.description.msg %>
                 </div>
               <% } %>
-              <!-- ejs validaciones-->
+
+              <div id="toScriptOnProductDescription" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
 
             <div class="col-1">
               <label for="price">Precio AR$</label>
-              <input type="number" class="txt_input" name="price" id="price" required>
-              <!-- ejs validaciones-->
+              <input type="number" class="txt_input" name="price" id="price" >
+
               <% if (locals.errors && errors.price) { %>
                 <div class="text-danger">
                   <%= errors.price.msg %>
                 </div>
               <% } %>
-              <!-- ejs validaciones-->
+
+              <div id="toScriptOnProductPrice" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
 
             <div class="col-1">
-              <label for="categorie">SARAZACategoria</label>
-              <select class="select-input" name="categorie" id="categorie" placeholder="Selecciona una categoría de producto" required>
+              <label for="categorie">Categoria</label>
+              <select class="select-input" name="categorie" id="categorie" placeholder="Selecciona una categoría de producto" >
                 <option >Seleccionar</option>
                 <option value="1">Motor</option>
                 <option value="2">Interior</option>
                 <option value="3">Exterior</option>
                 <option value="4">Accesorios</option>
               </select>
-              <!-- ejs validaciones-->
+
               <% if (locals.errors && errors.categorie) { %>
                 <div class="text-danger">
                   <%= errors.categorie.msg %>
                 </div>
               <% } %>
-              <!-- ejs validaciones-->
-            </div>
 
+              <div id="toScriptOnProductCategory" class="text-danger">
+                <h6></h6>
+              </div>
+            </div>
+            
             <div class="col-1">
               <label for="quantity">Cantidad</label>
-              <select class="select-input" name="quantity" id="quantity" placeholder="Disponibles" required>
+              <select class="select-input" name="quantity" id="quantity" placeholder="Disponibles" >
                 <% for (let i=1 ; i < 99 ; i ++) { %>
                   <option value="<%=i%>">
                     <%=i%>
                   </option>
                   <% } %>
               </select>
-              <!-- ejs validaciones-->
+
               <% if (locals.errors && errors.quantity) { %>
                 <div class="text-danger">
                   <%= errors.quantity.msg %>
                 </div>
               <% } %>
-              <!-- ejs validaciones-->
+
+              <div id="toScriptOnProductQuantity" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
+            
+
             <div class="col-1">
               <label for="image">Subí tus imágenes</label>
               <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg">
+
+              <div id="toScriptOnProductImage" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
-            <div class="col-1">
-              <h5>Opcionales</h5>
-            </div>
+
             <div class="col-1">
               <label for="brand">Marca del producto</label>
-              <input type="text" class="txt_input" name="brand" placeholder="SKF, Akrapovich">
+              <input type="text" class="txt_input" name="brand" id="brand" placeholder="SKF, Akrapovich">
+              
+              <div id="toScriptOnProductBrand" class="text-danger">
+                <h6></h6>
+              </div>
+
             </div>
+
             <div class="col-1">
               <label for="original">¿Es original?</label>
               <select class="select-input" name="original">
@@ -101,29 +125,37 @@
                 <option value="0">No</option>
               </select>
             </div>
+            
+            <div class="col-1">
+              <h5>Opcionales</h5>
+            </div>
 
             <div class="col-1">
               <label for="">Número de pieza</label>
-              <input type="text" class="txt_input" name="piecenumber" placeholder="### ####### ####">
+              <input type="text" class="txt_input" name="piecenumber" id="optionalValueForm" placeholder="### ####### ####">
             </div>
             <div class="col-1">
               <label for="carBrand">Marca del auto</label>
-              <input type="text" class="txt_input" name="carBrand" placeholder="Volskwagen">
+              <input type="text" class="txt_input" name="carBrand" id="optionalValueForm" placeholder="Volskwagen">
             </div>
             <div class="col-1">
               <label for="carModel">Modelo del auto</label>
-              <input type="text" class="txt_input" name="carModel" placeholder="Scirocco">
+              <input type="text" class="txt_input" name="carModel" id="optionalValueForm" placeholder="Scirocco">
             </div>
             <div class="col-1">
               <label for="carYear">Año</label>
-              <input type="text" class="txt_input" name="carYear" placeholder="2013-2015">
+              <input type="text" class="txt_input" name="carYear" id="optionalValueForm" placeholder="2013-2015">
             </div>
 
+            
               <input type="submit" value="Publicar">
           </form>
         </div>
       </div>
         <%- include('./partials/footer') %>
+
+    <script src="/scripts/publishForm.js"></script>
+
   </body>
 
 </html>

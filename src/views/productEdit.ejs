@@ -16,16 +16,28 @@
             <div class="col-1">
               <label for="name">Nombre del producto</label>
               <input type="text" class="txt_input" name="name" id="name" placeholder="Kit Cree Led S6 Plus / S20" value="<%= product.name %>" required>
+            
+              <div id="toScriptOnProductName" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
+
 
             <div class="col-1">
               <label for="description">Descripción</label>
               <textarea type="text" class="text-area-input" name="description" id="description" placeholder="Ingresa una descripción atractiva para tus clientes" required><%= product.description %></textarea>
+              
+              <div id="toScriptOnProductDescription" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
 
             <div class="col-1">
               <label for="price">Precio AR$</label>
               <input type="number" class="txt_input" name="price" id="price" value="<%= product.price %>" required>
+              <div id="toScriptOnProductPrice" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
 
 
@@ -39,6 +51,9 @@
                 <option value="accesories"<% if ( product.category == 4 ) { %> selected <% } %> >Accesorios</option>
               </select>
 
+              <div id="toScriptOnProductCategory" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
 
             <div class="col-1">
@@ -50,21 +65,26 @@
                   </option>
                   <% } %>
               </select>
+              
+              <div id="toScriptOnProductQuantity" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
 
             <div class="col-1">
               <label for="image">Subí tus imágenes</label>
               <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg">
               <div> <img src="/images/products/<%=product.image%>" alt="Imagen del producto" width=150px> </div>
+              <div id="toScriptOnProductImage" class="text-danger">
+                <h6></h6>
+              </div>
             </div>
 
-            <div class="col-1">
-              <h5>Opcionales</h5>
-            </div>
+
 
             <div class="col-1">
               <label for="brand">Marca del producto</label>
-              <input type="text" class="txt_input" name="brand" <% if (product.carBrand != "") { %> value="<%= product.carBrand %>" <% } %> >
+              <input type="text" class="txt_input" name="brand" <% if (product.brand != "") { %> value="<%= product.brand %>" <% } %> >
             </div>
 
             <div class="col-1">
@@ -74,7 +94,10 @@
                 <option value="0" <% if (!product.original) {%> selected <% } %> >No</option>
               </select>
             </div>
-
+            
+            <div class="col-1">
+              <h5>Opcionales</h5>
+            </div>
 
             <div class="col-1">
               <label for="">Número de pieza</label>
@@ -101,6 +124,7 @@
         </div>
       </div>
         <%- include('./partials/footer') %>
+  <script src='/scripts/publishForm.js'></script>
   </body>
 
 </html>

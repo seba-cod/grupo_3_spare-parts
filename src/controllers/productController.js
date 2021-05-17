@@ -62,7 +62,7 @@ module.exports = {
     }
 
     let filename = "";
-    const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear, } = req.body;
+    const { name, description, price, quantity, brand, original, piecenumber, carBrand, carModel, carYear } = req.body;
 
     db.products
       .create(
